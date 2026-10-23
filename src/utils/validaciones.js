@@ -38,3 +38,13 @@ export function soloErrores(errores) {
         Object.entries(errores).filter(([, mensaje]) => mensaje)
     )
 }
+
+// 0 = vacía, 1 = débil (no cumple la regla), 2 = media, 3 = segura.
+export const ETIQUETA_FUERZA = ['', 'Débil', 'Media', 'Segura']
+
+export function fuerzaPassword(valor) {
+    if (!valor) return 0
+    if (validarPassword(valor) !== '') return 1
+    if (valor.length >= 12 || /[^A-Za-z0-9]/.test(valor)) return 3
+    return 2
+}

@@ -2,12 +2,14 @@ import { Route, Routes } from 'react-router-dom';
 import Landing from './pages/publico/Landing';
 import Login from './pages/auth/Login';
 import Registro from './pages/auth/Registro';
+import RecuperarPassword from './pages/auth/RecuperarPassword';
 import LayoutPublico from './components/layout/LayoutPublico';
 import LayoutApp from './components/layout/LayoutApp';
 import NoEncontrado from './pages/errores/NoEncontrado';
 import InicioRol from './pages/rol/InicioRol';
 import MiCuenta from './pages/cuenta/MiCuenta';
 import RutaProtegida from './components/layout/RutaProtegida';
+import RutaSoloVisitante from './components/layout/RutaSoloVisitante';
 import RequiereRol from './components/layout/RequiereRol';
 
 function App() {
@@ -15,8 +17,11 @@ function App() {
     <Routes>
       <Route element={<LayoutPublico />}>
         <Route path="/" element={<Landing />}/>
-        <Route path="/login" element={<Login />}/>
-        <Route path="/registro" element={<Registro />}/>
+        <Route element={<RutaSoloVisitante />}>
+          <Route path="/login" element={<Login />}/>
+          <Route path="/registro" element={<Registro />}/>
+          <Route path="/recuperar-contrasena" element={<RecuperarPassword />}/>
+        </Route>
         <Route path="*" element={<NoEncontrado />}/>
       </Route>
 

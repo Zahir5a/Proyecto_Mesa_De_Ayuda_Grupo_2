@@ -109,3 +109,14 @@ export function cambiarPassword(idUsuario, actual, nueva) {
     actualizarUsuario(idUsuario, { password: nueva })
     return { ok: true }
 }
+
+// Restablecer también levanta el bloqueo temporal: es la salida que ofrece el mensaje de cuenta bloqueada.
+export function restablecerPassword(correo, nueva) {
+    const usuario = buscarPorCorreo(correo)
+    if (usuario === null) {
+        return { ok: false, motivo: 'enlace_invalido' }
+    }
+    actualizarUsuario(usuario.id, { password: nueva })
+    limpiarIntentos(correo)
+    return { ok: true }
+}
