@@ -1,0 +1,89 @@
+/* ---- Usuarios y ficha de cuenta (HU-7) ---- */
+.usuarios__buscador {
+  width: 280px;
+}
+
+.usuarios__aviso {
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.usuarios__casilla {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.ficha__cabecera {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.ficha__cabecera .avatar--grande {
+  flex-shrink: 0;
+}
+
+.ficha__accion {
+  margin-left: auto;
+}
+
+.ficha__rejilla {
+  display: grid;
+  grid-template-columns: 380px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.ficha__lateral {
+  display: grid;
+  gap: 16px;
+}
+
+.ficha__rejilla h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.ficha__rejilla .tarjeta {
+  padding: 20px 24px;
+}
+
+.ficha__cifras {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.ficha__cifras > div {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.ficha__cifras p {
+  margin: 4px 0 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+@media (max-width: 1100px) {
+  .ficha__rejilla {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .ficha__cabecera {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ficha__accion {
+    margin-left: 0;
+  }
+}
