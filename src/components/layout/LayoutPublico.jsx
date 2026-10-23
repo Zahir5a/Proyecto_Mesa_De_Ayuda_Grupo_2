@@ -1,12 +1,13 @@
 import { Link, Outlet } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
+import './layout.css'
 
 function LayoutPublico() {
     const { usuario, cerrarSesion } = useAuth()
     return (
-        <div>
-            <header>
-                <Link to='/'>Mesa de Ayuda</Link>
+        <div className='cabecera_acciones'>
+            <header className='cabecera'>
+                <Link className='cabecera_marca' to='/'>Mesa de Ayuda</Link>
                 {usuario ? (
                     <>
                         <span>Hola, {usuario.nombres}</span>
@@ -19,7 +20,7 @@ function LayoutPublico() {
                     </>
                 )}
             </header>
-            <main>
+            <main className='contenido'>
                 <Outlet/>
             </main>
         </div>
