@@ -3,6 +3,7 @@ import Landing from './pages/publico/Landing';
 import Login from './pages/auth/Login';
 import Registro from './pages/auth/Registro';
 import RecuperarPassword from './pages/auth/RecuperarPassword';
+import AltaInvitacion from './pages/auth/AltaInvitacion';
 import LayoutPublico from './components/layout/LayoutPublico';
 import LayoutApp from './components/layout/LayoutApp';
 import NoEncontrado from './pages/errores/NoEncontrado';
@@ -21,6 +22,7 @@ function App() {
           <Route path="/login" element={<Login />}/>
           <Route path="/registro" element={<Registro />}/>
           <Route path="/recuperar-contrasena" element={<RecuperarPassword />}/>
+          <Route path="/invitacion/:token" element={<AltaInvitacion />}/>
         </Route>
         <Route path="*" element={<NoEncontrado />}/>
       </Route>

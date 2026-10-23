@@ -1,7 +1,7 @@
 import { useAuth } from '../../hooks/useAuth'
 import { useFormulario } from '../../hooks/useFormulario'
 import { useToast } from '../../hooks/useToast'
-import { UNIDADES } from '../../data/catalogos'
+import { UNIDADES, nombreCategoria } from '../../data/catalogos'
 import { validarTelefono } from '../../utils/validaciones'
 import Campo from '../../components/ui/Campo'
 import CambiarPassword from './CambiarPassword'
@@ -58,6 +58,17 @@ function MiCuenta() {
                     <Campo etiqueta="Teléfono" tipo="tel" {...form.campo('telefono')} />
                     <Campo etiqueta="Unidad o carrera" tipo="select" placeholder="Selecciona…"
                         opciones={UNIDADES} {...form.campo('unidad')} />
+
+                    {usuario.especialidades && usuario.especialidades.length > 0 && (
+                        <div className="formulario__ancho">
+                            <span className="campo__etiqueta">Especialidad declarada</span>
+                            <ul className="lista-chips">
+                                {usuario.especialidades.map((id) => (
+                                    <li key={id} className="chip chip--estatico">{nombreCategoria(id)}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
 
                     <div className="formulario__ancho formulario__acciones">
                         <button type="submit" className="boton boton--primario">Guardar cambios</button>

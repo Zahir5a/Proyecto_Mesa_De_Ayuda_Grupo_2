@@ -327,3 +327,96 @@ body {
 @media (max-width: 560px) {
     .pasos__item:not(.pasos__item--actual) .pasos__nombre { display: none; }
 }
+
+/* ---- Insignia, chips y botón destructivo ---- */
+.insignia {
+    justify-self: start;
+    padding: 2px 8px;
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.lista-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.chip {
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--surface);
+    color: var(--text-muted);
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.chip[aria-pressed='true'] {
+    border-color: var(--primary);
+    background: var(--primary-soft);
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.chip:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.chip--estatico {
+    color: var(--text);
+    cursor: default;
+}
+
+.especialidades {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.boton--destructivo {
+    background: var(--danger);
+    border-color: var(--danger);
+    color: #fff;
+}
+
+/* ---- Ventana de confirmación ---- */
+.modal {
+    width: min(440px, calc(100vw - 32px));
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text);
+    box-shadow: 0 8px 24px rgba(20, 28, 36, 0.18);
+}
+
+.modal::backdrop {
+    background: rgba(20, 28, 36, 0.45);
+}
+
+.modal__titulo {
+    margin: 0;
+    font-size: 20px;
+}
+
+.modal__cuerpo {
+    margin: 8px 0 20px;
+    color: var(--text-muted);
+}
+
+.modal__acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}

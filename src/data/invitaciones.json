@@ -1,0 +1,35 @@
+[
+    {
+        "token": "inv-hloayza-2026",
+        "nombres": "Hernán",
+        "apellidos": "Loayza Pomar",
+        "correo": "hloayza@ulima.edu.pe",
+        "telefono": "951 220 874",
+        "rol": "tecnico",
+        "invitadoPor": "Lucía Mendoza Ríos",
+        "venceEl": "2026-12-31",
+        "estado": "pendiente"
+    },
+    {
+        "token": "inv-supervisor-2026",
+        "nombres": "Patricia",
+        "apellidos": "Vílchez Soto",
+        "correo": "pvilchez@ulima.edu.pe",
+        "telefono": "",
+        "rol": "supervisor",
+        "invitadoPor": "Lucía Mendoza Ríos",
+        "venceEl": "2026-12-31",
+        "estado": "pendiente"
+    },
+    {
+        "token": "inv-vencida-2026",
+        "nombres": "Elena",
+        "apellidos": "Rivas Coaguila",
+        "correo": "erivas@ulima.edu.pe",
+        "telefono": "",
+        "rol": "tecnico",
+        "invitadoPor": "Lucía Mendoza Ríos",
+        "venceEl": "2026-09-12",
+        "estado": "pendiente"
+    }
+]
