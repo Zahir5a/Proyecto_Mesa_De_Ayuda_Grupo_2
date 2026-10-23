@@ -24,3 +24,35 @@ export function buscarPorId(id) {
     const encontrado = usuarios.find((u) => u.id === id)
     return encontrado ?? null
 }
+
+export function crearUsuario(datos) {
+    const usuarios = cargar()
+    const nuevo = {
+        ...datos,
+        id: 'u-' + Date.now(),
+        correo: datos.correo.trim().toLowerCase(),
+        estado: 'activo',
+        creadoEn: new Date().toISOString(),
+    }
+    guardar('usuarios', [...usuarios, nuevo])
+    return nuevo
+}
+
+export function actualizarUsuario(id, cambios) {
+    const usuarios = cargar()
+    let actualizado = null
+
+    const nuevaLista = usuarios.map((u) => {
+        if (u.id !== id) return u
+        actualizado = { ...u, ...cambios }
+        return actualizado
+    })
+
+    guardar('usuarios', nuevaLista)
+    return actualizado
+}
+
+export function verificarPassword(id, password) {
+    const usuario = buscarPorId(id)
+    return usuario !== null && usuario.password === password
+}

@@ -8,7 +8,19 @@
         "telefono": "987 654 321",
         "rol": "usuario",
         "unidad": "Ingeniería de Sistemas",
-        "estado": "activo"
+        "vinculo": "alumno",
+        "ambienteHabitual": "A-201",
+        "estado": "activo",
+        "creadoEn": "2026-03-14T10:00:00",
+        "resumen": {
+            "ticketsReportados": 12,
+            "ticketsAbiertos": 3,
+            "encuestasRespondidas": 7,
+            "encuestaPendiente": 1,
+            "ticketPendiente": "TCK-2026-00131",
+            "cerradoEl": "03/09/2026",
+            "limiteEncuesta": "10/09/2026"
+        }
     },
 
     {
@@ -17,10 +29,19 @@
         "apellidos": "Paredes Soto",
         "correo": "jparedes@ulima.edu.pe",
         "password": "Ulima2026",
-        "telefono": "987 654 321",
+        "telefono": "951 220 874",
         "rol": "tecnico",
-        "unidad": "Ingeniería de Sistemas",
-        "estado": "activo"
+        "unidad": "Infraestructura y Servicios",
+        "vinculo": "administrativo",
+        "especialidades": ["audiovisuales", "redes"],
+        "estado": "activo",
+        "creadoEn": "2026-02-10T08:00:00",
+        "resumen": {
+            "asignados": 8,
+            "enAtencion": 3,
+            "enEspera": 2,
+            "resueltosHoy": 2
+        }
     },
 
     {
@@ -29,9 +50,19 @@
         "apellidos": "Mendoza Ríos",
         "correo": "lmendoza@ulima.edu.pe",
         "password": "Ulima2026",
-        "telefono": "987 654 321",
+        "telefono": "955 300 214",
         "rol": "supervisor",
-        "unidad": "Ingeniería de Sistemas",
-        "estado": "activo"
+        "unidad": "Infraestructura y Servicios",
+        "vinculo": "administrativo",
+        "estado": "activo",
+        "creadoEn": "2026-02-01T08:00:00",
+        "resumen": {
+            "colaSinAsignar": 9,
+            "cola": 24,
+            "bandejas": 6,
+            "categorias": 7,
+            "ambientes": 48,
+            "usuarios": 15
+        }
     }
 ]

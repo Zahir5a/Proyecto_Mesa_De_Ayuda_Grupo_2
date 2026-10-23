@@ -1,0 +1,149 @@
+/* ---- Marco público: cabecera de 72 px, contenido y pie ---- */
+.publico {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.cabecera {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    height: 72px;
+    padding: 0 56px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.cabecera .cabecera__marca {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text);
+    font-size: 18px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.cabecera__marca:hover {
+    text-decoration: none;
+}
+
+.marca__logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    background: var(--primary);
+}
+
+.marca__sub {
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.cabecera__nav {
+    display: flex;
+    gap: 28px;
+    font-size: 15px;
+}
+
+.cabecera__nav a {
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+    color: var(--text);
+}
+
+.cabecera__nav a:hover {
+    text-decoration: none;
+    border-bottom-color: var(--border);
+}
+
+.cabecera__acciones {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+}
+
+.contenido {
+    flex: 1;
+    padding: 40px 56px;
+}
+
+/* ---- Pie público ---- */
+.pie {
+    padding: 52px 56px 32px;
+    background: var(--primary-dark);
+    color: #dbe5ee;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.pie a {
+    color: #dbe5ee;
+}
+
+.pie strong {
+    color: #fff;
+    font-size: 15px;
+}
+
+.pie p {
+    margin: 6px 0 0;
+}
+
+.pie h2 {
+    margin: 0 0 10px;
+    color: #9fb3c6;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.pie ul {
+    display: grid;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pie__rejilla {
+    display: grid;
+    grid-template-columns: 420px 220px minmax(0, 1fr);
+    gap: 0;
+}
+
+.pie__rejilla > div:first-child {
+    max-width: 330px;
+}
+
+.pie__copia {
+    margin-top: 28px;
+    color: #9fb3c6;
+    font-size: 12px;
+    text-align: right;
+}
+
+@media (max-width: 1000px) {
+    .cabecera {
+        flex-wrap: wrap;
+        height: auto;
+        gap: 8px 24px;
+        padding: 12px 24px;
+    }
+
+    .cabecera__nav {
+        order: 3;
+        flex-basis: 100%;
+        flex-wrap: wrap;
+        gap: 8px 20px;
+    }
+
+    .contenido { padding: 24px 16px; }
+    .pie { padding: 32px 24px 20px; }
+    .pie__rejilla { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .pie__copia { text-align: left; }
+}
