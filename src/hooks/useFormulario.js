@@ -43,5 +43,10 @@ export function useFormulario(inicial, validar) {
         return Object.keys(errores).length
     }
 
-    return { valores, errores, campo, casilla, cambiar, validarTodo }
+    function reiniciar() {
+        setValores(inicial)
+        setTocados({})
+    }
+
+    return { valores, errores, campo, casilla, cambiar, validarTodo, reiniciar }
 }

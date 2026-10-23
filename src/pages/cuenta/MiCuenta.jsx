@@ -4,6 +4,7 @@ import { useFormulario } from '../../hooks/useFormulario'
 import { UNIDADES } from '../../data/catalogos'
 import { validarTelefono } from '../../utils/validaciones'
 import Campo from '../../components/ui/Campo'
+import CambiarPassword from './CambiarPassword'
 
 function validar(v) {
     const errores = {}
@@ -65,6 +66,8 @@ function MiCuenta() {
                     </div>
                 </form>
             </div>
+
+            <CambiarPassword />
         </div>
     )
 }
