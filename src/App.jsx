@@ -14,6 +14,10 @@ import NuevoTicket from './pages/usuario/NuevoTicket';
 import TicketRegistrado from './pages/usuario/TicketRegistrado';
 import MisTickets from './pages/usuario/MisTickets';
 import DetalleTicket from './pages/usuario/DetalleTicket';
+import Encuesta from './pages/usuario/Encuesta';
+import EncuestaPendiente from './pages/usuario/EncuestaPendiente';
+import MisEncuestas from './pages/usuario/MisEncuestas';
+import Satisfaccion from './pages/supervisor/Satisfaccion';
 import DetalleAtencion from './pages/tecnico/DetalleAtencion';
 import HistorialTicket from './pages/tecnico/HistorialTicket';
 import HistorialTecnico from './pages/tecnico/HistorialTecnico';
@@ -53,6 +57,9 @@ function App() {
             <Route path="/usuario/tickets" element={<MisTickets />}/>
             <Route path="/usuario/tickets/:codigo" element={<DetalleTicket />}/>
             <Route path="/usuario/tickets/:codigo/registrado" element={<TicketRegistrado />}/>
+            <Route path="/usuario/encuesta-pendiente" element={<EncuestaPendiente />}/>
+            <Route path="/usuario/encuesta/:codigo" element={<Encuesta />}/>
+            <Route path="/usuario/encuestas" element={<MisEncuestas />}/>
             <Route path="/usuario/*" element={<PaginaPendiente />}/>
           </Route>
           <Route element={<RequiereRol roles={['tecnico']} />}>
@@ -70,6 +77,7 @@ function App() {
             <Route path="/supervisor/cola" element={<ColaAtencion />}/>
             <Route path="/supervisor/cola/:codigo" element={<DetalleAtencion />}/>
             <Route path="/supervisor/cola/:codigo/historial" element={<HistorialTicket />}/>
+            <Route path="/supervisor/satisfaccion" element={<Satisfaccion />}/>
             <Route path="/supervisor/bandejas" element={<BandejasTecnicos />}/>
             <Route path="/supervisor/categorias" element={<Categorias />}/>
             <Route path="/supervisor/categorias/nueva" element={<CategoriaFormulario />}/>

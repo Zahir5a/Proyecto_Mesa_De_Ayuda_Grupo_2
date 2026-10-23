@@ -2,10 +2,12 @@ import { Link, NavLink, Outlet } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 import { useToast } from '../../hooks/useToast'
 import { useCatalogo } from '../../hooks/useCatalogo'
+import { useEncuestas } from '../../hooks/useEncuestas'
 import { useTickets } from '../../hooks/useTickets'
 import { CONTACTO } from '../../data/contenidoPublico'
 import { ETIQUETA_ROL, MENU_POR_ROL, rutaInicio } from '../../data/navegacion'
 import { listarTecnicos } from '../../services/catalogoService'
+import { encuestasDeUsuario } from '../../services/encuestasService'
 import { resumenDeCola, resumenDeTecnico, resumenDeTickets, tecnicoDeUsuario } from '../../services/ticketsService'
 import Avatar from '../ui/Avatar'
 import BuscadorTicket from './BuscadorTicket'
@@ -18,11 +20,14 @@ function LayoutApp() {
     const inicio = rutaInicio(usuario.rol)
     const catalogo = useCatalogo()
     const tickets = useTickets()
+    const encuestas = useEncuestas()
     // Los contadores del catálogo salen de los datos reales, para que cambien al crear o borrar.
     // Los contadores de tickets del usuario también salen de sus tickets reales (HU-3).
     const resumen = {
         ...usuario.resumen,
-        ...(usuario.rol === 'usuario' ? resumenDeTickets(tickets, usuario.id) : {}),
+        ...(usuario.rol === 'usuario'
+            ? { ...resumenDeTickets(tickets, usuario.id), encuestasRespondidas: encuestasDeUsuario(encuestas, usuario.id).length }
+            : {}),
         ...(usuario.rol === 'tecnico' ? resumenDeTecnico(tickets, (tecnicoDeUsuario(usuario) ?? { id: usuario.id }).id) : {}),
         ...(usuario.rol === 'supervisor' ? { ...resumenDeCola(tickets), bandejas: listarTecnicos().length } : {}),
         categorias: catalogo.categorias.length,

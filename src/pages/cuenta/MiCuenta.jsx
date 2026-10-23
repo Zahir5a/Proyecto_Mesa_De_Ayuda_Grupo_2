@@ -154,7 +154,7 @@ function MiCuenta() {
                                 El ticket {encuesta.codigo} se cerró el {formatearFecha(encuesta.cerradoEn)}. Califica la
                                 atención antes del {formatearFecha(encuesta.limite)}.
                             </p>
-                            <Link to="/usuario/encuesta-pendiente" className="boton boton--aviso">Responder encuesta</Link>
+                            <Link to={`/usuario/encuesta/${encuesta.codigo}`} className="boton boton--aviso">Responder encuesta</Link>
                         </div>
                     )}
                 </aside>

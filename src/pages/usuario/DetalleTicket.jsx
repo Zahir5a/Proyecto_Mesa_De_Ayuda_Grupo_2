@@ -160,7 +160,7 @@ function DetalleTicket() {
                         </p>
                     )}
                     <div className="formulario__acciones">
-                        {encuesta && <Link to="/usuario/encuesta-pendiente" className="boton boton--primario">Responder encuesta</Link>}
+                        {encuesta && <Link to={`/usuario/encuesta/${ticket.codigo}`} className="boton boton--primario">Responder encuesta</Link>}
                         {puedeReabrir(ticket) ? (
                             <button type="button" className="boton boton--destructivo-borde" onClick={() => setReabriendo(true)}>
                                 Reabrir ticket
