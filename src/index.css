@@ -21,3 +21,46 @@ body {
   font-size: 15px;
   font-family: 'IBM Plex Sans', system-ui, sans-serif;
 }
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.campo__etiqueta {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.campo__control {
+    min-height: 40px;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+}
+
+.campo__control:focus-visible {
+    outline: 2px solid var(--info);
+    border-color: var(--primary);
+}
+
+.campo--error .campo__control {
+    border-color: var(--danger);
+}
+
+.campo__mensaje {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.campo__mensaje--error {
+    color: var(--danger);
+}
