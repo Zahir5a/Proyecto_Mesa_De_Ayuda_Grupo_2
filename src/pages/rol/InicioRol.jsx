@@ -6,7 +6,9 @@ import { ETIQUETA_ROL, MENU_POR_ROL, rutaInicio } from '../../data/navegacion'
 // (tickets, cola, catálogo…) reemplazará su parte; mientras tanto lista los accesos del rol.
 function InicioRol() {
     const { usuario } = useAuth()
-    const accesos = MENU_POR_ROL[usuario.rol].filter((item) => item.ruta !== rutaInicio(usuario.rol))
+    const accesos = MENU_POR_ROL[usuario.rol].items.filter(
+        (item) => item.ruta !== rutaInicio(usuario.rol) && item.ruta !== '/cuenta'
+    )
 
     return (
         <div>

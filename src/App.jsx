@@ -9,7 +9,8 @@ import LayoutPublico from './components/layout/LayoutPublico';
 import LayoutApp from './components/layout/LayoutApp';
 import NoEncontrado from './pages/errores/NoEncontrado';
 import InicioRol from './pages/rol/InicioRol';
-import MiCuenta from './pages/cuenta/MiCuenta';
+import PaginaPendiente from './pages/rol/PaginaPendiente';
+import MiCuenta from'./pages/cuenta/MiCuenta';
 import RutaProtegida from './components/layout/RutaProtegida';
 import RutaSoloVisitante from './components/layout/RutaSoloVisitante';
 import RequiereRol from './components/layout/RequiereRol';
@@ -34,12 +35,15 @@ function App() {
           <Route path="/cuenta" element={<MiCuenta />}/>
           <Route element={<RequiereRol roles={['usuario']} />}>
             <Route path="/usuario" element={<InicioRol />}/>
+            <Route path="/usuario/*" element={<PaginaPendiente />}/>
           </Route>
           <Route element={<RequiereRol roles={['tecnico']} />}>
             <Route path="/tecnico" element={<InicioRol />}/>
+            <Route path="/tecnico/*" element={<PaginaPendiente />}/>
           </Route>
           <Route element={<RequiereRol roles={['supervisor']} />}>
             <Route path="/supervisor" element={<InicioRol />}/>
+            <Route path="/supervisor/*" element={<PaginaPendiente />}/>
           </Route>
         </Route>
       </Route>

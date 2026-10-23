@@ -4,36 +4,134 @@
     flex-direction: column;
 }
 
+/* ---------- Cabecera ---------- */
 .app__cabecera {
     height: 60px;
-    padding: 0 24px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 236px minmax(0, 460px) 1fr auto auto;
     align-items: center;
-    justify-content: space-between;
+    column-gap: 24px;
+    padding-right: 24px;
     background: var(--primary);
     color: #fff;
 }
 
+.app--supervisor .app__cabecera {
+    background: var(--primary-dark);
+}
+
 .app__marca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 24px;
     color: #fff;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 700;
     text-decoration: none;
 }
 
+.app__logo {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.buscador {
+    grid-column: 2;
+}
+
+.buscador__campo {
+    width: 100%;
+    height: 36px;
+    padding: 0 14px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 13px;
+}
+
+.buscador__campo::placeholder {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.buscador__campo:focus {
+    outline: 2px solid #fff;
+    outline-offset: 1px;
+}
+
+.app__insignia {
+    grid-column: 4;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.app__insignia strong {
+    font-size: 14px;
+}
+
 .app__usuario {
+    grid-column: 5;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.app__usuario-datos {
     display: grid;
     text-align: right;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 18px;
 }
 
-.app__usuario span {
+.app__usuario-datos span {
     font-size: 11px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     opacity: 0.8;
 }
 
+.avatar {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.avatar--grande {
+    width: 64px;
+    height: 64px;
+    font-size: 24px;
+}
+
+.visualmente-oculto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* ---------- Cuerpo y menú lateral ---------- */
 .app__cuerpo {
     flex: 1;
     display: flex;
@@ -41,7 +139,8 @@
 
 .app__lateral {
     width: 236px;
-    padding: 16px 8px;
+    flex-shrink: 0;
+    padding: 20px 12px 16px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -55,10 +154,24 @@
     gap: 2px;
 }
 
+.app__seccion {
+    margin: 0 0 8px;
+    padding: 0 12px;
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
 .app__lateral a,
 .app__lateral-pie button {
-    display: block;
-    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 38px;
+    padding: 0 12px;
     border: 0;
     border-left: 3px solid transparent;
     border-radius: 4px;
@@ -76,22 +189,96 @@
     background: var(--bg);
 }
 
-.app__lateral a.active {
+.app__lateral nav a.active {
     background: var(--primary-soft);
     border-left-color: var(--primary);
     color: var(--primary);
-    font-weight: 500;
+    font-weight: 600;
+}
+
+.app__contador {
+    min-width: 24px;
+    padding: 1px 6px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--surface);
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
 }
 
 .app__lateral-pie {
-    padding-top: 8px;
+    padding-top: 12px;
     border-top: 1px solid var(--border);
+}
+
+.app__lateral-pie a,
+.app__lateral-pie button {
+    color: var(--text-muted);
+}
+
+.app__lateral-pie a.active {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* ---------- Contenido y pie ---------- */
+.app__columna {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .app__contenido {
     flex: 1;
-    min-width: 0;
     padding: 24px;
+}
+
+.app__contenido > h1 {
+    font-size: 28px;
+    line-height: 32px;
+}
+
+.app__pie {
+    min-height: 44px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px 24px;
+    padding: 8px 24px;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+@media (max-width: 1000px) {
+    .app__cabecera {
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        height: auto;
+        padding: 10px 16px;
+        row-gap: 8px;
+    }
+
+    .app__marca {
+        padding-left: 0;
+    }
+
+    .buscador {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    .app__insignia {
+        display: none;
+    }
+
+    .app__usuario {
+        grid-column: 3;
+    }
 }
 
 @media (max-width: 800px) {
