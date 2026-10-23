@@ -69,6 +69,24 @@
     line-height: 22px;
 }
 
+.icono-visto {
+    display: inline-grid;
+    place-items: center;
+    justify-self: start;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--success);
+    border-radius: 4px;
+    background: var(--success-soft);
+    color: var(--success);
+    font-size: 20px;
+}
+
+.boton--izquierda {
+    justify-self: start;
+    padding-left: 0;
+}
+
 .especialidades legend {
     padding: 0;
     margin-bottom: 8px;

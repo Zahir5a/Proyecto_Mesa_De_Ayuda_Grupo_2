@@ -6,6 +6,7 @@ import { restablecerPassword } from '../../services/authService'
 import { REGEX_CORREO, validarConfirmacion, validarPassword } from '../../utils/validaciones'
 import Campo from '../../components/ui/Campo'
 import IndicadorFuerza from '../../components/ui/IndicadorFuerza'
+import './auth.css'
 
 const SEGUNDOS_REENVIO = 45
 const PASOS = ['Tu correo', 'Enlace enviado', 'Nueva contraseña']
@@ -77,7 +78,8 @@ function RecuperarPassword() {
     }
 
     return (
-        <div className="tarjeta tarjeta--formulario">
+        <div className="auth auth--simple">
+        <div className="tarjeta tarjeta--formulario auth__tarjeta auth__tarjeta--recuperar">
             <ol className="pasos" aria-label="Progreso">
                 {PASOS.map((nombre, i) => {
                     const numero = i + 1
@@ -102,28 +104,29 @@ function RecuperarPassword() {
                         {...formCorreo.campo('correo')} />
                     <div className="formulario__acciones">
                         <button type="submit" className="boton boton--primario">Enviar enlace</button>
-                        <Link to="/login" className="boton">Volver a iniciar sesión</Link>
+                        <Link to="/login" className="boton boton--terciario">Volver a iniciar sesión</Link>
                     </div>
                 </form>
             )}
 
             {paso === 2 && (
                 <div className="formulario">
+                    <span className="icono-visto" aria-hidden="true">✓</span>
                     <h1>Revisa tu correo</h1>
                     <p className="texto-aux">
-                        Enviamos el enlace a <strong>{formCorreo.valores.correo.trim()}</strong>. Vence en 30 minutos.
+                        Enviamos el enlace a {formCorreo.valores.correo.trim()}. Vence en 30 minutos.
                     </p>
-                    <button type="button" className="boton" disabled={segundos > 0} onClick={reenviar}>
+                    <button type="button" className="boton boton--terciario boton--izquierda" disabled={segundos > 0} onClick={reenviar}>
                         {segundos > 0 ? 'Reenviar enlace (disponible en ' + formatoCuenta(segundos) + ')' : 'Reenviar enlace'}
                     </button>
-                    <p className="alerta-info">
+                    <p className="texto-aux">
                         Demostración: no se envían correos reales. Usa el botón para simular que abres el enlace.
                     </p>
                     <div className="formulario__acciones">
                         <button type="button" className="boton boton--primario" onClick={() => setPaso(3)}>
                             Abrir enlace del correo
                         </button>
-                        <button type="button" className="boton" onClick={() => setPaso(1)}>Cambiar correo</button>
+                        <button type="button" className="boton boton--terciario" onClick={() => setPaso(1)}>Cambiar correo</button>
                     </div>
                 </div>
             )}
@@ -132,13 +135,13 @@ function RecuperarPassword() {
                 <form className="formulario" onSubmit={guardar} noValidate>
                     <h1>Nueva contraseña</h1>
                     {errorGlobal && <p className="alerta-error">{errorGlobal}</p>}
-                    <Campo etiqueta="Nueva contraseña" tipo="password"
-                        ayuda="Mínimo 8 caracteres, con una mayúscula y un número." {...formClave.campo('password')} />
+                    <Campo etiqueta="Nueva contraseña" tipo="password" {...formClave.campo('password')} />
                     <IndicadorFuerza password={formClave.valores.password} />
                     <Campo etiqueta="Confirmar" tipo="password" {...formClave.campo('confirmar')} />
-                    <button type="submit" className="boton boton--primario">Guardar contraseña</button>
+                    <button type="submit" className="boton boton--primario boton--bloque">Guardar contraseña</button>
                 </form>
             )}
+        </div>
         </div>
     )
 }
