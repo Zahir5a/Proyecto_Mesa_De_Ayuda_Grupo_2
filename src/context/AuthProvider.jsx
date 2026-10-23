@@ -4,6 +4,7 @@ import {
     cerrarSesion as cerrarSesionServicio,
     iniciarSesion as iniciarSesionServicio,
     obtenerUsuarioSesion,
+    registrarUsuario as registrarUsuarioServicio,
 } from '../services/authService'
 
 function AuthProvider({ children }) {
@@ -17,12 +18,20 @@ function AuthProvider({ children }) {
         return resultado
     }
 
+    function registrar(datos) {
+        const resultado = registrarUsuarioServicio(datos)
+        if (resultado.ok) {
+            setUsuario(resultado.usuario)
+        }
+        return resultado
+    }
+
     function cerrarSesion() {
         cerrarSesionServicio()
         setUsuario(null)
     }
 
-    const valor = { usuario, iniciarSesion, cerrarSesion }
+    const valor = { usuario, iniciarSesion, registrar, cerrarSesion }
 
     return <AuthContext.Provider value={valor}>{children}</AuthContext.Provider>
 }
