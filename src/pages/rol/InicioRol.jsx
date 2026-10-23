@@ -2,8 +2,7 @@ import { Link } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 import { ETIQUETA_ROL, MENU_POR_ROL, rutaInicio } from '../../data/navegacion'
 
-// Pantalla a la que lleva el login según el rol. Es provisional: cada historia
-// (tickets, cola, catálogo…) reemplazará su parte; mientras tanto lista los accesos del rol.
+// Pantalla de bienvenida del usuario: atajos a cada sección de su menú.
 function InicioRol() {
     const { usuario } = useAuth()
     const accesos = MENU_POR_ROL[usuario.rol].items.filter(
@@ -19,7 +18,6 @@ function InicioRol() {
                 {accesos.map((acceso) => (
                     <Link key={acceso.ruta} to={acceso.ruta} className="tarjeta acceso">
                         <strong>{acceso.etiqueta}</strong>
-                        {!acceso.lista && <span className="insignia insignia--gris">En construcción</span>}
                     </Link>
                 ))}
             </div>

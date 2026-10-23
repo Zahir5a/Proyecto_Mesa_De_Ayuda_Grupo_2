@@ -9,7 +9,6 @@ import LayoutPublico from './components/layout/LayoutPublico';
 import LayoutApp from './components/layout/LayoutApp';
 import NoEncontrado from './pages/errores/NoEncontrado';
 import InicioRol from './pages/rol/InicioRol';
-import PaginaPendiente from './pages/rol/PaginaPendiente';
 import NuevoTicket from './pages/usuario/NuevoTicket';
 import TicketRegistrado from './pages/usuario/TicketRegistrado';
 import MisTickets from './pages/usuario/MisTickets';
@@ -32,7 +31,7 @@ import Categorias from './pages/supervisor/Categorias';
 import CategoriaFormulario from './pages/supervisor/CategoriaFormulario';
 import Ambientes from './pages/supervisor/Ambientes';
 import TecnicosCategoria from './pages/supervisor/TecnicosCategoria';
-import MiCuenta from'./pages/cuenta/MiCuenta';
+import MiCuenta from './pages/cuenta/MiCuenta';
 import RutaProtegida from './components/layout/RutaProtegida';
 import RutaSoloVisitante from './components/layout/RutaSoloVisitante';
 import RequiereRol from './components/layout/RequiereRol';
@@ -64,7 +63,7 @@ function App() {
             <Route path="/usuario/encuesta-pendiente" element={<EncuestaPendiente />}/>
             <Route path="/usuario/encuesta/:codigo" element={<Encuesta />}/>
             <Route path="/usuario/encuestas" element={<MisEncuestas />}/>
-            <Route path="/usuario/*" element={<PaginaPendiente />}/>
+            <Route path="/usuario/*" element={<NoEncontrado />}/>
           </Route>
           <Route element={<RequiereRol roles={['tecnico']} />}>
             <Route path="/tecnico" element={<BandejaTecnico key="todos" />}/>
@@ -74,7 +73,7 @@ function App() {
             <Route path="/tecnico/tickets/:codigo" element={<DetalleAtencion />}/>
             <Route path="/tecnico/tickets/:codigo/historial" element={<HistorialTicket />}/>
             <Route path="/tecnico/resueltos" element={<BandejaTecnico key="resuelto" estadoInicial="resuelto" />}/>
-            <Route path="/tecnico/*" element={<PaginaPendiente />}/>
+            <Route path="/tecnico/*" element={<NoEncontrado />}/>
           </Route>
           <Route element={<RequiereRol roles={['supervisor']} />}>
             <Route path="/supervisor" element={<Tablero />}/>
@@ -91,7 +90,7 @@ function App() {
             <Route path="/supervisor/categorias/:id" element={<CategoriaFormulario />}/>
             <Route path="/supervisor/ambientes" element={<Ambientes />}/>
             <Route path="/supervisor/tecnicos-categoria" element={<TecnicosCategoria />}/>
-            <Route path="/supervisor/*" element={<PaginaPendiente />}/>
+            <Route path="/supervisor/*" element={<NoEncontrado />}/>
           </Route>
         </Route>
       </Route>
