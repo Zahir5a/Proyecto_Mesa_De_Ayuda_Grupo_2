@@ -5,6 +5,7 @@ import LayoutPublico from './components/layout/LayoutPublico';
 import NoEncontrado from './pages/errores/NoEncontrado';
 import InicioRol from './pages/rol/InicioRol';
 import RutaProtegida from './components/layout/RutaProtegida';
+import RequiereRol from './components/layout/RequiereRol';
 
 function App() {
   return (
