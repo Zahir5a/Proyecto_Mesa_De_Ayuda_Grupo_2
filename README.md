@@ -2,15 +2,19 @@
 
 Programación Web · Universidad de Lima · 2026-2 · Proyecto 1 (solo interfaz, datos simulados en el navegador).
 
+Aplicación en React (Vite) con las siete historias del enunciado: cuenta y acceso, catálogo de servicios, registro y
+seguimiento de tickets, cola y asignación, atención y cierre, encuesta de satisfacción y métricas con gestión de usuarios.
+
 ## Integrantes
 
 | Integrante | Historia |
 | --- | --- |
-| Zahir Alessandro De la Cruz Perez | HU-1 Cuenta y acceso |
+| Zahir Alessandro De la Cruz Perez | HU-1 Cuenta y acceso · HU-7 Métricas y usuarios |
 | Alessandro Morales Moreno | HU-2 Catálogo de servicios |
-| _(nombre)_ | HU-3 Registro de tickets |
-| _(nombre)_ | HU-4 Cola y asignación |
-| _(nombre)_ | HU-5 Atención y cierre |
+| Gustavo Montes | HU-3 Registro y seguimiento de tickets |
+| Vivian Paredes | HU-4 Cola de atención y asignación |
+| Renzo Alejandro Custodio Caceres | HU-5 Atención y cierre |
+| Mariana Figueroa Zúñiga | HU-6 Encuesta de satisfacción |
 
 ## Cómo levantar el proyecto
 
@@ -28,22 +32,31 @@ Otros comandos: `npm run lint` (revisa el código) y `npm run build` (empaqueta 
 ```
 src/
   components/
-    layout/   LayoutPublico, LayoutApp, FooterPublico y guardas de ruta (RutaProtegida, RequiereRol, RutaSoloVisitante)
-    ui/       Campo, IndicadorFuerza, ConfirmDialog, Avatar, Paginacion
+    layout/      LayoutPublico, LayoutApp, FooterPublico, BuscadorTicket y guardas de ruta (RutaProtegida, RequiereRol, RutaSoloVisitante)
+    ui/          Campo, ConfirmDialog, Modal, Avatar, Etiqueta, Paginacion, IndicadorFuerza
     categorias/  TablaCategoria y FormularioCategoria (HU-2)
     ambientes/   ModalAmbiente (HU-2)
     tecnicos/    ModalInvitarTecnico (HU-2)
+    tickets/     ModalReabrir (HU-3)
+    cola/        Filtros, tabla, barra de lote y ventanas de asignación y prioridad (HU-4)
+    atencion/    Ventanas de cambio de estado y de cierre (HU-5)
+    metricas/    Gráficos y selector de periodo (HU-7)
+    usuarios/    ModalBloqueo y etiquetas de cuenta (HU-7)
   context/    AuthProvider (sesión) y ToastProvider (avisos)
-  hooks/      useAuth, useToast, useFormulario, useCatalogo
-  services/   Capa de datos simulada sobre localStorage (almacen, usuarios, auth, invitaciones, catálogo)
+  hooks/      useAuth, useToast, useFormulario, useCatalogo, useTickets, useEncuestas, useCola, useAhora
+  services/   Capa de datos simulada sobre localStorage: almacen, usuarios, auth, invitaciones, catálogo, tickets, encuestas
   data/       Semillas JSON, catálogos, menú por rol y textos públicos
-  pages/      auth/, publico/, cuenta/, errores/, rol/, supervisor/
-  utils/      validaciones, formato y exportación del catálogo
+  pages/      auth/, publico/, cuenta/, errores/, rol/, usuario/, tecnico/, supervisor/
+  utils/      validaciones, formato, plazos, etapas, métricas, periodos y exportación a CSV
 ```
 
 Las pantallas no tocan `localStorage`: piden todo a `services/`. En la segunda entrega solo se reescriben los servicios.
+Los datos que comparten varias historias (catálogo, tickets, encuestas) se leen con hooks (`useCatalogo`, `useTickets`,
+`useEncuestas`) que redibujan la pantalla cuando alguien los cambia.
 
-## HU-1 · Cuenta y acceso
+## Rutas por historia
+
+### HU-1 · Cuenta y acceso
 
 | Ruta | Pantalla |
 | --- | --- |
@@ -53,23 +66,59 @@ Las pantallas no tocan `localStorage`: piden todo a `services/`. En la segunda e
 | `/invitacion/:token` | Alta de técnico o supervisor por invitación |
 | `/recuperar-contrasena` | Recuperación en tres pasos |
 | `/cuenta` | Mi cuenta: datos personales y cambio de contraseña |
-| `/usuario`, `/tecnico`, `/supervisor` | Inicio de cada rol (protegidos por sesión y rol; otro rol ve el 403) |
+| `/usuario` | Inicio del usuario (las rutas de cada rol están protegidas por sesión y rol; otro rol ve el 403) |
 
-## HU-2 · Catálogo de servicios
-
-Solo para el rol supervisor (otros roles ven el 403).
+### HU-2 · Catálogo de servicios (supervisor)
 
 | Ruta | Pantalla |
 | --- | --- |
-| `/supervisor/categorias` | Categorías y subcategorías: búsqueda, filtros por prioridad y estado, paginación, exportar a CSV, desactivar con confirmación si hay tickets en curso |
-| `/supervisor/categorias/nueva` | Alta de categoría o subcategoría, con errores de validación en línea |
-| `/supervisor/categorias/:id` | Edición y eliminación (no se elimina lo que tiene tickets en curso) |
-| `/supervisor/ambientes` | Sedes y ambientes: filtros por sede, pabellón y tipo, paginación y modal de alta, edición y eliminación |
+| `/supervisor/categorias` | Categorías y subcategorías: búsqueda, filtros, paginación, exportar a CSV, desactivar con confirmación si hay tickets en curso |
+| `/supervisor/categorias/nueva` y `/supervisor/categorias/:id` | Alta, edición y eliminación |
+| `/supervisor/ambientes` | Sedes y ambientes con filtros, paginación y ventana de alta y edición |
 | `/supervisor/tecnicos-categoria` | Matriz de técnicos por categoría e invitación de técnicos |
 
-El catálogo vive en `localStorage` (`mda.catalogo`) y lo administra `src/services/catalogoService.js`. Las demás
-pantallas lo leen con `useCatalogo` (por ejemplo, los contadores del menú y las especialidades de la invitación).
-Las categorías inactivas no se ofrecen para tickets nuevos.
+### HU-3 · Registro y seguimiento de tickets (usuario)
+
+| Ruta | Pantalla |
+| --- | --- |
+| `/usuario/nuevo-ticket` | Registrar un ticket, con aviso si ya existe uno abierto para el mismo ambiente y categoría |
+| `/usuario/tickets/:codigo/registrado` | Confirmación con el código y el plazo de atención |
+| `/usuario/tickets` | Mis tickets con filtros por estado, fechas y categoría, y búsqueda por código |
+| `/usuario/tickets/:codigo` | Detalle con bitácora, cancelación (si no está asignado) y reapertura (hasta 7 días tras el cierre) |
+
+### HU-4 · Cola de atención y asignación
+
+| Ruta | Pantalla |
+| --- | --- |
+| `/supervisor/cola` | Cola con filtros, orden, asignación, reasignación, cambio de prioridad con motivo, devolución y acciones en lote |
+| `/supervisor/bandejas` | Carga de cada técnico, con enlace a la cola filtrada |
+| `/tecnico`, `/tecnico/en-atencion`, `/tecnico/en-espera`, `/tecnico/resueltos` | Bandeja del técnico con contadores y autoasignación |
+
+### HU-5 · Atención y cierre
+
+| Ruta | Pantalla |
+| --- | --- |
+| `/tecnico/tickets/:codigo` | Bitácora con comentarios públicos y notas internas, cambio de estado y cierre con la solución |
+| `/tecnico/tickets/:codigo/historial` | Historial de cambios con el tiempo en cada etapa |
+| `/tecnico/historial` | Tickets que el técnico ya cerró |
+| `/supervisor/cola/:codigo` | Vista consolidada del ticket para el supervisor (solo lectura) |
+
+### HU-6 · Encuesta de satisfacción
+
+| Ruta | Pantalla |
+| --- | --- |
+| `/usuario/encuesta-pendiente` y `/usuario/encuesta/:codigo` | Responder o editar la encuesta (una por ticket cerrado, editable 7 días) |
+| `/usuario/encuestas` | Mis encuestas |
+| `/supervisor/satisfaccion` | Promedios por técnico y categoría con filtro de periodo, y comentarios recibidos |
+
+### HU-7 · Métricas y usuarios (supervisor)
+
+| Ruta | Pantalla |
+| --- | --- |
+| `/supervisor` | Tablero de métricas: indicadores del periodo, tickets por estado, categoría y ambiente, y reporte en CSV |
+| `/supervisor/carga` | Carga por técnico |
+| `/supervisor/usuarios` | Usuarios con búsqueda, filtros y paginación |
+| `/supervisor/usuarios/:id` | Ficha con el historial de reportes; bloqueo y desbloqueo de la cuenta con motivo |
 
 ## Datos de prueba
 
@@ -78,14 +127,18 @@ Todas las cuentas de `src/data/usuarios.json` usan la contraseña `Ulima2026`:
 - Usuario: `camila.quispe@aloe.ulima.edu.pe`
 - Técnico: `jparedes@ulima.edu.pe`
 - Supervisor: `lmendoza@ulima.edu.pe`
+- Cuenta bloqueada de ejemplo: `psalcedo@ulima.edu.pe`
 
 Invitaciones de prueba: `/invitacion/inv-hloayza-2026` (técnico), `/invitacion/inv-supervisor-2026` (supervisor) e
-`/invitacion/inv-vencida-2026` (vencida). Desde "Técnicos por categoría" el supervisor puede crear invitaciones nuevas.
+`/invitacion/inv-vencida-2026` (vencida). El supervisor puede crear invitaciones nuevas desde "Técnicos por categoría".
+
+Las fechas de los tickets de ejemplo se calculan respecto al día en que se abre el proyecto, para que los plazos de
+atención, reapertura y encuesta sigan vigentes.
 
 ## Persistencia
 
-Los datos viven en `localStorage` con prefijo `mda.`. Para reiniciar los datos de prueba, borra el almacenamiento
-del sitio (F12 → Application → Local Storage → Clear).
+Los datos viven en `localStorage` con prefijo `mda.` (usuarios, sesión, catálogo, tickets, encuestas e invitaciones).
+Para reiniciar los datos de prueba, borra el almacenamiento del sitio (F12 → Application → Local Storage → Clear).
 
 ## Cómo sumar una historia
 
@@ -95,5 +148,5 @@ del sitio (F12 → Application → Local Storage → Clear).
 
 ## Trabajo en equipo
 
-Una rama por integrante (`feature/huN-...`) y los cambios entran a `main` mediante *pull request* revisado por otro
-integrante. Los commits describen qué se hizo.
+Una rama por historia (`feature/huN-...`) y los cambios entran a `main` mediante *pull request*. Cada integrante hizo
+sus commits desde su propia cuenta. Los mensajes describen qué se hizo.
