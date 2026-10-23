@@ -321,3 +321,17 @@
 .form-hint--aparte {
   margin-top: 12px;
 }
+
+@media (max-width: 900px) {
+  .form-layout {
+    flex-direction: column;
+  }
+
+  .form-sidebar {
+    width: 100%;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -87,3 +87,17 @@
     margin-left: 0;
   }
 }
+
+.ficha__rejilla > * {
+  min-width: 0;
+}
+
+@media (max-width: 1100px) {
+  .ficha__rejilla {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.ficha__historial .tabla-desplazable {
+  overflow-x: auto;
+}

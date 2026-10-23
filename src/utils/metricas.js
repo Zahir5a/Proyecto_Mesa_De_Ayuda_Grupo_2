@@ -13,7 +13,7 @@ export function ticketsDelPeriodo(tickets, rango) {
 const atendidos = (tickets) => tickets.filter((t) => t.estado === 'resuelto' || t.estado === 'cerrado')
 
 // Minutos de atención de un ticket ya atendido (sin contar las esperas).
-export function minutosDeAtencion(ticket, ahora) {
+function minutosDeAtencion(ticket, ahora) {
     const horas = ticket.tiempoTotalAtencion ?? horasDeAtencion(ticket, ahora)
     return horas * 60
 }
