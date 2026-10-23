@@ -1,0 +1,8 @@
+[
+  { "id": "tec-paredes", "nombres": "Julio César", "apellidos": "Paredes Soto", "correo": "jparedes@ulima.edu.pe", "especialidades": ["audiovisuales", "redes"], "carga": 8, "categorias": ["audiovisuales", "redes", "accesos"] },
+  { "id": "tec-huaman", "nombres": "Marco", "apellidos": "Huamán Vela", "correo": "", "especialidades": ["mobiliario", "audiovisuales"], "carga": 6, "categorias": ["audiovisuales", "mobiliario"] },
+  { "id": "tec-zegarra", "nombres": "Iván", "apellidos": "Zegarra Pinto", "correo": "", "especialidades": ["electrico", "accesos"], "carga": 5, "categorias": ["mobiliario", "electrico", "accesos"] },
+  { "id": "tec-nolasco", "nombres": "Sandra", "apellidos": "Nolasco Ríos", "correo": "", "especialidades": ["redes", "climatizacion"], "carga": 7, "categorias": ["climatizacion", "redes"] },
+  { "id": "tec-espinoza", "nombres": "Rocío", "apellidos": "Espinoza Farfán", "correo": "", "especialidades": ["limpieza"], "carga": 3, "categorias": ["limpieza"] },
+  { "id": "tec-loayza", "nombres": "Hernán", "apellidos": "Loayza Pomar", "correo": "hloayza@ulima.edu.pe", "especialidades": ["climatizacion"], "carga": 4, "categorias": ["climatizacion", "electrico"] }
+]

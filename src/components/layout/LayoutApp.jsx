@@ -1,6 +1,7 @@
 import { Link, NavLink, Outlet } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 import { useToast } from '../../hooks/useToast'
+import { useCatalogo } from '../../hooks/useCatalogo'
 import { CONTACTO } from '../../data/contenidoPublico'
 import { ETIQUETA_ROL, MENU_POR_ROL, rutaInicio } from '../../data/navegacion'
 import Avatar from '../ui/Avatar'
@@ -12,7 +13,13 @@ function LayoutApp() {
     const { info } = useToast()
     const menu = MENU_POR_ROL[usuario.rol]
     const inicio = rutaInicio(usuario.rol)
-    const resumen = usuario.resumen || {}
+    const catalogo = useCatalogo()
+    // Los contadores del catálogo salen de los datos reales, para que cambien al crear o borrar.
+    const resumen = {
+        ...usuario.resumen,
+        categorias: catalogo.categorias.length,
+        ambientes: catalogo.ambientes.length,
+    }
     // "Mi cuenta" va aparte, al pie del menú.
     const items = menu.items.filter((item) => item.ruta !== '/cuenta')
 

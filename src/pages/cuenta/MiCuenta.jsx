@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 import { useFormulario } from '../../hooks/useFormulario'
 import { useToast } from '../../hooks/useToast'
-import { AMBIENTES, UNIDADES, nombreCategoria } from '../../data/catalogos'
+import { UNIDADES, nombreCategoria } from '../../data/catalogos'
+import { useCatalogo } from '../../hooks/useCatalogo'
 import { ETIQUETA_ROL } from '../../data/navegacion'
 import { formatearFecha } from '../../utils/formato'
 import { validarTelefono } from '../../utils/validaciones'
@@ -36,6 +37,8 @@ function filasResumen(usuario) {
 function MiCuenta() {
     const { usuario, actualizarPerfil } = useAuth()
     const { exito } = useToast()
+    // Los ambientes salen del catálogo (HU-2: sedes y ambientes)
+    const ambientes = useCatalogo().ambientes.map((a) => ({ valor: a.codigo, etiqueta: a.codigo }))
     const form = useFormulario(
         {
             nombres: usuario.nombres,
@@ -92,7 +95,7 @@ function MiCuenta() {
                         <Campo etiqueta="Unidad o carrera" tipo="select" placeholder="Selecciona…"
                             opciones={UNIDADES} {...form.campo('unidad')} />
                         <Campo etiqueta="Ambiente habitual" tipo="select" placeholder="Selecciona…"
-                            opciones={AMBIENTES} {...form.campo('ambienteHabitual')} />
+                            opciones={ambientes} {...form.campo('ambienteHabitual')} />
 
                         {usuario.especialidades && usuario.especialidades.length > 0 && (
                             <div className="formulario__ancho">

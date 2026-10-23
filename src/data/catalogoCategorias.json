@@ -1,0 +1,100 @@
+{
+  "categorias": [
+    {
+      "id": "audiovisuales",
+      "nombre": "Audiovisuales",
+      "descripcion": "Proyectores, pantallas, audio y equipos de las aulas.",
+      "prioridad": "alta",
+      "tiempoEsperado": 4,
+      "ticketsAbiertos": 9,
+      "estado": "activa",
+      "subcategorias": [
+        { "id": "aud-proyector", "nombre": "Proyector no enciende", "descripcion": "El proyector no da señal de vida al encenderlo.", "prioridad": "critica", "tiempoEsperado": 2, "ticketsAbiertos": 3, "estado": "activa" },
+        { "id": "aud-imagen", "nombre": "Imagen distorsionada", "descripcion": "La imagen se ve cortada, con colores raros o parpadea.", "prioridad": "media", "tiempoEsperado": 8, "ticketsAbiertos": 2, "estado": "activa" },
+        { "id": "aud-audio", "nombre": "Audio sin señal", "descripcion": "Los parlantes del aula no emiten sonido.", "prioridad": "media", "tiempoEsperado": 8, "ticketsAbiertos": 1, "estado": "activa" },
+        { "id": "aud-ecran", "nombre": "Ecran atascado", "descripcion": "La pantalla de proyección no sube ni baja.", "prioridad": "baja", "tiempoEsperado": 24, "ticketsAbiertos": 3, "estado": "activa" }
+      ]
+    },
+    {
+      "id": "climatizacion",
+      "nombre": "Climatización",
+      "descripcion": "Aire acondicionado y ventilación de los ambientes.",
+      "prioridad": "alta",
+      "tiempoEsperado": 8,
+      "ticketsAbiertos": 5,
+      "estado": "activa",
+      "subcategorias": [
+        { "id": "cli-frio", "nombre": "Aire sin frío", "descripcion": "El equipo enciende pero no enfría el ambiente.", "prioridad": "alta", "tiempoEsperado": 8, "ticketsAbiertos": 3, "estado": "activa" },
+        { "id": "cli-fuga", "nombre": "Fuga de condensado", "descripcion": "Gotea agua desde el equipo de aire acondicionado.", "prioridad": "alta", "tiempoEsperado": 8, "ticketsAbiertos": 2, "estado": "activa" }
+      ]
+    },
+    {
+      "id": "redes",
+      "nombre": "Redes y conectividad",
+      "descripcion": "Internet, wifi y puntos de red.",
+      "prioridad": "critica",
+      "tiempoEsperado": 2,
+      "ticketsAbiertos": 6,
+      "estado": "activa",
+      "subcategorias": [
+        { "id": "red-punto", "nombre": "Punto de red caído", "descripcion": "El punto de red no entrega conexión.", "prioridad": "critica", "tiempoEsperado": 2, "ticketsAbiertos": 4, "estado": "activa" },
+        { "id": "red-senal", "nombre": "Señal intermitente", "descripcion": "El wifi se corta o va muy lento en el ambiente.", "prioridad": "media", "tiempoEsperado": 12, "ticketsAbiertos": 2, "estado": "activa" }
+      ]
+    },
+    {
+      "id": "mobiliario",
+      "nombre": "Mobiliario",
+      "descripcion": "Sillas, mesas, pizarras y otros muebles.",
+      "prioridad": "baja",
+      "tiempoEsperado": 48,
+      "ticketsAbiertos": 2,
+      "estado": "activa",
+      "subcategorias": [
+        { "id": "mob-silla", "nombre": "Silla rota", "descripcion": "Silla o carpeta con partes sueltas o dañadas.", "prioridad": "baja", "tiempoEsperado": 48, "ticketsAbiertos": 2, "estado": "activa" },
+        { "id": "mob-mesa", "nombre": "Mesa inestable", "descripcion": "Mesa o escritorio que cojea o se mueve.", "prioridad": "baja", "tiempoEsperado": 48, "ticketsAbiertos": 0, "estado": "activa" },
+        { "id": "mob-pizarra", "nombre": "Pizarra dañada", "descripcion": "Pizarra rayada, suelta o con el soporte roto.", "prioridad": "baja", "tiempoEsperado": 72, "ticketsAbiertos": 0, "estado": "activa" }
+      ]
+    },
+    {
+      "id": "electrico",
+      "nombre": "Eléctrico",
+      "descripcion": "Tomacorrientes, iluminación y tableros.",
+      "prioridad": "alta",
+      "tiempoEsperado": 8,
+      "ticketsAbiertos": 5,
+      "estado": "activa",
+      "subcategorias": [
+        { "id": "ele-apagon", "nombre": "Apagón en el ambiente", "descripcion": "El ambiente se quedó sin energía eléctrica.", "prioridad": "critica", "tiempoEsperado": 2, "ticketsAbiertos": 3, "estado": "activa" },
+        { "id": "ele-tomacorriente", "nombre": "Tomacorriente dañado", "descripcion": "Tomacorriente quemado, suelto o sin corriente.", "prioridad": "alta", "tiempoEsperado": 8, "ticketsAbiertos": 1, "estado": "activa" },
+        { "id": "ele-luminaria", "nombre": "Luminaria quemada", "descripcion": "Foco o fluorescente que no enciende.", "prioridad": "media", "tiempoEsperado": 24, "ticketsAbiertos": 1, "estado": "activa" }
+      ]
+    },
+    {
+      "id": "limpieza",
+      "nombre": "Limpieza",
+      "descripcion": "Limpieza extraordinaria y reposición de insumos.",
+      "prioridad": "media",
+      "tiempoEsperado": 24,
+      "ticketsAbiertos": 3,
+      "estado": "activa",
+      "subcategorias": [
+        { "id": "lim-derrame", "nombre": "Derrame de líquidos", "descripcion": "Líquido en el piso que puede causar accidentes.", "prioridad": "alta", "tiempoEsperado": 4, "ticketsAbiertos": 2, "estado": "activa" },
+        { "id": "lim-insumos", "nombre": "Reposición de insumos", "descripcion": "Falta de papel, jabón u otros insumos en servicios.", "prioridad": "baja", "tiempoEsperado": 24, "ticketsAbiertos": 1, "estado": "activa" }
+      ]
+    },
+    {
+      "id": "accesos",
+      "nombre": "Accesos y cerraduras",
+      "descripcion": "Puertas, llaves y control de acceso.",
+      "prioridad": "media",
+      "tiempoEsperado": 8,
+      "ticketsAbiertos": 4,
+      "estado": "activa",
+      "subcategorias": [
+        { "id": "acc-cerradura", "nombre": "Cerradura trabada", "descripcion": "La llave no gira o la puerta no abre.", "prioridad": "alta", "tiempoEsperado": 8, "ticketsAbiertos": 2, "estado": "activa" },
+        { "id": "acc-tarjeta", "nombre": "Tarjeta de acceso sin lectura", "descripcion": "El lector no reconoce la tarjeta de acceso.", "prioridad": "media", "tiempoEsperado": 24, "ticketsAbiertos": 1, "estado": "activa" },
+        { "id": "acc-puerta", "nombre": "Puerta que no cierra", "descripcion": "La puerta queda abierta o el cierre automático falla.", "prioridad": "media", "tiempoEsperado": 24, "ticketsAbiertos": 1, "estado": "activa" }
+      ]
+    }
+  ]
+}

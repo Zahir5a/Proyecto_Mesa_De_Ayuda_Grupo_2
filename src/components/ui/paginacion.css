@@ -1,0 +1,31 @@
+.paginacion {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.paginacion button {
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+  color: var(--text);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.paginacion button:hover {
+  background-color: var(--bg);
+}
+
+.paginacion button.activo {
+  background-color: var(--primary);
+  color: var(--surface);
+  border-color: var(--primary);
+}
+
+.paginacion button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

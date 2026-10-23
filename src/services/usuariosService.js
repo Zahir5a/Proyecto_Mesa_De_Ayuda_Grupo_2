@@ -8,6 +8,10 @@ function cargar() {
     return semilla
 }
 
+export function listarUsuarios() {
+    return cargar()
+}
+
 export function buscarPorCorreo(correo) {
     const usuarios = cargar()
     const buscado = correo.trim().toLowerCase()

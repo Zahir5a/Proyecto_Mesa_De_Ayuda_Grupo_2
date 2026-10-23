@@ -3,8 +3,9 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 import { useFormulario } from '../../hooks/useFormulario'
 import { useToast } from '../../hooks/useToast'
-import { CATEGORIAS, MAX_ESPECIALIDADES } from '../../data/catalogos'
+import { MAX_ESPECIALIDADES } from '../../data/catalogos'
 import { ETIQUETA_ROL, rutaInicio } from '../../data/navegacion'
+import { categoriasActivas } from '../../services/catalogoService'
 import { obtenerInvitacion, rechazarInvitacion } from '../../services/invitacionesService'
 import { validarConfirmacion, validarPassword, validarTelefono } from '../../utils/validaciones'
 import { formatearFecha } from '../../utils/formato'
@@ -42,6 +43,8 @@ function FormularioInvitacion({ invitacion, token }) {
     const [confirmandoRechazo, setConfirmandoRechazo] = useState(false)
 
     const esTecnico = invitacion.rol === 'tecnico'
+    // Solo se puede declarar especialidad en las categorías activas del catálogo (HU-2)
+    const categorias = categoriasActivas()
 
     function validar(v) {
         const errores = {}
@@ -125,7 +128,7 @@ function FormularioInvitacion({ invitacion, token }) {
                             Especialidad · elige hasta {MAX_ESPECIALIDADES} categorías ({seleccionadas.length}/{MAX_ESPECIALIDADES})
                         </legend>
                         <div className="lista-chips">
-                            {CATEGORIAS.map((c) => {
+                            {categorias.map((c) => {
                                 const activa = seleccionadas.includes(c.id)
                                 return (
                                     <button key={c.id} type="button" className="chip" aria-pressed={activa}
