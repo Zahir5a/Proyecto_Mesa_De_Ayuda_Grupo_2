@@ -12,7 +12,7 @@
   background: var(--surface);
   color: var(--text-muted);
   font: inherit;
-  font-size: 14px;
+  font-size: 15px;
   cursor: pointer;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .encuesta__etiqueta {
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .encuesta__aspectos {
@@ -54,7 +54,7 @@
   grid-template-columns: 180px auto 1fr;
   align-items: center;
   gap: 12px;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .encuesta__codigo {
@@ -68,7 +68,7 @@
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 16px;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .encuestas__puntaje {
@@ -100,7 +100,7 @@
   padding: 12px 16px;
   border-top: 1px solid var(--border);
   color: var(--text-muted);
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .satisfaccion__comentarios {
@@ -109,7 +109,7 @@
 
 .satisfaccion__comentarios h2 {
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .comentarios {
@@ -124,7 +124,7 @@
   padding: 10px 12px;
   border: 1px solid var(--border);
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .comentarios__item p {

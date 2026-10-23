@@ -145,7 +145,7 @@ function FichaUsuario() {
                         <p className="texto-aux">{reportes.length === 0 ? 'Esta cuenta todavía no reportó tickets.' : 'Ningún ticket coincide con el filtro.'}</p>
                     ) : (
                         <div className="tabla-desplazable">
-                            <table className="tabla-categorias">
+                            <table className="tabla-categorias tabla-ficha">
                                 <thead>
                                     <tr><th>CÓDIGO</th><th>ASUNTO</th><th>CATEGORÍA</th><th>AMBIENTE</th><th>PRIORIDAD</th><th>ESTADO</th><th>ENCUESTA</th></tr>
                                 </thead>

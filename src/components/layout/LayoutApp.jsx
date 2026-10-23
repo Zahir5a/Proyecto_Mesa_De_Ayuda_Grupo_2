@@ -34,9 +34,6 @@ function LayoutApp() {
         categorias: catalogo.categorias.length,
         ambientes: catalogo.ambientes.length,
     }
-    // "Mi cuenta" va aparte, al pie del menú.
-    const items = menu.items.filter((item) => item.ruta !== '/cuenta')
-
     function salir() {
         cerrarSesion()
         info('Cerraste sesión.')
@@ -67,7 +64,7 @@ function LayoutApp() {
                 <aside className="app__lateral">
                     <nav aria-label="Menú principal">
                         <p className="app__seccion">{menu.titulo}</p>
-                        {items.map((item) => (
+                        {menu.items.map((item) => (
                             <NavLink key={item.ruta} to={item.ruta} end={item.ruta === inicio}>
                                 <span>{item.etiqueta}</span>
                                 {item.contador && <span className="app__contador">{resumen[item.contador] ?? 0}</span>}

@@ -1,7 +1,7 @@
 /* Rol y estado de una cuenta (HU-7) */
 .etiqueta--cuenta-rol-usuario { color: var(--info); border-color: var(--info); background: var(--primary-soft); }
-.etiqueta--cuenta-rol-tecnico { color: var(--accent); border-color: var(--accent); background: #fbeee4; }
+.etiqueta--cuenta-rol-tecnico { color: var(--accent); border-color: var(--accent); background: #fbefe6; }
 .etiqueta--cuenta-rol-supervisor { color: var(--primary-dark); border-color: var(--primary-dark); background: var(--primary-soft); font-weight: 600; }
 .etiqueta--cuenta-estado-activo { color: var(--success); border-color: var(--success); background: var(--success-soft); }
-.etiqueta--cuenta-estado-bloqueado { color: var(--danger); border-color: var(--danger); background: var(--danger-soft); }
+.etiqueta--cuenta-estado-bloqueado { color: var(--danger); border-color: var(--danger); background: #fbecea; }
 .etiqueta--cuenta-estado-inactivo { color: var(--text-muted); border-color: var(--text-muted); background: var(--bg); }

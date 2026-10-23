@@ -116,7 +116,7 @@ function Usuarios() {
 
             <div className="tabla-container">
                 <div className="tabla-desplazable">
-                    <table className="tabla-categorias">
+                    <table className="tabla-categorias tabla-usuarios">
                         <thead>
                             <tr>
                                 <th>USUARIO</th><th>CORREO</th><th>ROL</th><th>UNIDAD O ESPECIALIDAD</th><th>TICKETS REPORTADOS</th><th>ESTADO</th><th>ACCIONES</th>

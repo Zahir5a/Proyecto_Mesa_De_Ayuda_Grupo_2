@@ -115,7 +115,7 @@ function Ambientes() {
             </div>
 
             <div className="tabla-container">
-                <table className="tabla-categorias">
+                <table className="tabla-categorias tabla-ambientes">
                     <thead>
                         <tr>
                             <th>CÓDIGO</th>

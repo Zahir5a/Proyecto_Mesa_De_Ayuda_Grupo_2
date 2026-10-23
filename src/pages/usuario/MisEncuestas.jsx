@@ -50,7 +50,7 @@ function MisEncuestas() {
             ) : (
                 <div className="tabla-container">
                     <div className="tabla-desplazable">
-                        <table className="tabla-categorias">
+                        <table className="tabla-categorias tabla-encuestas">
                             <thead>
                                 <tr>
                                     <th>TICKET</th><th>ASUNTO</th><th>TÉCNICO</th><th>RESPONDIDA</th><th>PUNTAJE</th><th>PLAZO DE EDICIÓN</th>

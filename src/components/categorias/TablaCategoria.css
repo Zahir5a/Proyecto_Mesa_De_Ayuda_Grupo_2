@@ -12,12 +12,13 @@
 .tabla-categorias {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .tabla-categorias th,
 .tabla-categorias td {
-  padding: 12px 16px;
+  height: 45px;
+  padding: 0 16px;
   text-align: left;
   border-bottom: 1px solid var(--border);
   vertical-align: middle;
@@ -27,9 +28,10 @@
   background-color: var(--bg);
   color: var(--text-muted);
   font-weight: 600;
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 
 /* Quitar borde de la última fila */
@@ -55,9 +57,10 @@
 /* 4. Badges de prioridad CON COLORES CORRECTOS */
 .badge {
   display: inline-block;
-  padding: 4px 12px;
+  padding: 1px 8px;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 13px;
+  line-height: 19px;
   font-weight: 500;
   border: 1px solid;
   white-space: nowrap;
@@ -66,37 +69,37 @@
 /* ⚠️ CLAVE: Colores exactos del mockup */
 /* 🔴 Crítica - Rojo más vivo */
 .prioridad-critica {
-  background-color: #FEE2E2;  /* Rojo más saturado */
-  color: #991B1B;
-  border-color: #DC2626;
+  background-color: #fbecea;
+  color: var(--danger);
+  border-color: var(--danger);
 }
 
 /* 🟠 Alta - Naranja más vivo */
 .prioridad-alta {
-  background-color: #FFEDD5;  /* Naranja más saturado */
-  color: #9A3412;
-  border-color: #EA580C;
+  background-color: #fbefe6;
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 /*  Media - Amarillo más vivo */
 .prioridad-media {
-  background-color: #FEF3C7;  /* Amarillo más saturado */
-  color: #92400E;
-  border-color: #D97706;
+  background-color: #fbf3e2;
+  color: var(--warning);
+  border-color: var(--warning);
 }
 
 /* 🔵 Baja - Azul más vivo */
 .prioridad-baja {
-  background-color: #DBEAFE;  /* Azul más saturado */
-  color: #1E40AF;
-  border-color: #3B82F6;
+  background-color: var(--primary-soft);
+  color: var(--info);
+  border-color: var(--info);
 }
 
 /* 🟢 Activa - Verde más vivo */
 .estado-activa {
-  background-color: #DCFCE7;  /* Verde más saturado */
-  color: #166534;
-  border-color: #22C55E;
+  background-color: var(--success-soft);
+  color: var(--success);
+  border-color: var(--success);
 }
 /* 5. Acciones */
 .col-acciones .btn-link + .btn-link {
@@ -139,17 +142,138 @@
 }
 
 .tabla-info {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-muted);
 }
 
 .estado-inactiva {
   background-color: var(--bg);
   color: var(--text-muted);
-  border-color: var(--border);
+  border-color: var(--text-muted);
 }
 
 /* En pantallas angostas la tabla se desplaza hacia los lados dentro de su caja */
 .tabla-container {
   overflow-x: auto;
+}
+
+/* Tipografía por columna de cada tabla, según el diseño */
+.tabla-tickets td:nth-child(3),
+.tabla-cola td,
+.tabla-carga td:nth-child(2),
+.tabla-usuarios td:nth-child(2),
+.tabla-ficha td:nth-child(1),
+.tabla-ficha td:nth-child(3),
+.tabla-ficha td:nth-child(4),
+.tabla-ficha td:nth-child(7),
+.tabla-encuestas td:nth-child(6) {
+  font-size: 14px;
+}
+
+.tabla-cola td:nth-child(3) {
+  font-size: 15px;
+}
+
+.tabla-encuestas td:nth-child(5),
+.tabla-satisfaccion td:nth-child(n + 3) {
+  font-size: 16px;
+}
+
+/* Anchos de columna del diseño (solo en pantallas anchas; abajo la tabla se acomoda sola) */
+@media (min-width: 1200px) {
+  .tabla-categorias.tabla-catalogo { table-layout: fixed; }
+  .tabla-categorias.tabla-catalogo th:nth-child(1) { width: 49.38%; }
+  .tabla-categorias.tabla-catalogo th:nth-child(2) { width: 10.00%; }
+  .tabla-categorias.tabla-catalogo th:nth-child(3) { width: 12.44%; }
+  .tabla-categorias.tabla-catalogo th:nth-child(4) { width: 9.38%; }
+  .tabla-categorias.tabla-catalogo th:nth-child(5) { width: 8.69%; }
+  .tabla-categorias.tabla-ambientes { table-layout: fixed; }
+  .tabla-categorias.tabla-ambientes th:nth-child(1) { width: 11.25%; }
+  .tabla-categorias.tabla-ambientes th:nth-child(2) { width: 31.25%; }
+  .tabla-categorias.tabla-ambientes th:nth-child(3) { width: 10.00%; }
+  .tabla-categorias.tabla-ambientes th:nth-child(4) { width: 7.44%; }
+  .tabla-categorias.tabla-ambientes th:nth-child(5) { width: 14.38%; }
+  .tabla-categorias.tabla-ambientes th:nth-child(6) { width: 8.69%; }
+  .tabla-categorias.tabla-ambientes th:nth-child(7) { width: 9.38%; }
+  .tabla-categorias.tabla-matriz { table-layout: fixed; }
+  .tabla-categorias.tabla-matriz th:nth-child(1) { width: 21.19%; }
+  .tabla-categorias.tabla-matriz th:nth-child(2) { width: 19.94%; }
+  .tabla-categorias.tabla-matriz th:nth-child(3) { width: 9.38%; }
+  .tabla-categorias.tabla-matriz th:nth-child(4) { width: 7.44%; }
+  .tabla-categorias.tabla-matriz th:nth-child(5) { width: 9.06%; }
+  .tabla-categorias.tabla-matriz th:nth-child(6) { width: 5.69%; }
+  .tabla-categorias.tabla-matriz th:nth-child(7) { width: 7.19%; }
+  .tabla-categorias.tabla-matriz th:nth-child(8) { width: 7.19%; }
+  .tabla-categorias.tabla-matriz th:nth-child(9) { width: 7.00%; }
+  .tabla-categorias.tabla-tickets { table-layout: fixed; }
+  .tabla-categorias.tabla-tickets th:nth-child(1) { width: 11.56%; }
+  .tabla-categorias.tabla-tickets th:nth-child(2) { width: 28.75%; }
+  .tabla-categorias.tabla-tickets th:nth-child(3) { width: 18.75%; }
+  .tabla-categorias.tabla-tickets th:nth-child(4) { width: 10.88%; }
+  .tabla-categorias.tabla-tickets th:nth-child(5) { width: 10.62%; }
+  .tabla-categorias.tabla-tickets th:nth-child(6) { width: 9.31%; }
+  .tabla-categorias.tabla-cola:not(.tabla-bandeja) { table-layout: fixed; }
+  .tabla-categorias.tabla-cola:not(.tabla-bandeja) th:nth-child(1) { width: 2.87%; }
+  .tabla-categorias.tabla-cola:not(.tabla-bandeja) th:nth-child(2) { width: 10.68%; }
+  .tabla-categorias.tabla-cola:not(.tabla-bandeja) th:nth-child(3) { width: 15.81%; }
+  .tabla-categorias.tabla-cola:not(.tabla-bandeja) th:nth-child(4) { width: 14.90%; }
+  .tabla-categorias.tabla-cola:not(.tabla-bandeja) th:nth-child(5) { width: 10.68%; }
+  .tabla-categorias.tabla-cola:not(.tabla-bandeja) th:nth-child(6) { width: 11.84%; }
+  .tabla-categorias.tabla-cola:not(.tabla-bandeja) th:nth-child(7) { width: 7.57%; }
+  .tabla-categorias.tabla-cola:not(.tabla-bandeja) th:nth-child(8) { width: 7.33%; }
+  .tabla-categorias.tabla-cola:not(.tabla-bandeja) th:nth-child(9) { width: 7.33%; }
+  .tabla-categorias.tabla-bandeja { table-layout: fixed; }
+  .tabla-categorias.tabla-bandeja th:nth-child(1) { width: 3.17%; }
+  .tabla-categorias.tabla-bandeja th:nth-child(2) { width: 10.68%; }
+  .tabla-categorias.tabla-bandeja th:nth-child(3) { width: 13.74%; }
+  .tabla-categorias.tabla-bandeja th:nth-child(4) { width: 10.62%; }
+  .tabla-categorias.tabla-bandeja th:nth-child(5) { width: 10.68%; }
+  .tabla-categorias.tabla-bandeja th:nth-child(6) { width: 12.21%; }
+  .tabla-categorias.tabla-bandeja th:nth-child(7) { width: 6.96%; }
+  .tabla-categorias.tabla-bandeja th:nth-child(8) { width: 7.94%; }
+  .tabla-categorias.tabla-bandeja th:nth-child(9) { width: 12.21%; }
+  .tabla-categorias.tabla-cola td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .tabla-categorias.tabla-cola th:first-child,
+  .tabla-categorias.tabla-cola td:first-child {
+    padding-right: 0;
+  }
+  .tabla-categorias.tabla-encuestas { table-layout: fixed; }
+  .tabla-categorias.tabla-encuestas th:nth-child(1) { width: 13.75%; }
+  .tabla-categorias.tabla-encuestas th:nth-child(2) { width: 27.50%; }
+  .tabla-categorias.tabla-encuestas th:nth-child(3) { width: 18.75%; }
+  .tabla-categorias.tabla-encuestas th:nth-child(4) { width: 11.19%; }
+  .tabla-categorias.tabla-encuestas th:nth-child(5) { width: 10.00%; }
+  .tabla-categorias.tabla-satisfaccion--tecnicos { table-layout: fixed; }
+  .tabla-categorias.tabla-satisfaccion--tecnicos th:nth-child(1) { width: 34.33%; }
+  .tabla-categorias.tabla-satisfaccion--tecnicos th:nth-child(2) { width: 17.61%; }
+  .tabla-categorias.tabla-satisfaccion--tecnicos th:nth-child(3) { width: 9.60%; }
+  .tabla-categorias.tabla-satisfaccion--tecnicos th:nth-child(4) { width: 9.68%; }
+  .tabla-categorias.tabla-satisfaccion--tecnicos th:nth-child(5) { width: 9.68%; }
+  .tabla-categorias.tabla-satisfaccion--tecnicos th:nth-child(6) { width: 9.60%; }
+  .tabla-categorias.tabla-carga { table-layout: fixed; }
+  .tabla-categorias.tabla-carga th:nth-child(1) { width: 19.94%; }
+  .tabla-categorias.tabla-carga th:nth-child(2) { width: 18.69%; }
+  .tabla-categorias.tabla-carga th:nth-child(3) { width: 8.75%; }
+  .tabla-categorias.tabla-carga th:nth-child(4) { width: 8.75%; }
+  .tabla-categorias.tabla-carga th:nth-child(5) { width: 8.06%; }
+  .tabla-categorias.tabla-carga th:nth-child(6) { width: 12.50%; }
+  .tabla-categorias.tabla-carga th:nth-child(7) { width: 9.31%; }
+  .tabla-categorias.tabla-usuarios { table-layout: fixed; }
+  .tabla-categorias.tabla-usuarios th:nth-child(1) { width: 19.76%; }
+  .tabla-categorias.tabla-usuarios th:nth-child(2) { width: 17.22%; }
+  .tabla-categorias.tabla-usuarios th:nth-child(3) { width: 9.23%; }
+  .tabla-categorias.tabla-usuarios th:nth-child(4) { width: 21.00%; }
+  .tabla-categorias.tabla-usuarios th:nth-child(5) { width: 10.53%; }
+  .tabla-categorias.tabla-usuarios th:nth-child(6) { width: 8.61%; }
+  .tabla-categorias.tabla-ficha { table-layout: fixed; }
+  .tabla-categorias.tabla-ficha th:nth-child(1) { width: 14.17%; }
+  .tabla-categorias.tabla-ficha th:nth-child(2) { width: 19.60%; }
+  .tabla-categorias.tabla-ficha th:nth-child(3) { width: 21.38%; }
+  .tabla-categorias.tabla-ficha th:nth-child(4) { width: 14.17%; }
+  .tabla-categorias.tabla-ficha th:nth-child(5) { width: 10.45%; }
+  .tabla-categorias.tabla-ficha th:nth-child(6) { width: 11.34%; }
 }
