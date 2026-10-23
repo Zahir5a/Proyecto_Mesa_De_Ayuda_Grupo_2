@@ -4,6 +4,7 @@ import ModalReabrir from '../../components/tickets/ModalReabrir'
 import ConfirmDialog from '../../components/ui/ConfirmDialog'
 import Etiqueta from '../../components/ui/Etiqueta'
 import { PRIORIDADES } from '../../data/contenidoPublico'
+import { buscarTecnico } from '../../services/catalogoService'
 import { MAX_DESCRIPCION } from '../../data/tickets'
 import { useAuth } from '../../hooks/useAuth'
 import { useCatalogo } from '../../hooks/useCatalogo'
@@ -38,6 +39,9 @@ const ETIQUETA_EVENTO = {
     cerrado: 'Cerrado',
     reabierto: 'Reabierto',
     cancelado: 'Cancelado',
+    reasignado: 'Reasignado',
+    devuelto: 'Devuelto a la cola',
+    prioridad: 'Prioridad cambiada',
 }
 
 function inicialesDe(nombre) {
@@ -71,6 +75,8 @@ function DetalleTicket() {
     }
 
     const categoria = categorias.find((c) => c.id === ticket.categoriaId)
+    const tecnico = ticket.tecnicoId ? buscarTecnico(ticket.tecnicoId) : null
+    const nombreTecnico = tecnico ? tecnico.nombres + ' ' + tecnico.apellidos : null
     const subcategoria = categoria ? categoria.subcategorias.find((s) => s.id === ticket.subcategoriaId) : undefined
     const limite = calcularLimite(ticket.registradoEn, horasEsperadas(ticket, categorias, PRIORIDADES))
     const mismoDia = new Date(limite).toDateString() === new Date(ticket.registradoEn).toDateString()
@@ -145,7 +151,7 @@ function DetalleTicket() {
                 <div className="detalle__avisos">
                     <p className="alerta-exito">
                         Resuelto el {formatearFecha(ticket.cerradoEn)}
-                        {ticket.tecnico && <> por {ticket.tecnico}</>}.
+                        {nombreTecnico && <> por {nombreTecnico}</>}.
                         {ticket.solucion && <> Solución: {ticket.solucion}</>}
                     </p>
                     {encuesta && (
@@ -212,7 +218,7 @@ function DetalleTicket() {
                             <div><dt>Subcategoría</dt><dd>{subcategoria ? subcategoria.nombre : '—'}</dd></div>
                             <div><dt>Ambiente</dt><dd className="codigo">{ticket.ambiente}</dd></div>
                             <div><dt>Registrado</dt><dd>{formatearFechaHora(ticket.registradoEn)}</dd></div>
-                            <div><dt>Técnico asignado</dt><dd>{ticket.tecnico ?? 'Sin asignar'}</dd></div>
+                            <div><dt>Técnico asignado</dt><dd>{nombreTecnico ?? 'Sin asignar'}</dd></div>
                             <div>
                                 <dt>Atención esperada</dt>
                                 <dd>Antes de {formatearHora(limite)}{!mismoDia && ` del ${formatearFecha(limite)}`}</dd>

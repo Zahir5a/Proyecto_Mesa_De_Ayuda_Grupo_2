@@ -1,5 +1,829 @@
 [
   {
+    "codigo": "TCK-2026-00164",
+    "usuarioId": null,
+    "solicitante": "Renzo Salazar Núñez",
+    "asunto": "Punto de red caído en laboratorio",
+    "descripcion": "Punto de red caído en laboratorio. Se reporta en el ambiente H-210 y necesita revisión del equipo técnico.",
+    "categoriaId": "redes",
+    "subcategoriaId": "red-punto",
+    "ambiente": "H-210",
+    "prioridad": "critica",
+    "estado": "abierto",
+    "haceMin": 42,
+    "tecnicoId": null,
+    "evidencia": "",
+    "bitacora": [
+      {
+        "autor": "Renzo Salazar Núñez",
+        "rol": "usuario",
+        "texto": "Punto de red caído en laboratorio. Se reporta en el ambiente H-210 y necesita revisión del equipo técnico.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Renzo Salazar Núñez",
+        "despuesMin": 0
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00163",
+    "usuarioId": null,
+    "solicitante": "Milagros Ccahuana Ríos",
+    "asunto": "Aire acondicionado sin frío",
+    "descripcion": "Aire acondicionado sin frío. Se reporta en el ambiente E-304 y necesita revisión del equipo técnico.",
+    "categoriaId": "climatizacion",
+    "subcategoriaId": "cli-frio",
+    "ambiente": "E-304",
+    "prioridad": "alta",
+    "estado": "en_atencion",
+    "haceMin": 70,
+    "tecnicoId": "tec-paredes",
+    "evidencia": "",
+    "bitacora": [
+      {
+        "autor": "Milagros Ccahuana Ríos",
+        "rol": "usuario",
+        "texto": "Aire acondicionado sin frío. Se reporta en el ambiente E-304 y necesita revisión del equipo técnico.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Julio Paredes Soto.",
+        "despuesMin": 10,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Milagros Ccahuana Ríos",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 10
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Julio Paredes Soto",
+        "despuesMin": 25
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00162",
+    "usuarioId": null,
+    "solicitante": "Diego Aliaga Ferrer",
+    "asunto": "Tomacorriente sin energía",
+    "descripcion": "Tomacorriente sin energía. Se reporta en el ambiente N-402 y necesita revisión del equipo técnico.",
+    "categoriaId": "electrico",
+    "subcategoriaId": "ele-tomacorriente",
+    "ambiente": "N-402",
+    "prioridad": "alta",
+    "estado": "abierto",
+    "haceMin": 95,
+    "tecnicoId": null,
+    "evidencia": "",
+    "bitacora": [
+      {
+        "autor": "Diego Aliaga Ferrer",
+        "rol": "usuario",
+        "texto": "Tomacorriente sin energía. Se reporta en el ambiente N-402 y necesita revisión del equipo técnico.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Diego Aliaga Ferrer",
+        "despuesMin": 0
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00161",
+    "usuarioId": null,
+    "solicitante": "Andrea Chávez Loayza",
+    "asunto": "Imagen distorsionada del proyector",
+    "descripcion": "Imagen distorsionada del proyector. Se reporta en el ambiente Q-101 y necesita revisión del equipo técnico.",
+    "categoriaId": "audiovisuales",
+    "subcategoriaId": "aud-imagen",
+    "ambiente": "Q-101",
+    "prioridad": "media",
+    "estado": "en_atencion",
+    "haceMin": 125,
+    "tecnicoId": "tec-huaman",
+    "evidencia": "",
+    "bitacora": [
+      {
+        "autor": "Andrea Chávez Loayza",
+        "rol": "usuario",
+        "texto": "Imagen distorsionada del proyector. Se reporta en el ambiente Q-101 y necesita revisión del equipo técnico.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Marco Huamán Vela.",
+        "despuesMin": 10,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Andrea Chávez Loayza",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 10
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Marco Huamán Vela",
+        "despuesMin": 25
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00160",
+    "usuarioId": null,
+    "solicitante": "Pedro Salcedo Ayala",
+    "asunto": "Chapa de puerta trabada",
+    "descripcion": "Chapa de puerta trabada. Se reporta en el ambiente H-105 y necesita revisión del equipo técnico.",
+    "categoriaId": "accesos",
+    "subcategoriaId": "acc-cerradura",
+    "ambiente": "H-105",
+    "prioridad": "alta",
+    "estado": "en_atencion",
+    "haceMin": 160,
+    "tecnicoId": "tec-zegarra",
+    "evidencia": "",
+    "bitacora": [
+      {
+        "autor": "Pedro Salcedo Ayala",
+        "rol": "usuario",
+        "texto": "Chapa de puerta trabada. Se reporta en el ambiente H-105 y necesita revisión del equipo técnico.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Iván Zegarra Pinto.",
+        "despuesMin": 10,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Pedro Salcedo Ayala",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 10
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Iván Zegarra Pinto",
+        "despuesMin": 25
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00159",
+    "usuarioId": null,
+    "solicitante": "Rosa Ticona Álvarez",
+    "asunto": "Cinco sillas rotas en aula",
+    "descripcion": "Cinco sillas rotas en aula. Se reporta en el ambiente A-201 y necesita revisión del equipo técnico.",
+    "categoriaId": "mobiliario",
+    "subcategoriaId": "mob-silla",
+    "ambiente": "A-201",
+    "prioridad": "media",
+    "estado": "en_espera",
+    "haceMin": 195,
+    "tecnicoId": "tec-huaman",
+    "evidencia": "",
+    "motivoEspera": "Espera de reposición de sillas",
+    "retornoEnHoras": 48,
+    "bitacora": [
+      {
+        "autor": "Rosa Ticona Álvarez",
+        "rol": "usuario",
+        "texto": "Cinco sillas rotas en aula. Se reporta en el ambiente A-201 y necesita revisión del equipo técnico.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Marco Huamán Vela.",
+        "despuesMin": 10,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Rosa Ticona Álvarez",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 10
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Marco Huamán Vela",
+        "despuesMin": 25
+      },
+      {
+        "tipo": "en_espera",
+        "autor": "Marco Huamán Vela",
+        "despuesMin": 40
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00158",
+    "usuarioId": null,
+    "solicitante": "Karina Bustamante Ruiz",
+    "asunto": "Fuga de agua en baño de damas",
+    "descripcion": "Fuga de agua en baño de damas. Se reporta en el ambiente BIB-P2 y necesita revisión del equipo técnico.",
+    "categoriaId": "limpieza",
+    "subcategoriaId": "lim-derrame",
+    "ambiente": "BIB-P2",
+    "prioridad": "critica",
+    "estado": "en_atencion",
+    "haceMin": 230,
+    "tecnicoId": "tec-paredes",
+    "evidencia": "",
+    "bitacora": [
+      {
+        "autor": "Karina Bustamante Ruiz",
+        "rol": "usuario",
+        "texto": "Fuga de agua en baño de damas. Se reporta en el ambiente BIB-P2 y necesita revisión del equipo técnico.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Julio Paredes Soto.",
+        "despuesMin": 10,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Karina Bustamante Ruiz",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 10
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Julio Paredes Soto",
+        "despuesMin": 25
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00157",
+    "usuarioId": null,
+    "solicitante": "Luis Fernando Ochoa",
+    "asunto": "Wifi intermitente en pasillo",
+    "descripcion": "Wifi intermitente en pasillo. Se reporta en el ambiente E-304 y necesita revisión del equipo técnico.",
+    "categoriaId": "redes",
+    "subcategoriaId": "red-senal",
+    "ambiente": "E-304",
+    "prioridad": "media",
+    "estado": "abierto",
+    "haceMin": 260,
+    "tecnicoId": null,
+    "evidencia": "",
+    "bitacora": [
+      {
+        "autor": "Luis Fernando Ochoa",
+        "rol": "usuario",
+        "texto": "Wifi intermitente en pasillo. Se reporta en el ambiente E-304 y necesita revisión del equipo técnico.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Luis Fernando Ochoa",
+        "despuesMin": 0
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00156",
+    "usuarioId": null,
+    "solicitante": "Gabriela Ynga Paredes",
+    "asunto": "Pantalla no baja",
+    "descripcion": "Pantalla no baja. Se reporta en el ambiente Q-101 y necesita revisión del equipo técnico.",
+    "categoriaId": "audiovisuales",
+    "subcategoriaId": "aud-ecran",
+    "ambiente": "Q-101",
+    "prioridad": "baja",
+    "estado": "abierto",
+    "haceMin": 305,
+    "tecnicoId": null,
+    "evidencia": "",
+    "bitacora": [
+      {
+        "autor": "Gabriela Ynga Paredes",
+        "rol": "usuario",
+        "texto": "Pantalla no baja. Se reporta en el ambiente Q-101 y necesita revisión del equipo técnico.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Gabriela Ynga Paredes",
+        "despuesMin": 0
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00155",
+    "usuarioId": null,
+    "solicitante": "Ricardo Yupanqui Mora",
+    "asunto": "Punto de red sin enlace",
+    "descripcion": "Punto de red sin enlace. Se reporta en el ambiente H-105 y necesita revisión del equipo técnico.",
+    "categoriaId": "redes",
+    "subcategoriaId": "red-punto",
+    "ambiente": "H-105",
+    "prioridad": "alta",
+    "estado": "en_atencion",
+    "haceMin": 330,
+    "tecnicoId": "tec-paredes",
+    "evidencia": "",
+    "bitacora": [
+      {
+        "autor": "Ricardo Yupanqui Mora",
+        "rol": "usuario",
+        "texto": "Punto de red sin enlace. Se reporta en el ambiente H-105 y necesita revisión del equipo técnico.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Julio Paredes Soto.",
+        "despuesMin": 10,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Ricardo Yupanqui Mora",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 10
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Julio Paredes Soto",
+        "despuesMin": 25
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00154",
+    "usuarioId": null,
+    "solicitante": "César Rojas Bermúdez",
+    "asunto": "Luminaria parpadea",
+    "descripcion": "Luminaria parpadea. Se reporta en el ambiente N-402 y necesita revisión del equipo técnico.",
+    "categoriaId": "electrico",
+    "subcategoriaId": "ele-luminaria",
+    "ambiente": "N-402",
+    "prioridad": "baja",
+    "estado": "en_espera",
+    "haceMin": 390,
+    "tecnicoId": "tec-zegarra",
+    "evidencia": "",
+    "motivoEspera": "Espera de luminaria de repuesto",
+    "retornoEnHoras": 24,
+    "bitacora": [
+      {
+        "autor": "César Rojas Bermúdez",
+        "rol": "usuario",
+        "texto": "Luminaria parpadea. Se reporta en el ambiente N-402 y necesita revisión del equipo técnico.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Iván Zegarra Pinto.",
+        "despuesMin": 10,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "César Rojas Bermúdez",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 10
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Iván Zegarra Pinto",
+        "despuesMin": 25
+      },
+      {
+        "tipo": "en_espera",
+        "autor": "Iván Zegarra Pinto",
+        "despuesMin": 40
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00153",
+    "usuarioId": null,
+    "solicitante": "Melissa Guerra Tapia",
+    "asunto": "Aire acondicionado gotea",
+    "descripcion": "Aire acondicionado gotea. Se reporta en el ambiente H-210 y necesita revisión del equipo técnico.",
+    "categoriaId": "climatizacion",
+    "subcategoriaId": "cli-fuga",
+    "ambiente": "H-210",
+    "prioridad": "alta",
+    "estado": "en_atencion",
+    "haceMin": 490,
+    "tecnicoId": "tec-nolasco",
+    "evidencia": "",
+    "bitacora": [
+      {
+        "autor": "Melissa Guerra Tapia",
+        "rol": "usuario",
+        "texto": "Aire acondicionado gotea. Se reporta en el ambiente H-210 y necesita revisión del equipo técnico.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Sandra Nolasco Ríos.",
+        "despuesMin": 10,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Melissa Guerra Tapia",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 10
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Sandra Nolasco Ríos",
+        "despuesMin": 25
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00152",
+    "usuarioId": null,
+    "solicitante": "Jorge Palomino Cruz",
+    "asunto": "Mesa desnivelada",
+    "descripcion": "Mesa desnivelada. Se reporta en el ambiente A-201 y necesita revisión del equipo técnico.",
+    "categoriaId": "mobiliario",
+    "subcategoriaId": "mob-mesa",
+    "ambiente": "A-201",
+    "prioridad": "baja",
+    "estado": "resuelto",
+    "haceMin": 645,
+    "tecnicoId": "tec-huaman",
+    "evidencia": "",
+    "resueltoHaceMin": 120,
+    "solucion": "Problema resuelto.",
+    "bitacora": [
+      {
+        "autor": "Jorge Palomino Cruz",
+        "rol": "usuario",
+        "texto": "Mesa desnivelada. Se reporta en el ambiente A-201 y necesita revisión del equipo técnico.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Marco Huamán Vela.",
+        "despuesMin": 10,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Marco Huamán Vela",
+        "rol": "tecnico",
+        "texto": "Problema resuelto.",
+        "despuesMin": 525,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Jorge Palomino Cruz",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 10
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Marco Huamán Vela",
+        "despuesMin": 25
+      },
+      {
+        "tipo": "resuelto",
+        "autor": "Marco Huamán Vela",
+        "despuesMin": 525
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00151",
+    "usuarioId": null,
+    "solicitante": "Patricia Vílchez Soto",
+    "asunto": "Micrófono inalámbrico sin señal",
+    "descripcion": "Micrófono inalámbrico sin señal. Se reporta en el ambiente AUD-CEN y necesita revisión del equipo técnico.",
+    "categoriaId": "audiovisuales",
+    "subcategoriaId": "aud-audio",
+    "ambiente": "AUD-CEN",
+    "prioridad": "media",
+    "estado": "resuelto",
+    "haceMin": 700,
+    "tecnicoId": "tec-paredes",
+    "evidencia": "",
+    "resueltoHaceMin": 200,
+    "solucion": "Problema resuelto.",
+    "bitacora": [
+      {
+        "autor": "Patricia Vílchez Soto",
+        "rol": "usuario",
+        "texto": "Micrófono inalámbrico sin señal. Se reporta en el ambiente AUD-CEN y necesita revisión del equipo técnico.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Julio Paredes Soto.",
+        "despuesMin": 10,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Julio Paredes Soto",
+        "rol": "tecnico",
+        "texto": "Problema resuelto.",
+        "despuesMin": 500,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Patricia Vílchez Soto",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 10
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Julio Paredes Soto",
+        "despuesMin": 25
+      },
+      {
+        "tipo": "resuelto",
+        "autor": "Julio Paredes Soto",
+        "despuesMin": 500
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00150",
+    "usuarioId": null,
+    "solicitante": "Nicolás Farfán Beltrán",
+    "asunto": "Proyector con imagen verdosa",
+    "descripcion": "Proyector con imagen verdosa. Se reporta en el ambiente Q-101 y necesita revisión del equipo técnico.",
+    "categoriaId": "audiovisuales",
+    "subcategoriaId": "aud-imagen",
+    "ambiente": "Q-101",
+    "prioridad": "media",
+    "estado": "en_espera",
+    "haceMin": 1500,
+    "tecnicoId": "tec-paredes",
+    "evidencia": "",
+    "motivoEspera": "Espera repuesto",
+    "retornoEnHoras": 40,
+    "bitacora": [
+      {
+        "autor": "Nicolás Farfán Beltrán",
+        "rol": "usuario",
+        "texto": "Proyector con imagen verdosa. Se reporta en el ambiente Q-101 y necesita revisión del equipo técnico.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Julio Paredes Soto.",
+        "despuesMin": 10,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Nicolás Farfán Beltrán",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 10
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Julio Paredes Soto",
+        "despuesMin": 25
+      },
+      {
+        "tipo": "en_espera",
+        "autor": "Julio Paredes Soto",
+        "despuesMin": 40
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00149",
+    "usuarioId": null,
+    "solicitante": "Verónica Salas Pinedo",
+    "asunto": "Cortina del auditorio trabada",
+    "descripcion": "Cortina del auditorio trabada. Se reporta en el ambiente AUD-CEN y necesita revisión del equipo técnico.",
+    "categoriaId": "mobiliario",
+    "subcategoriaId": "mob-mesa",
+    "ambiente": "AUD-CEN",
+    "prioridad": "baja",
+    "estado": "en_espera",
+    "haceMin": 2800,
+    "tecnicoId": "tec-paredes",
+    "evidencia": "",
+    "motivoEspera": "Espera proveedor",
+    "retornoEnHoras": 72,
+    "bitacora": [
+      {
+        "autor": "Verónica Salas Pinedo",
+        "rol": "usuario",
+        "texto": "Cortina del auditorio trabada. Se reporta en el ambiente AUD-CEN y necesita revisión del equipo técnico.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Julio Paredes Soto.",
+        "despuesMin": 10,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Verónica Salas Pinedo",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 10
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Julio Paredes Soto",
+        "despuesMin": 25
+      },
+      {
+        "tipo": "en_espera",
+        "autor": "Julio Paredes Soto",
+        "despuesMin": 40
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00148",
+    "usuarioId": null,
+    "solicitante": "Elena Rivas Coaguila",
+    "asunto": "Puerta de emergencia no cierra",
+    "descripcion": "Puerta de emergencia no cierra. Se reporta en el ambiente H-210 y necesita revisión del equipo técnico.",
+    "categoriaId": "accesos",
+    "subcategoriaId": "acc-cerradura",
+    "ambiente": "H-210",
+    "prioridad": "critica",
+    "estado": "cerrado",
+    "haceMin": 4500,
+    "tecnicoId": "tec-paredes",
+    "evidencia": "",
+    "resueltoHaceMin": 4000,
+    "solucion": "Problema resuelto.",
+    "cerradoHaceMin": 4000,
+    "bitacora": [
+      {
+        "autor": "Elena Rivas Coaguila",
+        "rol": "usuario",
+        "texto": "Puerta de emergencia no cierra. Se reporta en el ambiente H-210 y necesita revisión del equipo técnico.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Julio Paredes Soto.",
+        "despuesMin": 10,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Julio Paredes Soto",
+        "rol": "tecnico",
+        "texto": "Problema resuelto.",
+        "despuesMin": 500,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Elena Rivas Coaguila",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 10
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Julio Paredes Soto",
+        "despuesMin": 25
+      },
+      {
+        "tipo": "resuelto",
+        "autor": "Julio Paredes Soto",
+        "despuesMin": 500
+      },
+      {
+        "tipo": "cerrado",
+        "autor": "Julio Paredes Soto",
+        "despuesMin": 505
+      }
+    ]
+  },
+  {
     "codigo": "TCK-2026-00147",
     "usuarioId": "u-001",
     "asunto": "Proyector no enciende en aula A-201",
@@ -10,7 +834,6 @@
     "prioridad": "critica",
     "estado": "en_atencion",
     "haceMin": 95,
-    "tecnico": "Julio Paredes Soto",
     "evidencia": "",
     "bitacora": [
       {
@@ -58,7 +881,9 @@
         "autor": "Julio Paredes Soto",
         "despuesMin": 29
       }
-    ]
+    ],
+    "solicitante": "Camila Alejandra Quispe Ramos",
+    "tecnicoId": "tec-paredes"
   },
   {
     "codigo": "TCK-2026-00146",
@@ -71,7 +896,6 @@
     "prioridad": "critica",
     "estado": "abierto",
     "haceMin": 1500,
-    "tecnico": null,
     "evidencia": "",
     "bitacora": [
       {
@@ -88,7 +912,9 @@
         "autor": "Camila Quispe Ramos",
         "despuesMin": 0
       }
-    ]
+    ],
+    "solicitante": "Camila Alejandra Quispe Ramos",
+    "tecnicoId": null
   },
   {
     "codigo": "TCK-2026-00145",
@@ -101,7 +927,6 @@
     "prioridad": "alta",
     "estado": "en_espera",
     "haceMin": 3000,
-    "tecnico": "Sandra Nolasco Ríos",
     "evidencia": "",
     "bitacora": [
       {
@@ -147,7 +972,9 @@
         "autor": "Sandra Nolasco Ríos",
         "despuesMin": 240
       }
-    ]
+    ],
+    "solicitante": "Camila Alejandra Quispe Ramos",
+    "tecnicoId": "tec-nolasco"
   },
   {
     "codigo": "TCK-2026-00144",
@@ -160,7 +987,6 @@
     "prioridad": "alta",
     "estado": "cerrado",
     "haceMin": 5000,
-    "tecnico": "Iván Zegarra Pinto",
     "evidencia": "",
     "solucion": "Cambié el tomacorriente y verifiqué el circuito.",
     "cerradoHaceMin": 4200,
@@ -213,7 +1039,9 @@
         "autor": "Iván Zegarra Pinto",
         "despuesMin": 800
       }
-    ]
+    ],
+    "solicitante": "Camila Alejandra Quispe Ramos",
+    "tecnicoId": "tec-zegarra"
   },
   {
     "codigo": "TCK-2026-00143",
@@ -226,7 +1054,6 @@
     "prioridad": "media",
     "estado": "cerrado",
     "haceMin": 7000,
-    "tecnico": "Julio Paredes Soto",
     "evidencia": "",
     "solucion": "Reemplacé el cable VGA dañado.",
     "cerradoHaceMin": 6000,
@@ -279,7 +1106,9 @@
         "autor": "Julio Paredes Soto",
         "despuesMin": 1000
       }
-    ]
+    ],
+    "solicitante": "Camila Alejandra Quispe Ramos",
+    "tecnicoId": "tec-paredes"
   },
   {
     "codigo": "TCK-2026-00142",
@@ -292,7 +1121,6 @@
     "prioridad": "alta",
     "estado": "cerrado",
     "haceMin": 9000,
-    "tecnico": "Iván Zegarra Pinto",
     "evidencia": "",
     "solucion": "Lubriqué y cambié el cilindro de la chapa.",
     "cerradoHaceMin": 8000,
@@ -345,7 +1173,9 @@
         "autor": "Iván Zegarra Pinto",
         "despuesMin": 1000
       }
-    ]
+    ],
+    "solicitante": "Camila Alejandra Quispe Ramos",
+    "tecnicoId": "tec-zegarra"
   },
   {
     "codigo": "TCK-2026-00141",
@@ -358,7 +1188,6 @@
     "prioridad": "media",
     "estado": "cerrado",
     "haceMin": 12000,
-    "tecnico": "Marco Huamán Vela",
     "evidencia": "",
     "solucion": "Reparé tres sillas y reemplacé dos.",
     "cerradoHaceMin": 10500,
@@ -411,7 +1240,9 @@
         "autor": "Marco Huamán Vela",
         "despuesMin": 1500
       }
-    ]
+    ],
+    "solicitante": "Camila Alejandra Quispe Ramos",
+    "tecnicoId": "tec-huaman"
   },
   {
     "codigo": "TCK-2026-00140",
@@ -424,7 +1255,6 @@
     "prioridad": "critica",
     "estado": "cerrado",
     "haceMin": 15000,
-    "tecnico": "Rocío Espinoza Farfán",
     "evidencia": "",
     "solucion": "Sequé la zona y avisé a mantenimiento por la fuga.",
     "cerradoHaceMin": 14500,
@@ -477,7 +1307,9 @@
         "autor": "Rocío Espinoza Farfán",
         "despuesMin": 500
       }
-    ]
+    ],
+    "solicitante": "Camila Alejandra Quispe Ramos",
+    "tecnicoId": "tec-espinoza"
   },
   {
     "codigo": "TCK-2026-00139",
@@ -490,7 +1322,6 @@
     "prioridad": "media",
     "estado": "cerrado",
     "haceMin": 18000,
-    "tecnico": "Sandra Nolasco Ríos",
     "evidencia": "",
     "solucion": "Reinicié el access point y actualicé su configuración.",
     "cerradoHaceMin": 16500,
@@ -543,7 +1374,9 @@
         "autor": "Sandra Nolasco Ríos",
         "despuesMin": 1500
       }
-    ]
+    ],
+    "solicitante": "Camila Alejandra Quispe Ramos",
+    "tecnicoId": "tec-nolasco"
   },
   {
     "codigo": "TCK-2026-00138",
@@ -556,7 +1389,6 @@
     "prioridad": "baja",
     "estado": "cerrado",
     "haceMin": 21000,
-    "tecnico": "Iván Zegarra Pinto",
     "evidencia": "",
     "solucion": "Cambié los dos fluorescentes.",
     "cerradoHaceMin": 19000,
@@ -609,7 +1441,9 @@
         "autor": "Iván Zegarra Pinto",
         "despuesMin": 2000
       }
-    ]
+    ],
+    "solicitante": "Camila Alejandra Quispe Ramos",
+    "tecnicoId": "tec-zegarra"
   },
   {
     "codigo": "TCK-2026-00137",
@@ -622,7 +1456,6 @@
     "prioridad": "media",
     "estado": "cerrado",
     "haceMin": 24000,
-    "tecnico": "Marco Huamán Vela",
     "evidencia": "",
     "solucion": "Reconecté el cable de audio al amplificador.",
     "cerradoHaceMin": 22500,
@@ -675,7 +1508,9 @@
         "autor": "Marco Huamán Vela",
         "despuesMin": 1500
       }
-    ]
+    ],
+    "solicitante": "Camila Alejandra Quispe Ramos",
+    "tecnicoId": "tec-huaman"
   },
   {
     "codigo": "TCK-2026-00131",
@@ -688,7 +1523,6 @@
     "prioridad": "media",
     "estado": "cerrado",
     "haceMin": 30000,
-    "tecnico": "Rocío Espinoza Farfán",
     "evidencia": "",
     "solucion": "Limpieza profunda del ambiente y retiro de residuos del evento.",
     "cerradoHaceMin": 2880,
@@ -742,6 +1576,8 @@
         "despuesMin": 27120
       }
     ],
-    "encuestaPendiente": true
+    "encuestaPendiente": true,
+    "solicitante": "Camila Alejandra Quispe Ramos",
+    "tecnicoId": "tec-espinoza"
   }
 ]

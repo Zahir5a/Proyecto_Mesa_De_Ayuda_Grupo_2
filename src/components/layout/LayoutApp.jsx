@@ -5,7 +5,8 @@ import { useCatalogo } from '../../hooks/useCatalogo'
 import { useTickets } from '../../hooks/useTickets'
 import { CONTACTO } from '../../data/contenidoPublico'
 import { ETIQUETA_ROL, MENU_POR_ROL, rutaInicio } from '../../data/navegacion'
-import { resumenDeTickets } from '../../services/ticketsService'
+import { listarTecnicos } from '../../services/catalogoService'
+import { resumenDeCola, resumenDeTecnico, resumenDeTickets, tecnicoDeUsuario } from '../../services/ticketsService'
 import Avatar from '../ui/Avatar'
 import BuscadorTicket from './BuscadorTicket'
 import './app.css'
@@ -22,6 +23,8 @@ function LayoutApp() {
     const resumen = {
         ...usuario.resumen,
         ...(usuario.rol === 'usuario' ? resumenDeTickets(tickets, usuario.id) : {}),
+        ...(usuario.rol === 'tecnico' ? resumenDeTecnico(tickets, (tecnicoDeUsuario(usuario) ?? { id: usuario.id }).id) : {}),
+        ...(usuario.rol === 'supervisor' ? { ...resumenDeCola(tickets), bandejas: listarTecnicos().length } : {}),
         categorias: catalogo.categorias.length,
         ambientes: catalogo.ambientes.length,
     }

@@ -5,15 +5,18 @@ import TablaCategoria from '../../components/categorias/TablaCategoria'
 import ConfirmDialog from '../../components/ui/ConfirmDialog'
 import { PRIORIDADES } from '../../data/contenidoPublico'
 import { useCatalogo } from '../../hooks/useCatalogo'
+import { useTickets } from '../../hooks/useTickets'
 import { useToast } from '../../hooks/useToast'
 import { cambiarEstadoCategoria, contarCategorias } from '../../services/catalogoService'
+import { categoriasConAbiertos } from '../../utils/conteos'
 import { exportarCatalogo } from '../../utils/exportarCatalogo'
 import '../../components/ui/estadoVacio.css'
 import './catalogo.css'
 
 function CategoriasPage() {
   const navigate = useNavigate()
-  const { categorias } = useCatalogo()
+  // Los tickets abiertos por categoría salen de los tickets reales
+  const categorias = categoriasConAbiertos(useCatalogo().categorias, useTickets())
   const { exito } = useToast()
 
   // Estados para los filtros

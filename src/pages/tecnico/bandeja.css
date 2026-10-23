@@ -1,0 +1,58 @@
+.bandeja__pestanas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.bandeja__pestana {
+  height: 32px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.bandeja__pestana--activa {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+.bandeja__orden {
+  margin-left: auto;
+  font-size: 13px;
+}
+
+.bandeja__vencido {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.bandeja__enlace {
+  white-space: nowrap;
+}
+
+.bandeja__disponibles {
+  display: grid;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.bandeja__disponibles h2 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+@media (max-width: 720px) {
+  .bandeja__orden {
+    width: 100%;
+    margin-left: 0;
+  }
+}
