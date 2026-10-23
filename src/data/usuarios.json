@@ -22,7 +22,6 @@
             "limiteEncuesta": "10/09/2026"
         }
     },
-
     {
         "id": "u-002",
         "nombres": "Julio César",
@@ -33,7 +32,10 @@
         "rol": "tecnico",
         "unidad": "Infraestructura y Servicios",
         "vinculo": "administrativo",
-        "especialidades": ["audiovisuales", "redes"],
+        "especialidades": [
+            "audiovisuales",
+            "redes"
+        ],
         "estado": "activo",
         "creadoEn": "2026-02-10T08:00:00",
         "resumen": {
@@ -43,7 +45,6 @@
             "resueltosHoy": 2
         }
     },
-
     {
         "id": "u-003",
         "nombres": "Lucía",
@@ -64,5 +65,191 @@
             "ambientes": 48,
             "usuarios": 15
         }
+    },
+    {
+        "id": "u-004",
+        "nombres": "Renzo",
+        "apellidos": "Salazar Núñez",
+        "correo": "renzo.salazar@aloe.ulima.edu.pe",
+        "password": "Ulima2026",
+        "telefono": "954 118 207",
+        "rol": "usuario",
+        "unidad": "Ingeniería Industrial",
+        "vinculo": "alumno",
+        "ambienteHabitual": "",
+        "estado": "activo",
+        "creadoEn": "2026-03-18T09:30:00"
+    },
+    {
+        "id": "u-005",
+        "nombres": "Milagros",
+        "apellidos": "Ccahuana Ríos",
+        "correo": "mccahuana@ulima.edu.pe",
+        "password": "Ulima2026",
+        "telefono": "987 225 340",
+        "rol": "usuario",
+        "unidad": "Comunicaciones",
+        "vinculo": "docente",
+        "ambienteHabitual": "",
+        "estado": "activo",
+        "creadoEn": "2026-03-12T08:10:00"
+    },
+    {
+        "id": "u-006",
+        "nombres": "Marco",
+        "apellidos": "Huamán Vela",
+        "correo": "mhuaman@ulima.edu.pe",
+        "password": "Ulima2026",
+        "telefono": "962 330 114",
+        "rol": "tecnico",
+        "unidad": "Infraestructura y Servicios",
+        "vinculo": "administrativo",
+        "ambienteHabitual": "",
+        "estado": "activo",
+        "creadoEn": "2026-02-20T08:00:00",
+        "especialidades": [
+            "mobiliario",
+            "audiovisuales"
+        ]
+    },
+    {
+        "id": "u-007",
+        "nombres": "Iván",
+        "apellidos": "Zegarra Pinto",
+        "correo": "izegarra@ulima.edu.pe",
+        "password": "Ulima2026",
+        "telefono": "945 771 902",
+        "rol": "tecnico",
+        "unidad": "Infraestructura y Servicios",
+        "vinculo": "administrativo",
+        "ambienteHabitual": "",
+        "estado": "activo",
+        "creadoEn": "2026-02-20T08:05:00",
+        "especialidades": [
+            "electrico",
+            "accesos"
+        ]
+    },
+    {
+        "id": "u-008",
+        "nombres": "Sandra",
+        "apellidos": "Nolasco Ríos",
+        "correo": "snolasco@ulima.edu.pe",
+        "password": "Ulima2026",
+        "telefono": "976 405 618",
+        "rol": "tecnico",
+        "unidad": "Infraestructura y Servicios",
+        "vinculo": "administrativo",
+        "ambienteHabitual": "",
+        "estado": "activo",
+        "creadoEn": "2026-02-20T08:10:00",
+        "especialidades": [
+            "redes",
+            "climatizacion"
+        ]
+    },
+    {
+        "id": "u-009",
+        "nombres": "Rocío",
+        "apellidos": "Espinoza Farfán",
+        "correo": "respinoza@ulima.edu.pe",
+        "password": "Ulima2026",
+        "telefono": "931 662 075",
+        "rol": "tecnico",
+        "unidad": "Infraestructura y Servicios",
+        "vinculo": "administrativo",
+        "ambienteHabitual": "",
+        "estado": "activo",
+        "creadoEn": "2026-02-20T08:15:00",
+        "especialidades": [
+            "limpieza"
+        ]
+    },
+    {
+        "id": "u-010",
+        "nombres": "Diego",
+        "apellidos": "Aliaga Ferrer",
+        "correo": "diego.aliaga@aloe.ulima.edu.pe",
+        "password": "Ulima2026",
+        "telefono": "958 903 441",
+        "rol": "usuario",
+        "unidad": "Derecho",
+        "vinculo": "alumno",
+        "ambienteHabitual": "",
+        "estado": "activo",
+        "creadoEn": "2026-03-25T10:20:00"
+    },
+    {
+        "id": "u-011",
+        "nombres": "Andrea",
+        "apellidos": "Chávez Loayza",
+        "correo": "achavez@ulima.edu.pe",
+        "password": "Ulima2026",
+        "telefono": "912 084 536",
+        "rol": "usuario",
+        "unidad": "Arquitectura",
+        "vinculo": "docente",
+        "ambienteHabitual": "",
+        "estado": "activo",
+        "creadoEn": "2026-03-08T11:45:00"
+    },
+    {
+        "id": "u-012",
+        "nombres": "Pedro",
+        "apellidos": "Salcedo Ayala",
+        "correo": "psalcedo@ulima.edu.pe",
+        "password": "Ulima2026",
+        "telefono": "967 512 380",
+        "rol": "usuario",
+        "unidad": "Administración",
+        "vinculo": "administrativo",
+        "ambienteHabitual": "",
+        "estado": "bloqueado",
+        "creadoEn": "2026-03-02T09:00:00",
+        "motivoBloqueo": "Registró seis tickets duplicados del mismo ambiente en un día pese a los avisos.",
+        "bloqueadoEn": "2026-09-01T10:15:00",
+        "bloqueadoPor": "Lucía Mendoza Ríos"
+    },
+    {
+        "id": "u-013",
+        "nombres": "Rosa",
+        "apellidos": "Ticona Álvarez",
+        "correo": "rosa.ticona@aloe.ulima.edu.pe",
+        "password": "Ulima2026",
+        "telefono": "973 640 925",
+        "rol": "usuario",
+        "unidad": "Psicología",
+        "vinculo": "alumno",
+        "ambienteHabitual": "",
+        "estado": "activo",
+        "creadoEn": "2026-04-01T13:30:00"
+    },
+    {
+        "id": "u-014",
+        "nombres": "Karina",
+        "apellidos": "Bustamante Ruiz",
+        "correo": "kbustamante@ulima.edu.pe",
+        "password": "Ulima2026",
+        "telefono": "941 227 856",
+        "rol": "usuario",
+        "unidad": "Administración",
+        "vinculo": "administrativo",
+        "ambienteHabitual": "",
+        "estado": "activo",
+        "creadoEn": "2026-03-05T08:40:00"
+    },
+    {
+        "id": "u-015",
+        "nombres": "César",
+        "apellidos": "Rojas Bermúdez",
+        "correo": "cesar.rojas@aloe.ulima.edu.pe",
+        "password": "Ulima2026",
+        "telefono": "928 351 770",
+        "rol": "usuario",
+        "unidad": "Ingeniería de Sistemas",
+        "vinculo": "alumno",
+        "ambienteHabitual": "",
+        "estado": "inactivo",
+        "creadoEn": "2026-03-30T15:05:00"
     }
 ]

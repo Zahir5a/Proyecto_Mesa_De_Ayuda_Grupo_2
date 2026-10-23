@@ -85,7 +85,9 @@ export function cerrarSesion() {
 export function obtenerUsuarioSesion() {
     const id = leer('sesion', null, 'local') ?? leer('sesion', null, 'session')
     if (!id) return null
-    return buscarPorId(id)
+    const usuario = buscarPorId(id)
+    // Si el supervisor bloquea la cuenta, la sesión abierta deja de valer
+    return usuario !== null && usuario.estado === 'activo' ? usuario : null
 }
 
 export function haySesion(){

@@ -1,7 +1,7 @@
 [
   {
     "codigo": "TCK-2026-00164",
-    "usuarioId": null,
+    "usuarioId": "u-004",
     "solicitante": "Renzo Salazar Núñez",
     "asunto": "Punto de red caído en laboratorio",
     "descripcion": "Punto de red caído en laboratorio. Se reporta en el ambiente H-210 y necesita revisión del equipo técnico.",
@@ -32,7 +32,7 @@
   },
   {
     "codigo": "TCK-2026-00163",
-    "usuarioId": null,
+    "usuarioId": "u-005",
     "solicitante": "Milagros Ccahuana Ríos",
     "asunto": "Aire acondicionado sin frío",
     "descripcion": "Aire acondicionado sin frío. Se reporta en el ambiente E-304 y necesita revisión del equipo técnico.",
@@ -80,7 +80,7 @@
   },
   {
     "codigo": "TCK-2026-00162",
-    "usuarioId": null,
+    "usuarioId": "u-010",
     "solicitante": "Diego Aliaga Ferrer",
     "asunto": "Tomacorriente sin energía",
     "descripcion": "Tomacorriente sin energía. Se reporta en el ambiente N-402 y necesita revisión del equipo técnico.",
@@ -111,7 +111,7 @@
   },
   {
     "codigo": "TCK-2026-00161",
-    "usuarioId": null,
+    "usuarioId": "u-011",
     "solicitante": "Andrea Chávez Loayza",
     "asunto": "Imagen distorsionada del proyector",
     "descripcion": "Imagen distorsionada del proyector. Se reporta en el ambiente Q-101 y necesita revisión del equipo técnico.",
@@ -159,7 +159,7 @@
   },
   {
     "codigo": "TCK-2026-00160",
-    "usuarioId": null,
+    "usuarioId": "u-012",
     "solicitante": "Pedro Salcedo Ayala",
     "asunto": "Chapa de puerta trabada",
     "descripcion": "Chapa de puerta trabada. Se reporta en el ambiente H-105 y necesita revisión del equipo técnico.",
@@ -207,7 +207,7 @@
   },
   {
     "codigo": "TCK-2026-00159",
-    "usuarioId": null,
+    "usuarioId": "u-013",
     "solicitante": "Rosa Ticona Álvarez",
     "asunto": "Cinco sillas rotas en aula",
     "descripcion": "Cinco sillas rotas en aula. Se reporta en el ambiente A-201 y necesita revisión del equipo técnico.",
@@ -262,7 +262,7 @@
   },
   {
     "codigo": "TCK-2026-00158",
-    "usuarioId": null,
+    "usuarioId": "u-014",
     "solicitante": "Karina Bustamante Ruiz",
     "asunto": "Fuga de agua en baño de damas",
     "descripcion": "Fuga de agua en baño de damas. Se reporta en el ambiente BIB-P2 y necesita revisión del equipo técnico.",
@@ -420,7 +420,7 @@
   },
   {
     "codigo": "TCK-2026-00154",
-    "usuarioId": null,
+    "usuarioId": "u-015",
     "solicitante": "César Rojas Bermúdez",
     "asunto": "Luminaria parpadea",
     "descripcion": "Luminaria parpadea. Se reporta en el ambiente N-402 y necesita revisión del equipo técnico.",
