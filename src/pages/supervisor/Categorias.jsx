@@ -8,6 +8,7 @@ import { useCatalogo } from '../../hooks/useCatalogo'
 import { useToast } from '../../hooks/useToast'
 import { cambiarEstadoCategoria, contarCategorias } from '../../services/catalogoService'
 import { exportarCatalogo } from '../../utils/exportarCatalogo'
+import '../../components/ui/estadoVacio.css'
 import './catalogo.css'
 
 function CategoriasPage() {

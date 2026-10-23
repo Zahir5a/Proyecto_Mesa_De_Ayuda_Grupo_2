@@ -223,33 +223,3 @@
   text-align: center !important;
   color: var(--text-muted);
 }
-
-.estado-vacio {
-  display: grid;
-  justify-items: center;
-  gap: 12px;
-  max-width: 560px;
-  margin: 48px auto;
-  padding: 40px 32px;
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  text-align: center;
-}
-
-.estado-vacio h1 {
-  font-size: 22px;
-  line-height: 28px;
-}
-
-.estado-vacio p {
-  color: var(--text-muted);
-}
-
-.estado-vacio__icono {
-  width: 56px;
-  height: 56px;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  background-color: var(--bg);
-}

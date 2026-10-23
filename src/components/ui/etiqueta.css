@@ -1,0 +1,25 @@
+.etiqueta {
+  display: inline-block;
+  padding: 1px 8px;
+  border: 1px solid;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Prioridad: crítica, alta, media, baja */
+.etiqueta--prioridad-critica { color: var(--danger); border-color: var(--danger); background: var(--danger-soft); }
+.etiqueta--prioridad-alta { color: var(--accent); border-color: var(--accent); background: #fbeee4; }
+.etiqueta--prioridad-media { color: var(--warning-texto); border-color: var(--warning); background: var(--warning-soft); }
+.etiqueta--prioridad-baja { color: var(--info); border-color: var(--info); background: var(--primary-soft); }
+
+/* Estado del ticket */
+.etiqueta--estado-abierto { color: var(--info); border-color: var(--info); background: var(--primary-soft); }
+.etiqueta--estado-en_atencion { color: var(--warning-texto); border-color: var(--warning); background: var(--warning-soft); }
+.etiqueta--estado-en_espera { color: var(--text-muted); border-color: var(--text-muted); background: var(--bg); }
+.etiqueta--estado-resuelto,
+.etiqueta--estado-cerrado { color: var(--success); border-color: var(--success); background: var(--success-soft); }
+.etiqueta--estado-reabierto { color: var(--danger); border-color: var(--danger); background: var(--danger-soft); }
+.etiqueta--estado-cancelado { color: var(--text-muted); border-color: var(--border); background: var(--bg); }
