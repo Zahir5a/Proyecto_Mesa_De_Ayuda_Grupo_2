@@ -4,11 +4,12 @@ import './errores.css'
 // Vista 404: se dibuja dentro del marco público (cabecera y pie).
 function NoEncontrado() {
     return (
-        <div className="tarjeta estado-pagina">
+        <div className="tarjeta estado-pagina estado-pagina--izquierda">
             <span className="estado-pagina__codigo">404</span>
             <h1>No encontramos esta página</h1>
             <p className="texto-aux">
-                El enlace puede haber cambiado. Si buscabas un ticket, ingresa su código en el buscador de tu panel.
+                El enlace puede haber cambiado. Si buscabas un ticket, ingresa su código en el buscador de la
+                cabecera.
             </p>
             <div className="formulario__acciones">
                 <Link to="/" className="boton boton--primario">Ir al inicio</Link>
