@@ -24,3 +24,16 @@ export function buscarPorId(id) {
     const encontrado = usuarios.find((u) => u.id === id)
     return encontrado ?? null
 }
+
+export function crearUsuario(datos) {
+    const usuarios = cargar()
+    const nuevo = {
+        ...datos,
+        id: 'u-' + Date.now(),
+        correo: datos.correo.trim().toLowerCase(),
+        estado: 'activo',
+        creadoEn: new Date().toISOString(),
+    }
+    guardar('usuarios', [...usuarios, nuevo])
+    return nuevo
+}

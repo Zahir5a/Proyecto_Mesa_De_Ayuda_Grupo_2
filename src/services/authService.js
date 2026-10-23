@@ -34,3 +34,12 @@ export function haySesion(){
     if (obtenerUsuarioSesion() !== null) return true
     return false
 }
+
+export function registrarUsuario(datos) {
+    if (!correoDisponible(datos.correo)) {
+        return { ok: false, motivo: 'correo_en_uso' }
+    }
+    const usuario = crearUsuario({ ...datos, rol: 'usuario' })
+    guardarSesion(usuario.id)
+    return { ok: true, usuario }
+}
