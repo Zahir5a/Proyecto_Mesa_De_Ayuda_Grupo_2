@@ -6,6 +6,7 @@ import { useToast } from '../../hooks/useToast'
 import { rutaInicio } from '../../data/navegacion'
 import { CONTACTO } from '../../data/contenidoPublico'
 import { MINUTOS_BLOQUEO } from '../../services/authService'
+import { obtenerTickets, resumenDeTickets } from '../../services/ticketsService'
 import { REGEX_CORREO } from '../../utils/validaciones'
 import { formatearHora } from '../../utils/formato'
 import Campo, { CampoCasilla } from '../../components/ui/Campo'
@@ -23,10 +24,11 @@ function validar(v) {
 
 function mensajeBienvenida(usuario) {
     const nombre = usuario.nombres.split(' ')[0]
-    const resumen = usuario.resumen
-    if (resumen && resumen.ticketsAbiertos !== undefined) {
-        return 'Hola, ' + nombre + '. Tienes ' + resumen.ticketsAbiertos + ' tickets abiertos y '
-            + resumen.encuestaPendiente + ' encuesta pendiente.'
+    if (usuario.rol === 'usuario') {
+        const resumen = resumenDeTickets(obtenerTickets(), usuario.id)
+        const abiertos = resumen.ticketsAbiertos + (resumen.ticketsAbiertos === 1 ? ' ticket abierto' : ' tickets abiertos')
+        const encuestas = resumen.encuestaPendiente + (resumen.encuestaPendiente === 1 ? ' encuesta pendiente' : ' encuestas pendientes')
+        return 'Hola, ' + nombre + '. Tienes ' + abiertos + ' y ' + encuestas + '.'
     }
     return 'Hola, ' + nombre + '. Iniciaste sesión correctamente.'
 }

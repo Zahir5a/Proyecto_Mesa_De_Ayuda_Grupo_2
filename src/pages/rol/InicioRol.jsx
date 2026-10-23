@@ -19,7 +19,7 @@ function InicioRol() {
                 {accesos.map((acceso) => (
                     <Link key={acceso.ruta} to={acceso.ruta} className="tarjeta acceso">
                         <strong>{acceso.etiqueta}</strong>
-                        <span className="insignia insignia--gris">En construcción</span>
+                        {!acceso.lista && <span className="insignia insignia--gris">En construcción</span>}
                     </Link>
                 ))}
             </div>
