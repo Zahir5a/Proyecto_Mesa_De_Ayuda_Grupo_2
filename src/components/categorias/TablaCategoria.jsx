@@ -1,10 +1,8 @@
 // src/components/categorias/TablaCategoria.jsx
 import { useState } from 'react'
-import datos from '../../data/catalogoCategorias.json'
 import './TablaCategoria.css'
 
-function TablaCategoria({ busqueda, soloActivas, prioridad }) {
-  const { categorias } = datos
+function TablaCategoria({ categorias, busqueda, soloActivas, prioridad }) {
   const [paginaActual, setPaginaActual] = useState(1)
   const filasPorPagina = 13
 
@@ -23,6 +21,10 @@ function TablaCategoria({ busqueda, soloActivas, prioridad }) {
     if (busqueda && !fila.nombre.toLowerCase().includes(busqueda.toLowerCase())) {
       return false
     }
+    // Filtro de solo activas
+    if (soloActivas && fila.estado !== 'activa') {
+      return false
+    }
     // Filtro de prioridad
     if (prioridad !== 'todas' && fila.prioridad.toLowerCase() !== prioridad) {
       return false
@@ -32,10 +34,15 @@ function TablaCategoria({ busqueda, soloActivas, prioridad }) {
 
   // 3. Paginación
   const totalFilas = filasFiltradas.length
-  const totalPaginas = Math.ceil(totalFilas / filasPorPagina)
-  const inicio = (paginaActual - 1) * filasPorPagina
+  const totalPaginas = Math.max(1, Math.ceil(totalFilas / filasPorPagina))
+  // Si los filtros dejan menos páginas, volvemos a la última que exista
+  const pagina = Math.min(paginaActual, totalPaginas)
+  const inicio = (pagina - 1) * filasPorPagina
   const fin = inicio + filasPorPagina
   const filasPagina = filasFiltradas.slice(inicio, fin)
+
+  const totalCategorias = filasFiltradas.filter(f => f.esCategoria).length
+  const totalSubcategorias = totalFilas - totalCategorias
 
   return (
     <div className="tabla-container">
@@ -61,10 +68,12 @@ function TablaCategoria({ busqueda, soloActivas, prioridad }) {
                   {fila.prioridad}
                 </span>
               </td>
-              <td>{fila.tiempoEsperado} hhábiles</td>
+              <td>{fila.tiempoEsperado} h hábiles</td>
               <td className="col-numero">{fila.ticketsAbiertos}</td>
               <td>
-                <span className="badge estado-activa">Activa</span>
+                <span className={`badge estado-${fila.estado}`}>
+                  {fila.estado === 'activa' ? 'Activa' : 'Inactiva'}
+                </span>
               </td>
               <td className="col-acciones">
                 <button className="btn-link btn-editar">Editar</button>
@@ -78,13 +87,24 @@ function TablaCategoria({ busqueda, soloActivas, prioridad }) {
       {/* Footer con paginación */}
       <div className="tabla-footer">
         <span className="tabla-info">
-           Mostrando 13 de 26 filas · 7 categorías y 19 subcategorías
+          Mostrando {filasPagina.length} de {totalFilas} filas · {totalCategorias} categorías y {totalSubcategorias} subcategorías
         </span>
         <div className="paginacion">
-            <button>Anterior</button>
-            <button className="activo">1</button>
-            <button>2</button>
-            <button>Siguiente</button>
+          <button disabled={pagina === 1} onClick={() => setPaginaActual(pagina - 1)}>
+            Anterior
+          </button>
+          {Array.from({ length: totalPaginas }, (_, i) => i + 1).map(numero => (
+            <button
+              key={numero}
+              className={numero === pagina ? 'activo' : ''}
+              onClick={() => setPaginaActual(numero)}
+            >
+              {numero}
+            </button>
+          ))}
+          <button disabled={pagina === totalPaginas} onClick={() => setPaginaActual(pagina + 1)}>
+            Siguiente
+          </button>
         </div>
       </div>
     </div>

@@ -99,9 +99,8 @@
   border-color: #22C55E;
 }
 /* 5. Acciones */
-.col-acciones {
-  display: flex;
-  gap: 12px; /* ← Espacio entre Editar y Desactivar */
+.col-acciones .btn-link + .btn-link {
+  margin-left: 12px; /* Espacio entre Editar y Desactivar */
 }
 
 .btn-link {
@@ -174,4 +173,9 @@
 .paginacion button:disabled {
   opacity: 0.4;
   cursor: not-allowed;
+}
+.estado-inactiva {
+  background-color: var(--bg);
+  color: var(--text-muted);
+  border-color: var(--border);
 }

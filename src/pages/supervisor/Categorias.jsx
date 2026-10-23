@@ -76,6 +76,8 @@ function CategoriasPage() {
   }
 
   // Si NO está en modo formulario, mostrar la tabla
+  const totalSubcategorias = categorias.reduce((total, c) => total + c.subcategorias.length, 0)
+
   return (
     <div className="categorias-page">
       
@@ -84,7 +86,7 @@ function CategoriasPage() {
         <div className="page-title-group">
           <h1 className="page-title">Categorías de servicio</h1>
           <p className="page-subtitle">
-            7 categorías activas · 19 subcategorías · la prioridad por defecto se aplica a cada ticket nuevo.
+            {categorias.filter(c => c.estado === 'activa').length} categorías activas · {totalSubcategorias} subcategorías · la prioridad por defecto se aplica a cada ticket nuevo.
           </p>
         </div>
         
