@@ -149,7 +149,7 @@ function Satisfaccion() {
                     <div className="satisfaccion__tablas">
                         <section className="tabla-container">
                             <div className="tabla-desplazable">
-                                <table className="tabla-categorias">
+                                <table className="tabla-categorias tabla-satisfaccion tabla-satisfaccion--tecnicos">
                                     <thead>
                                         <tr>
                                             <th>TÉCNICO</th><th>CATEGORÍA PRINCIPAL</th><th>GENERAL</th><th>RAPIDEZ</th><th>TRATO</th><th>SOLUCIÓN</th><th>ENCUESTAS</th>
@@ -180,7 +180,7 @@ function Satisfaccion() {
 
                         <section className="tabla-container">
                             <div className="tabla-desplazable">
-                                <table className="tabla-categorias">
+                                <table className="tabla-categorias tabla-satisfaccion">
                                     <thead>
                                         <tr><th>CATEGORÍA</th><th>GENERAL</th><th>RAPIDEZ</th><th>TRATO</th><th>SOLUCIÓN</th><th>ENCUESTAS</th></tr>
                                     </thead>

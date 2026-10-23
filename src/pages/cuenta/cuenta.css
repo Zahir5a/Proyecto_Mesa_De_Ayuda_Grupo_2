@@ -11,7 +11,7 @@
 
 .cuenta__principal h2 {
     margin-bottom: 16px;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 24px;
 }
 
@@ -48,7 +48,7 @@
     justify-content: space-between;
     padding: 10px 0;
     border-bottom: 1px solid var(--border);
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .cuenta__datos div:last-child {

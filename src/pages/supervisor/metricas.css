@@ -19,7 +19,7 @@
 
 .indicador__valor {
   margin: 6px 0 2px;
-  font-size: 34px;
+  font-size: 44px;
   font-weight: 600;
   line-height: 40px;
 }
@@ -27,7 +27,7 @@
 .indicador__nota {
   margin: 0;
   color: var(--text-muted);
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .indicador--alerta {
@@ -53,7 +53,7 @@
 
 .graficos h2 {
   margin: 0 0 16px;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 24px;
 }
 
@@ -76,7 +76,7 @@
 }
 
 .anillo__etiqueta {
-  font-size: 11px;
+  font-size: 12px;
   fill: var(--text-muted);
 }
 
@@ -86,7 +86,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .leyenda__color {
@@ -109,7 +109,7 @@
   display: flex;
   justify-content: space-between;
   margin: 0 0 4px;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .barras-h__relleno {

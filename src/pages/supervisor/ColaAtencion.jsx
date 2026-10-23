@@ -65,7 +65,7 @@ function ColaAtencion() {
     }
 
     return (
-        <div>
+        <div className="pagina-ancha">
             <div className="tickets__encabezado">
                 <div>
                     <h1>Cola de atención</h1>

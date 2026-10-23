@@ -107,7 +107,7 @@ function BandejaTecnico({ estadoInicial = null }) {
     const categoriasPropias = tecnico.categorias.map(nombreCategoria).join(' y ')
 
     return (
-        <div>
+        <div className="pagina-ancha">
             <div className="tickets__encabezado">
                 <div>
                     <h1>{estadoInicial ? TITULOS[estadoInicial] : 'Mi bandeja'}</h1>
@@ -153,7 +153,7 @@ function BandejaTecnico({ estadoInicial = null }) {
             ) : (
                 <div className="tabla-container">
                     <div className="tabla-desplazable">
-                        <table className="tabla-categorias tabla-cola">
+                        <table className="tabla-categorias tabla-cola tabla-bandeja">
                             <thead>
                                 <tr>
                                     <th aria-label="Prioridad" />

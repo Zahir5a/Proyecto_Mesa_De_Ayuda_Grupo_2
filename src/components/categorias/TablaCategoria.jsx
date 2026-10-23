@@ -51,7 +51,7 @@ function TablaCategoria({ categorias, busqueda, soloActivas, prioridad, onEditar
 
   return (
     <div className="tabla-container">
-      <table className="tabla-categorias">
+      <table className="tabla-categorias tabla-catalogo">
         <thead>
           <tr>
             <th>CATEGORÍA · SUBCATEGORÍA</th>

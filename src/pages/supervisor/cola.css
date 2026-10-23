@@ -12,7 +12,7 @@
   border-radius: 4px;
   background: var(--surface);
   font: inherit;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   cursor: pointer;
 }
@@ -49,7 +49,7 @@
   background: var(--surface);
   color: var(--text);
   font: inherit;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .cola__chips {
@@ -68,7 +68,7 @@
   border-radius: 4px;
   background: var(--primary-soft);
   color: var(--primary);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -126,7 +126,7 @@
   background: transparent;
   color: #fff;
   font: inherit;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
 }
@@ -141,7 +141,7 @@
   background: none;
   color: rgba(255, 255, 255, 0.85);
   font: inherit;
-  font-size: 13px;
+  font-size: 14px;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -150,7 +150,7 @@
 .modal__subtitulo {
   margin: 4px 0 0;
   color: var(--text-muted);
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .modal__contenido {
@@ -174,7 +174,7 @@
   padding: 10px 12px;
   border: 1px solid var(--border);
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 15px;
   cursor: pointer;
 }
 

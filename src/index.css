@@ -61,9 +61,14 @@ a:hover {
 }
 
 .texto-aux {
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 15px;
+  line-height: 22px;
   color: var(--text-muted);
+}
+
+span.texto-aux {
+  font-size: 14px;
+  line-height: 20px;
 }
 
 hr {
@@ -85,7 +90,7 @@ hr {
   background: var(--surface);
   color: var(--primary);
   font: inherit;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   text-decoration: none;
   cursor: pointer;
@@ -132,7 +137,7 @@ hr {
 .boton--chico {
   min-height: 40px;
   padding: 0 16px;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .boton--bloque {
@@ -158,6 +163,31 @@ hr {
   border-radius: 4px;
 }
 
+/* Pantalla de inicio de cada rol: atajos a las secciones del menú */
+.rejilla-accesos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.acceso {
+  display: block;
+  padding: 20px 24px;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.acceso:hover {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  text-decoration: none;
+}
+
+.texto-aux + .rejilla-accesos {
+  margin-top: 24px;
+}
+
 .tarjeta--formulario {
   display: grid;
   gap: 16px;
@@ -166,7 +196,7 @@ hr {
 }
 
 .tarjeta--formulario h1 {
-  font-size: 20px;
+  font-size: 28px;
   line-height: 28px;
 }
 
@@ -225,7 +255,7 @@ hr {
 
 .campo__control {
   width: 100%;
-  min-height: 44px;
+  min-height: 45px;
   padding: 10px 14px;
   border: 1px solid var(--border);
   border-radius: 4px;
@@ -309,7 +339,7 @@ select.campo__control {
   align-items: flex-start;
   gap: 10px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .casilla input {
@@ -497,7 +527,7 @@ fieldset {
   background: var(--surface);
   color: var(--text-muted);
   font: inherit;
-  font-size: 14px;
+  font-size: 15px;
   cursor: pointer;
 }
 

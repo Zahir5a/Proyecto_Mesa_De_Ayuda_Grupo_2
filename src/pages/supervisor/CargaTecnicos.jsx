@@ -54,7 +54,7 @@ function CargaTecnicos() {
 
             <div className="tabla-container">
                 <div className="tabla-desplazable">
-                    <table className="tabla-categorias">
+                    <table className="tabla-categorias tabla-carga">
                         <thead>
                             <tr>
                                 <th>TÉCNICO</th><th>ESPECIALIDAD</th><th>ASIGNADOS</th><th>RESUELTOS</th><th>EN ESPERA</th>

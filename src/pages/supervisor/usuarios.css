@@ -5,7 +5,7 @@
 
 .usuarios__aviso {
   margin-bottom: 14px;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .usuarios__casilla {
@@ -44,7 +44,7 @@
 
 .ficha__rejilla h2 {
   margin: 0 0 12px;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 24px;
 }
 
@@ -67,7 +67,7 @@
 
 .ficha__cifras p {
   margin: 4px 0 0;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 600;
 }
 

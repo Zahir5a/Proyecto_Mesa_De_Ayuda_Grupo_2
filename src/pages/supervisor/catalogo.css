@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-between; /* Título a la izq, botones a la der */
   align-items: flex-start;
-  margin-bottom: 24px;
+  margin-bottom: 17px;
   margin-top: 0; /* 👈 Asegura que no haya espacio extra arriba */
 }
 
@@ -23,11 +23,11 @@
   font-size: 28px;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 
 .page-subtitle {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-muted);
   margin: 0;
 }
@@ -36,13 +36,14 @@
   display: flex;
   gap: 12px;
   flex-shrink: 0;
+  margin-top: 10px;
 }
 
 /* Botones */
 .btn {
   padding: 10px 20px;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   cursor: pointer;
   font-family: inherit;
@@ -50,8 +51,8 @@
 
 .btn-secondary {
   background-color: var(--surface);
-  color: var(--text);
-  border: 1px solid var(--border);
+  color: var(--primary);
+  border: 1px solid var(--primary);
 }
 
 .btn-secondary:hover {
@@ -91,7 +92,7 @@
   padding: 8px 16px;
   border: 1px solid var(--border);
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 15px;
   font-family: inherit;
   background-color: var(--surface); 
   color: var(--text); 
@@ -113,7 +114,7 @@
   color: var(--primary);
   border: 1px solid var(--primary);
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   cursor: pointer;
   font-family: inherit;
@@ -133,7 +134,7 @@
   padding: 8px 32px 8px 16px !important;  /* ← Padding controlado */
   border: 1px solid var(--border);
   border-radius: 4px;
-  font-size: 14px !important;
+  font-size: 15px !important;
   font-family: inherit;
   background-color: var(--surface);
   cursor: pointer;
@@ -154,7 +155,7 @@
 
 .filtro-select option {
   padding: 8px;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 /* Texto "Filtros activos" a la derecha */
@@ -164,7 +165,7 @@
 }
 
 .filtros-info {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-muted);
 }
 
@@ -173,7 +174,7 @@
   border: none;
   color: var(--primary);
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-family: inherit;
   text-decoration: underline;
   padding: 0;
@@ -187,7 +188,7 @@
   padding: 8px 32px 8px 12px;
   border: 1px solid var(--border);
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 15px;
   font-family: inherit;
   background-color: var(--surface);
   color: var(--text);
