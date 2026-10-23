@@ -2,8 +2,10 @@ import { Link, NavLink, Outlet } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 import { useToast } from '../../hooks/useToast'
 import { useCatalogo } from '../../hooks/useCatalogo'
+import { useTickets } from '../../hooks/useTickets'
 import { CONTACTO } from '../../data/contenidoPublico'
 import { ETIQUETA_ROL, MENU_POR_ROL, rutaInicio } from '../../data/navegacion'
+import { resumenDeTickets } from '../../services/ticketsService'
 import Avatar from '../ui/Avatar'
 import BuscadorTicket from './BuscadorTicket'
 import './app.css'
@@ -14,9 +16,12 @@ function LayoutApp() {
     const menu = MENU_POR_ROL[usuario.rol]
     const inicio = rutaInicio(usuario.rol)
     const catalogo = useCatalogo()
+    const tickets = useTickets()
     // Los contadores del catálogo salen de los datos reales, para que cambien al crear o borrar.
+    // Los contadores de tickets del usuario también salen de sus tickets reales (HU-3).
     const resumen = {
         ...usuario.resumen,
+        ...(usuario.rol === 'usuario' ? resumenDeTickets(tickets, usuario.id) : {}),
         categorias: catalogo.categorias.length,
         ambientes: catalogo.ambientes.length,
     }

@@ -10,6 +10,10 @@ import LayoutApp from './components/layout/LayoutApp';
 import NoEncontrado from './pages/errores/NoEncontrado';
 import InicioRol from './pages/rol/InicioRol';
 import PaginaPendiente from './pages/rol/PaginaPendiente';
+import NuevoTicket from './pages/usuario/NuevoTicket';
+import TicketRegistrado from './pages/usuario/TicketRegistrado';
+import MisTickets from './pages/usuario/MisTickets';
+import DetalleTicket from './pages/usuario/DetalleTicket';
 import Categorias from './pages/supervisor/Categorias';
 import CategoriaFormulario from './pages/supervisor/CategoriaFormulario';
 import Ambientes from './pages/supervisor/Ambientes';
@@ -39,6 +43,10 @@ function App() {
           <Route path="/cuenta" element={<MiCuenta />}/>
           <Route element={<RequiereRol roles={['usuario']} />}>
             <Route path="/usuario" element={<InicioRol />}/>
+            <Route path="/usuario/nuevo-ticket" element={<NuevoTicket />}/>
+            <Route path="/usuario/tickets" element={<MisTickets />}/>
+            <Route path="/usuario/tickets/:codigo" element={<DetalleTicket />}/>
+            <Route path="/usuario/tickets/:codigo/registrado" element={<TicketRegistrado />}/>
             <Route path="/usuario/*" element={<PaginaPendiente />}/>
           </Route>
           <Route element={<RequiereRol roles={['tecnico']} />}>

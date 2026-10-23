@@ -4,6 +4,8 @@ import { useFormulario } from '../../hooks/useFormulario'
 import { useToast } from '../../hooks/useToast'
 import { UNIDADES, nombreCategoria } from '../../data/catalogos'
 import { useCatalogo } from '../../hooks/useCatalogo'
+import { useTickets } from '../../hooks/useTickets'
+import { encuestaPendiente, resumenDeTickets } from '../../services/ticketsService'
 import { ETIQUETA_ROL } from '../../data/navegacion'
 import { formatearFecha } from '../../utils/formato'
 import { validarTelefono } from '../../utils/validaciones'
@@ -23,8 +25,7 @@ function validar(v) {
 }
 
 // Datos que se muestran en la tarjeta de perfil según el rol.
-function filasResumen(usuario) {
-    const r = usuario.resumen || {}
+function filasResumen(usuario, r) {
     if (usuario.rol === 'tecnico') {
         return [['Asignados', r.asignados ?? 0], ['En atención', r.enAtencion ?? 0]]
     }
@@ -49,7 +50,11 @@ function MiCuenta() {
         },
         validar
     )
-    const resumen = usuario.resumen || {}
+    // Para un usuario, las cifras salen de sus tickets reales (HU-3)
+    const tickets = useTickets()
+    const esUsuario = usuario.rol === 'usuario'
+    const resumen = { ...usuario.resumen, ...(esUsuario ? resumenDeTickets(tickets, usuario.id) : {}) }
+    const encuesta = esUsuario ? encuestaPendiente(tickets, usuario.id) : null
     const rol = ETIQUETA_ROL[usuario.rol]
 
     function guardar(e) {
@@ -129,7 +134,7 @@ function MiCuenta() {
                             {usuario.rol === 'usuario' && usuario.vinculo === 'administrativo' && ' · administrativo'}
                         </span>
                         <dl className="cuenta__datos">
-                            {filasResumen(usuario).map(([nombre, valor]) => (
+                            {filasResumen(usuario, resumen).map(([nombre, valor]) => (
                                 <div key={nombre}>
                                     <dt>{nombre}</dt>
                                     <dd>{valor}</dd>
@@ -142,12 +147,12 @@ function MiCuenta() {
                         </dl>
                     </div>
 
-                    {usuario.rol === 'usuario' && resumen.encuestaPendiente > 0 && (
+                    {encuesta && (
                         <div className="cuenta__encuesta">
                             <strong>Encuesta pendiente</strong>
                             <p>
-                                El ticket {resumen.ticketPendiente} se cerró el {resumen.cerradoEl}. Califica la
-                                atención antes del {resumen.limiteEncuesta}.
+                                El ticket {encuesta.codigo} se cerró el {formatearFecha(encuesta.cerradoEn)}. Califica la
+                                atención antes del {formatearFecha(encuesta.limite)}.
                             </p>
                             <Link to="/usuario/encuesta-pendiente" className="boton boton--aviso">Responder encuesta</Link>
                         </div>
