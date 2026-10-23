@@ -33,12 +33,6 @@ export function validarConfirmacion(password, confirmacion) {
     return ''
 }
 
-export function soloErrores(errores) {
-    return Object.fromEntries(
-        Object.entries(errores).filter(([, mensaje]) => mensaje)
-    )
-}
-
 // 0 = vacía, 1 = débil (no cumple la regla), 2 = media, 3 = segura.
 export const ETIQUETA_FUERZA = ['', 'Débil', 'Media', 'Segura']
 

@@ -8,7 +8,7 @@ import {
     verificarPassword,
 } from './usuariosService'
 
-export const MAX_INTENTOS = 5
+const MAX_INTENTOS = 5
 export const MINUTOS_BLOQUEO = 15
 
 // ---- Intentos fallidos: se cuentan por correo, exista o no la cuenta ----
@@ -17,7 +17,7 @@ function leerIntentos() {
     return leer('intentos', {})
 }
 
-export function limpiarIntentos(correo) {
+function limpiarIntentos(correo) {
     const intentos = leerIntentos()
     delete intentos[correo.trim().toLowerCase()]
     guardar('intentos', intentos)
@@ -88,11 +88,6 @@ export function obtenerUsuarioSesion() {
     const usuario = buscarPorId(id)
     // Si el supervisor bloquea la cuenta, la sesión abierta deja de valer
     return usuario !== null && usuario.estado === 'activo' ? usuario : null
-}
-
-export function haySesion(){
-    if (obtenerUsuarioSesion() !== null) return true
-    return false
 }
 
 // ---- Cuenta ----

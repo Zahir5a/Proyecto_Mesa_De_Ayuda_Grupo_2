@@ -55,11 +55,6 @@ function crearId(nombre) {
 
 // ---------- Categorías y subcategorías ----------
 
-// Una subcategoría está activa solo si ella y su categoría lo están.
-export function estaActiva(categoria, padre = null) {
-    return categoria.estado === 'activa' && (padre === null || padre.estado === 'activa')
-}
-
 export function buscarCategoria(id) {
     for (const categoria of cargar().categorias) {
         if (categoria.id === id) return { categoria, padre: null }

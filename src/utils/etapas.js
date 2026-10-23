@@ -4,7 +4,7 @@ const ESTADOS_DEL_FLUJO = ['abierto', 'reabierto', 'en_atencion', 'en_espera', '
 const MINUTO = 60000
 
 // Una etapa por cada cambio de estado; dura hasta el siguiente cambio (o hasta ahora si sigue en curso).
-export function etapasDe(ticket, ahora = Date.now()) {
+function etapasDe(ticket, ahora = Date.now()) {
     const cambios = ticket.historial
         .filter((e) => ESTADOS_DEL_FLUJO.includes(e.tipo))
         .sort((a, b) => new Date(a.fecha) - new Date(b.fecha))
