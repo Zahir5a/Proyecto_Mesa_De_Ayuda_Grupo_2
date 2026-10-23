@@ -4,6 +4,7 @@ import Login from './pages/auth/Login';
 import Registro from './pages/auth/Registro';
 import RecuperarPassword from './pages/auth/RecuperarPassword';
 import AltaInvitacion from './pages/auth/AltaInvitacion';
+import ComoReportar from './pages/publico/ComoReportar';
 import LayoutPublico from './components/layout/LayoutPublico';
 import LayoutApp from './components/layout/LayoutApp';
 import NoEncontrado from './pages/errores/NoEncontrado';
@@ -18,6 +19,7 @@ function App() {
     <Routes>
       <Route element={<LayoutPublico />}>
         <Route path="/" element={<Landing />}/>
+        <Route path="/como-reportar" element={<ComoReportar />}/>
         <Route element={<RutaSoloVisitante />}>
           <Route path="/login" element={<Login />}/>
           <Route path="/registro" element={<Registro />}/>
