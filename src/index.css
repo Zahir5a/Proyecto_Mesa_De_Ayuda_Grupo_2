@@ -18,7 +18,6 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: system-ui, sans-serif;
   font-size: 15px;
   font-family: 'IBM Plex Sans', system-ui, sans-serif;
 }
