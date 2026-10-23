@@ -1,0 +1,89 @@
+/* Disposición de las pantallas de acceso: login, registro, invitación y recuperación. */
+.auth {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    gap: 54px;
+    min-height: calc(100vh - 72px - 245px - 80px);
+}
+
+.auth--login {
+    grid-template-columns: 604px 420px;
+}
+
+.auth--registro {
+    grid-template-columns: 893px 389px;
+    gap: 32px;
+    align-items: start;
+}
+
+.auth--simple {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+}
+
+.auth__tarjeta {
+    width: 100%;
+}
+
+.auth__tarjeta--invitacion {
+    max-width: 834px;
+}
+
+.auth__tarjeta--recuperar {
+    max-width: 702px;
+}
+
+.auth__titulo {
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.auth__lateral {
+    display: grid;
+    gap: 14px;
+}
+
+.auth__lateral h2 {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.auth__lateral--tarjeta {
+    align-content: start;
+    padding: 28px 32px;
+}
+
+.auth__pie {
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.nota {
+    padding: 14px 18px;
+    border-left: 3px solid var(--primary);
+    background: var(--primary-soft);
+    color: var(--primary);
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.formulario__fila a {
+    font-size: 14px;
+}
+
+@media (max-width: 1100px) {
+    .auth,
+    .auth--login,
+    .auth--registro {
+        grid-template-columns: minmax(0, 1fr);
+        min-height: 0;
+        align-items: start;
+    }
+
+    .auth__tarjeta--invitacion,
+    .auth__tarjeta--recuperar {
+        max-width: none;
+    }
+}

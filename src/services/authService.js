@@ -41,7 +41,7 @@ function registrarFallo(clave) {
 
 // ---- Iniciar sesión ----
 
-export function iniciarSesion(correo, password) {
+export function iniciarSesion(correo, password, recordar = true) {
     const clave = correo.trim().toLowerCase()
 
     const intento = leerIntentos()[clave]
@@ -66,22 +66,24 @@ export function iniciarSesion(correo, password) {
 
     limpiarIntentos(clave)
     const actualizado = actualizarUsuario(usuario.id, { ultimoAcceso: new Date().toISOString() })
-    guardarSesion(usuario.id)
+    guardarSesion(usuario.id, recordar)
     return { ok: true, usuario: actualizado }
 }
 
-// ---- Sesión ----
+// ---- Sesión: "Recordarme" la guarda en localStorage; si no, solo dura la pestaña ----
 
-export function guardarSesion(idUsuario) {
-    guardar('sesion', idUsuario)
+export function guardarSesion(idUsuario, recordar = true) {
+    cerrarSesion()
+    guardar('sesion', idUsuario, recordar ? 'local' : 'session')
 }
 
 export function cerrarSesion() {
-    borrar('sesion')
+    borrar('sesion', 'local')
+    borrar('sesion', 'session')
 }
 
 export function obtenerUsuarioSesion() {
-    const id = leer('sesion', null)
+    const id = leer('sesion', null, 'local') ?? leer('sesion', null, 'session')
     if (!id) return null
     return buscarPorId(id)
 }

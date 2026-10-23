@@ -262,7 +262,7 @@ hr {
   position: relative;
 }
 
-.campo__envoltorio .campo__control {
+.campo__envoltorio--clave .campo__control {
   padding-right: 88px;
 }
 

@@ -1,23 +1,28 @@
-export function leer(nombre, defecto) {
+// Acceso al navegador: 'local' guarda aunque se cierre el navegador; 'session' solo mientras dure la pestaña.
+function cajon(almacen) {
+    return almacen === 'session' ? sessionStorage : localStorage
+}
+
+export function leer(nombre, defecto, almacen = 'local') {
     try {
-        const texto = localStorage.getItem('mda.' + nombre)
+        const texto = cajon(almacen).getItem('mda.' + nombre)
         return texto ? JSON.parse(texto) : defecto
     } catch {
         return defecto
     }
 }
 
-export function guardar(nombre, valor) {
+export function guardar(nombre, valor, almacen = 'local') {
     try {
-        localStorage.setItem('mda.' + nombre, JSON.stringify(valor))
+        cajon(almacen).setItem('mda.' + nombre, JSON.stringify(valor))
     } catch {
         // sin almacenamiento disponible
     }
 }
 
-export function borrar(nombre) {
+export function borrar(nombre, almacen = 'local') {
     try {
-        localStorage.removeItem('mda.' + nombre)
+        cajon(almacen).removeItem('mda.' + nombre)
     } catch {
         // sin almacenamiento disponible
     }

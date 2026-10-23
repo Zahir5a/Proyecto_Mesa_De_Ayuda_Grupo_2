@@ -14,8 +14,8 @@ import { actualizarUsuario } from '../services/usuariosService'
 function AuthProvider({ children }) {
     const [usuario, setUsuario] = useState(() => obtenerUsuarioSesion())
 
-    function iniciarSesion(correo, password) {
-        const resultado = iniciarSesionServicio(correo, password)
+    function iniciarSesion(correo, password, recordar) {
+        const resultado = iniciarSesionServicio(correo, password, recordar)
         if (resultado.ok) {
             setUsuario(resultado.usuario)
         }
