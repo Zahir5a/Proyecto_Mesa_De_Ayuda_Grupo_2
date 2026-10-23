@@ -1,0 +1,160 @@
+/* ---- Encuestas de satisfacción (HU-6) ---- */
+.puntaje {
+  display: flex;
+  gap: 8px;
+}
+
+.puntaje__boton {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.puntaje__boton:hover {
+  background: var(--bg);
+}
+
+.puntaje__boton--elegido {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.puntaje--grande .puntaje__boton {
+  width: 52px;
+  height: 52px;
+  font-size: 20px;
+}
+
+.encuesta__general {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.encuesta__etiqueta {
+  font-size: 14px;
+}
+
+.encuesta__aspectos {
+  display: grid;
+  gap: 12px;
+}
+
+.encuesta__aspecto {
+  display: grid;
+  grid-template-columns: 180px auto 1fr;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.encuesta__codigo {
+  margin: 0 0 4px;
+  font-size: 20px;
+}
+
+.encuestas__pendiente {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.encuestas__puntaje {
+  color: var(--primary);
+}
+
+/* Satisfacción por técnico y categoría */
+.satisfaccion__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.satisfaccion__rejilla {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 20px;
+  align-items: start;
+}
+
+.satisfaccion__tablas {
+  display: grid;
+  gap: 20px;
+}
+
+.satisfaccion__nota {
+  margin: 0;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.satisfaccion__comentarios {
+  padding: 20px 24px;
+}
+
+.satisfaccion__comentarios h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.comentarios {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.comentarios__item {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.comentarios__item p {
+  margin: 4px 0 0;
+}
+
+.comentarios__cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.puntaje-bueno { color: var(--success); }
+.puntaje-medio { color: var(--warning-texto); }
+.puntaje-malo { color: var(--danger); }
+
+@media (max-width: 1280px) {
+  .satisfaccion__rejilla {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .encuesta__aspecto {
+    grid-template-columns: 1fr;
+  }
+
+  .encuestas__pendiente {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
