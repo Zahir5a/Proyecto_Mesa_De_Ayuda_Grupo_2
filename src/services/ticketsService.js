@@ -1,18 +1,21 @@
 import semilla from '../data/tickets.json'
-import { ESTADOS_EN_CURSO, PLAZO_REAPERTURA_DIAS } from '../data/tickets'
+import { PRIORIDADES } from '../data/contenidoPublico'
+import { ESTADOS_EN_CURSO, PLAZO_REAPERTURA_DIAS, nombreEstado } from '../data/tickets'
 import { guardar, leer } from './almacen'
+import { buscarTecnico, listarTecnicos } from './catalogoService'
 import { sumarDias } from '../utils/plazos'
 
-// Tickets (HU-3). Se guardan en el navegador y, cada vez que cambian, se avisa a quien los esté
-// mirando (ver useTickets). Quien atiende los tickets (HU-4 y HU-5) debe usar este mismo servicio.
+// Tickets (HU-3 y HU-4). Se guardan en el navegador y, cada vez que cambian, se avisa a quien los
+// esté mirando (ver useTickets). Quien atiende los tickets (HU-5) debe usar este mismo servicio.
 
 let tickets = null
 const oyentes = new Set()
 
 const UN_MINUTO = 60000
+const UNA_HORA = 3600000
 
 // La semilla guarda los tiempos como "hace N minutos" para que los plazos de la demostración
-// (reapertura, encuesta) sigan vigentes sin importar el día en que se abra el proyecto.
+// (reapertura, encuesta, tiempo esperado) sigan vigentes sin importar el día en que se abra el proyecto.
 function crearSemilla() {
     const ahora = Date.now()
     const fecha = (desdeAhora) => new Date(ahora - desdeAhora * UN_MINUTO).toISOString()
@@ -20,12 +23,14 @@ function crearSemilla() {
     return semilla.map((t) => {
         const registradoEn = fecha(t.haceMin)
         const despues = (minutos) => new Date(new Date(registradoEn).getTime() + minutos * UN_MINUTO).toISOString()
-        const { haceMin, cerradoHaceMin, bitacora, historial, ...resto } = t // eslint-disable-line no-unused-vars
+        const { haceMin, cerradoHaceMin, resueltoHaceMin, retornoEnHoras, bitacora, historial, ...resto } = t // eslint-disable-line no-unused-vars
 
         return {
             ...resto,
             registradoEn,
             cerradoEn: cerradoHaceMin === undefined ? null : fecha(cerradoHaceMin),
+            resueltoEn: resueltoHaceMin === undefined ? null : fecha(resueltoHaceMin),
+            retornoEstimado: retornoEnHoras === undefined ? null : new Date(ahora + retornoEnHoras * UNA_HORA).toISOString(),
             bitacora: bitacora.map((b, i) => ({ id: t.codigo + '-b' + i, autor: b.autor, rol: b.rol, texto: b.texto, tipo: b.tipo, fecha: despues(b.despuesMin) })),
             historial: historial.map((h) => ({ tipo: h.tipo, autor: h.autor, fecha: despues(h.despuesMin) })),
         }
@@ -72,6 +77,26 @@ export function estaEnCurso(ticket) {
     return ESTADOS_EN_CURSO.includes(ticket.estado)
 }
 
+// En la bandeja del técnico están sus tickets hasta que se cierran (los resueltos esperan el cierre).
+export function estaEnBandeja(ticket) {
+    return estaEnCurso(ticket) || ticket.estado === 'resuelto'
+}
+
+function esDeHoy(fecha) {
+    return fecha !== null && new Date(fecha).toDateString() === new Date().toDateString()
+}
+
+// El técnico del catálogo (matriz de HU-2) que corresponde a una cuenta de técnico.
+export function tecnicoDeUsuario(usuario) {
+    return listarTecnicos().find((t) => t.id === usuario.id || (t.correo && t.correo === usuario.correo)) ?? null
+}
+
+// Tickets en curso de un técnico y cuántos son críticos (se muestra al asignar).
+export function cargaDe(lista, tecnicoId) {
+    const propios = lista.filter((t) => t.tecnicoId === tecnicoId && estaEnCurso(t))
+    return { total: propios.length, criticos: propios.filter((t) => t.prioridad === 'critica').length }
+}
+
 // Contadores del menú y de "Mi cuenta" para un usuario.
 export function resumenDeTickets(lista, usuarioId) {
     const propios = ticketsDeUsuario(lista, usuarioId)
@@ -79,6 +104,26 @@ export function resumenDeTickets(lista, usuarioId) {
         ticketsReportados: propios.length,
         ticketsAbiertos: propios.filter(estaEnCurso).length,
         encuestaPendiente: propios.filter((t) => t.encuestaPendiente).length,
+    }
+}
+
+// Contadores del menú del técnico (HU-4): sus tickets asignados por estado.
+export function resumenDeTecnico(lista, tecnicoId) {
+    const propios = lista.filter((t) => t.tecnicoId === tecnicoId && estaEnBandeja(t))
+    return {
+        asignados: propios.length,
+        enAtencion: propios.filter((t) => t.estado === 'en_atencion').length,
+        enEspera: propios.filter((t) => t.estado === 'en_espera').length,
+        resueltosHoy: propios.filter((t) => t.estado === 'resuelto' && esDeHoy(t.resueltoEn)).length,
+    }
+}
+
+// Contadores del menú del supervisor (HU-4): cola de atención.
+export function resumenDeCola(lista) {
+    const enCurso = lista.filter(estaEnCurso)
+    return {
+        cola: enCurso.length,
+        colaSinAsignar: enCurso.filter((t) => !t.tecnicoId).length,
     }
 }
 
@@ -109,7 +154,7 @@ export function puedeReabrir(ticket) {
 
 // Solo se cancela mientras nadie lo haya asignado.
 export function puedeCancelar(ticket) {
-    return ticket.estado === 'abierto' && !ticket.tecnico
+    return ticket.estado === 'abierto' && !ticket.tecnicoId
 }
 
 export function admiteComentarios(ticket) {
@@ -136,6 +181,7 @@ export function registrarTicket(datos, usuario) {
     const ticket = {
         codigo: siguienteCodigo(lista),
         usuarioId: usuario.id,
+        solicitante: autor,
         asunto: datos.asunto.trim(),
         descripcion: datos.descripcion.trim(),
         categoriaId: datos.categoriaId,
@@ -145,7 +191,7 @@ export function registrarTicket(datos, usuario) {
         estado: 'abierto',
         registradoEn: ahora,
         cerradoEn: null,
-        tecnico: null,
+        tecnicoId: null,
         evidencia: datos.evidencia,
         bitacora: [{ id: 'b0', autor, rol: 'usuario', texto: datos.descripcion.trim(), tipo: 'publico', fecha: ahora }],
         historial: [{ tipo: 'abierto', autor, fecha: ahora }],
@@ -203,4 +249,130 @@ export function reabrirTicket(codigo, usuario, motivo) {
         historial: [...t.historial, { tipo: 'reabierto', autor, fecha: ahora }],
     }))
     return guardado ? { ok: true } : { ok: false, motivo: 'almacenamiento' }
+}
+
+// ---------- Cola y asignación (HU-4) ----------
+// Estas operaciones devuelven { ok: true, afectados } o { ok: false, mensaje } para que la
+// pantalla muestre el aviso tal cual.
+
+function tomar(codigos) {
+    const objetivo = cargar().filter((t) => codigos.includes(t.codigo))
+    return objetivo
+}
+
+function entrada(lista, t, rol, texto, tipo, autor, fecha) {
+    return [...lista, { id: t.codigo + '-b' + lista.length, autor, rol, texto, tipo, fecha }]
+}
+
+// Asigna (o reasigna) uno o varios tickets a un técnico. Para reasignar hay que indicar el motivo.
+// opciones: { motivo, nota }
+export function asignarTickets(codigos, tecnicoId, opciones, usuario) {
+    const tecnico = buscarTecnico(tecnicoId)
+    if (!tecnico) return { ok: false, mensaje: 'Selecciona un técnico para asignar.' }
+
+    const objetivo = tomar(codigos)
+    if (objetivo.length === 0) return { ok: false, mensaje: 'No se encontraron los tickets seleccionados.' }
+
+    const motivo = (opciones.motivo ?? '').trim()
+    const nota = (opciones.nota ?? '').trim()
+
+    for (const t of objetivo) {
+        if (!estaEnCurso(t)) return { ok: false, mensaje: `${t.codigo} está ${nombreEstado(t.estado).toLowerCase()} y ya no admite asignación.` }
+        if (!tecnico.categorias.includes(t.categoriaId)) return { ok: false, mensaje: `${tecnico.nombres} no está habilitado para ${t.codigo}.` }
+        if (t.tecnicoId === tecnicoId) return { ok: false, mensaje: `${t.codigo} ya está asignado a ${tecnico.nombres}.` }
+        if (t.tecnicoId && !motivo) return { ok: false, mensaje: 'Para reasignar debes indicar un motivo.' }
+    }
+
+    const ahora = new Date().toISOString()
+    const autor = nombreCompleto(usuario)
+    const nombreTecnico = tecnico.nombres + ' ' + tecnico.apellidos
+
+    const nuevos = cargar().map((t) => {
+        if (!codigos.includes(t.codigo)) return t
+        const reasignado = Boolean(t.tecnicoId)
+        let bitacora = entrada(
+            t.bitacora, t, 'supervisor',
+            `${reasignado ? 'Reasignamos' : 'Asignamos'} tu ticket a ${nombreTecnico}.`, 'publico', autor, ahora
+        )
+        if (reasignado) bitacora = entrada(bitacora, t, 'supervisor', 'Motivo de la reasignación: ' + motivo, 'interno', autor, ahora)
+        if (nota) bitacora = entrada(bitacora, t, 'supervisor', 'Nota para el técnico: ' + nota, 'interno', autor, ahora)
+
+        return {
+            ...t,
+            tecnicoId,
+            bitacora,
+            historial: [...t.historial, { tipo: reasignado ? 'reasignado' : 'asignado', autor, fecha: ahora, detalle: nombreTecnico, motivo: motivo || null }],
+        }
+    })
+
+    if (!actualizar(nuevos)) return { ok: false, mensaje: 'No pudimos guardar el cambio. Inténtalo otra vez.' }
+    return { ok: true, afectados: nuevos.filter((t) => codigos.includes(t.codigo)), tecnico: nombreTecnico }
+}
+
+// Un técnico se toma un ticket sin asignar de sus propias categorías.
+export function autoasignarTicket(codigo, usuario) {
+    const tecnico = tecnicoDeUsuario(usuario)
+    if (!tecnico) return { ok: false, mensaje: 'Tu cuenta no está en la matriz de técnicos por categoría.' }
+
+    const ticket = buscarTicket(cargar(), codigo)
+    if (!ticket) return { ok: false, mensaje: 'No se encontró el ticket.' }
+    if (ticket.tecnicoId) return { ok: false, mensaje: `${ticket.codigo} ya tiene un técnico asignado.` }
+
+    return asignarTickets([codigo], tecnico.id, {}, usuario)
+}
+
+// Cambia la prioridad de varios tickets en curso; el motivo es obligatorio y queda en el historial.
+export function cambiarPrioridadTickets(codigos, prioridad, motivo, usuario) {
+    if (!PRIORIDADES.some((p) => p.id === prioridad)) return { ok: false, mensaje: 'Selecciona la nueva prioridad.' }
+    if (!motivo.trim()) return { ok: false, mensaje: 'El motivo es obligatorio.' }
+
+    const objetivo = tomar(codigos)
+    if (objetivo.length === 0) return { ok: false, mensaje: 'No se encontraron los tickets seleccionados.' }
+    if (objetivo.some((t) => !estaEnCurso(t))) return { ok: false, mensaje: 'Solo se puede cambiar la prioridad de tickets en curso.' }
+
+    const cambiables = objetivo.filter((t) => t.prioridad !== prioridad).map((t) => t.codigo)
+    if (cambiables.length === 0) return { ok: false, mensaje: 'Los tickets seleccionados ya tienen esa prioridad.' }
+
+    const ahora = new Date().toISOString()
+    const autor = nombreCompleto(usuario)
+    const nombre = (id) => PRIORIDADES.find((p) => p.id === id).nombre
+
+    const nuevos = cargar().map((t) => {
+        if (!cambiables.includes(t.codigo)) return t
+        const detalle = `Prioridad ${nombre(t.prioridad)} → ${nombre(prioridad)}`
+        return {
+            ...t,
+            prioridad,
+            bitacora: entrada(t.bitacora, t, 'supervisor', `${detalle}. Motivo: ${motivo.trim()}`, 'interno', autor, ahora),
+            historial: [...t.historial, { tipo: 'prioridad', autor, fecha: ahora, detalle, motivo: motivo.trim() }],
+        }
+    })
+
+    if (!actualizar(nuevos)) return { ok: false, mensaje: 'No pudimos guardar el cambio. Inténtalo otra vez.' }
+    return { ok: true, afectados: nuevos.filter((t) => cambiables.includes(t.codigo)) }
+}
+
+// Quita el técnico y deja el ticket abierto otra vez. Los que no tienen técnico se omiten.
+export function devolverTickets(codigos, usuario) {
+    const objetivo = tomar(codigos)
+    if (objetivo.length === 0) return { ok: false, mensaje: 'No se encontraron los tickets seleccionados.' }
+
+    const elegibles = objetivo.filter((t) => estaEnCurso(t) && t.tecnicoId).map((t) => t.codigo)
+    if (elegibles.length === 0) return { ok: false, mensaje: 'Ninguno de los tickets seleccionados tiene técnico asignado.' }
+
+    const ahora = new Date().toISOString()
+    const autor = nombreCompleto(usuario)
+
+    const nuevos = cargar().map((t) => {
+        if (!elegibles.includes(t.codigo)) return t
+        return {
+            ...t,
+            tecnicoId: null,
+            estado: 'abierto',
+            historial: [...t.historial, { tipo: 'devuelto', autor, fecha: ahora, detalle: 'Devuelto a la cola de atención' }],
+        }
+    })
+
+    if (!actualizar(nuevos)) return { ok: false, mensaje: 'No pudimos guardar el cambio. Inténtalo otra vez.' }
+    return { ok: true, afectados: nuevos.filter((t) => elegibles.includes(t.codigo)), omitidos: objetivo.length - elegibles.length }
 }
