@@ -21,6 +21,7 @@ function validar(v) {
     return errores
 }
 
+// Sección dentro de la tarjeta de Mi cuenta.
 function CambiarPassword() {
     const { cambiarPassword } = useAuth()
     const { exito } = useToast()
@@ -45,7 +46,7 @@ function CambiarPassword() {
     const actual = form.campo('actual')
 
     return (
-        <div className="tarjeta tarjeta--ancha">
+        <section>
             <h2>Cambiar contraseña</h2>
             <form className="formulario formulario__rejilla formulario__rejilla--tres" onSubmit={enviar} noValidate>
                 <Campo etiqueta="Actual" tipo="password" {...actual} error={actual.error || errorActual || undefined} />
@@ -57,7 +58,7 @@ function CambiarPassword() {
                     <button type="submit" className="boton boton--primario">Actualizar contraseña</button>
                 </div>
             </form>
-        </div>
+        </section>
     )
 }
 

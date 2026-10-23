@@ -9,6 +9,11 @@ export const UNIDADES = [
     { valor: 'Infraestructura y Servicios', etiqueta: 'Infraestructura y Servicios' },
 ]
 
+// Ambientes frecuentes para "Ambiente habitual" en Mi cuenta. Los administra HU-2 (sedes y ambientes).
+export const AMBIENTES = ['A-201', 'A-305', 'E-304', 'H-105', 'H-210', 'N-402', 'Q-101', 'BIB-P2', 'AUD-CEN', 'L-108'].map(
+    (codigo) => ({ valor: codigo, etiqueta: codigo })
+)
+
 export const VINCULOS = [
     { valor: 'alumno', etiqueta: 'Alumno/a' },
     { valor: 'docente', etiqueta: 'Docente' },

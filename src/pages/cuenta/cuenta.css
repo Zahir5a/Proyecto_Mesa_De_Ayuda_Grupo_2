@@ -1,0 +1,94 @@
+.cuenta__subtitulo {
+    margin-bottom: 20px;
+}
+
+.cuenta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 380px;
+    gap: 24px;
+    align-items: start;
+}
+
+.cuenta__principal h2 {
+    margin-bottom: 16px;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.cuenta__separador {
+    margin: 28px 0;
+    border: 0;
+    border-top: 1px solid var(--border);
+}
+
+.cuenta__lateral {
+    display: grid;
+    gap: 16px;
+}
+
+.cuenta__perfil {
+    display: grid;
+    justify-items: start;
+    gap: 6px;
+    padding: 24px;
+}
+
+.cuenta__perfil .avatar--grande {
+    margin-bottom: 8px;
+}
+
+.cuenta__datos {
+    width: 100%;
+    margin: 12px 0 0;
+    border-top: 1px solid var(--border);
+}
+
+.cuenta__datos div {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+}
+
+.cuenta__datos div:last-child {
+    border-bottom: 0;
+}
+
+.cuenta__datos dt {
+    color: var(--text-muted);
+}
+
+.cuenta__datos dd {
+    margin: 0;
+    font-weight: 600;
+}
+
+.cuenta__encuesta {
+    display: grid;
+    justify-items: start;
+    gap: 8px;
+    padding: 20px 24px;
+    border: 1px solid var(--warning);
+    border-radius: 4px;
+    background: var(--warning-soft);
+}
+
+.cuenta__encuesta p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+@media (max-width: 1280px) {
+    .cuenta {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+    .cuenta .formulario__rejilla,
+    .cuenta .formulario__rejilla--tres {
+        grid-template-columns: 1fr;
+    }
+}
