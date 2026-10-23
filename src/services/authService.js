@@ -1,5 +1,12 @@
 import { borrar, guardar, leer } from './almacen'
-import { buscarPorCorreo, buscarPorId, correoDisponible, crearUsuario } from './usuariosService'
+import {
+    actualizarUsuario,
+    buscarPorCorreo,
+    buscarPorId,
+    correoDisponible,
+    crearUsuario,
+    verificarPassword,
+} from './usuariosService'
 
 export function iniciarSesion(correo, password) {
     const usuario = buscarPorCorreo(correo)
