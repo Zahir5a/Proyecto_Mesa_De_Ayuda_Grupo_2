@@ -1,0 +1,37 @@
+[
+    {
+        "id": "u-001",
+        "nombres": "Camila Alejandra",
+        "apellidos": "Quispe Ramos",
+        "correo": "camila.quispe@aloe.ulima.edu.pe",
+        "password": "Ulima2026",
+        "telefono": "987 654 321",
+        "rol": "usuario",
+        "unidad": "Ingeniería de Sistemas",
+        "estado": "activo"
+    },
+
+    {
+        "id": "u-002",
+        "nombres": "Julio César",
+        "apellidos": "Paredes Soto",
+        "correo": "jparedes@ulima.edu.pe",
+        "password": "Ulima2026",
+        "telefono": "987 654 321",
+        "rol": "tecnico",
+        "unidad": "Ingeniería de Sistemas",
+        "estado": "activo"
+    },
+
+    {
+        "id": "u-003",
+        "nombres": "Lucía",
+        "apellidos": "Mendoza Ríos",
+        "correo": "lmendoza@ulima.edu.pe",
+        "password": "Ulima2026",
+        "telefono": "987 654 321",
+        "rol": "supervisor",
+        "unidad": "Ingeniería de Sistemas",
+        "estado": "activo"
+    }
+]
