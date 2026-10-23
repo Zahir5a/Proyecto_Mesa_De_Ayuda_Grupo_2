@@ -159,10 +159,11 @@ function reemplazar(id, transformar) {
 }
 
 // No se elimina lo que tiene tickets en curso: hay que desactivarlo.
-export function eliminarCategoria(id) {
+// `abiertos` son los tickets en curso reales (ver utils/conteos); si no se pasan, se usa el número guardado.
+export function eliminarCategoria(id, abiertos = null) {
     const encontrada = buscarCategoria(id)
     if (encontrada === null) return { ok: false, motivo: 'no_existe' }
-    if (encontrada.categoria.ticketsAbiertos > 0) return { ok: false, motivo: 'con_tickets' }
+    if ((abiertos ?? encontrada.categoria.ticketsAbiertos) > 0) return { ok: false, motivo: 'con_tickets' }
 
     const categorias = cargar()
         .categorias.filter((c) => c.id !== id)
@@ -233,12 +234,12 @@ export function editarAmbiente(codigoActual, datos) {
     return { ok: true }
 }
 
-export function eliminarAmbiente(codigo) {
+export function eliminarAmbiente(codigo, abiertos = null) {
     const { ambientes } = cargar()
     const ambiente = ambientes.find((a) => a.codigo === codigo)
 
     if (!ambiente) return { ok: false, motivo: 'no_existe' }
-    if (ambiente.ticketsAbiertos > 0) return { ok: false, motivo: 'con_tickets' }
+    if ((abiertos ?? ambiente.ticketsAbiertos) > 0) return { ok: false, motivo: 'con_tickets' }
 
     actualizar({ ambientes: ambientes.filter((a) => a.codigo !== codigo) })
     return { ok: true }
@@ -263,6 +264,10 @@ export function listarTecnicos() {
         }))
 
     return [...tecnicos, ...nuevos]
+}
+
+export function buscarTecnico(id) {
+    return listarTecnicos().find((t) => t.id === id) ?? null
 }
 
 // tecnicos: la lista completa con las categorías marcadas de cada uno.
