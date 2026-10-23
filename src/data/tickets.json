@@ -974,7 +974,9 @@
       }
     ],
     "solicitante": "Camila Alejandra Quispe Ramos",
-    "tecnicoId": "tec-nolasco"
+    "tecnicoId": "tec-nolasco",
+    "motivoEspera": "Espera del repuesto del compresor",
+    "retornoEnHoras": 30
   },
   {
     "codigo": "TCK-2026-00144",
