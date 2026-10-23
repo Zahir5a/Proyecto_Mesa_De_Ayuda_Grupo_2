@@ -109,7 +109,7 @@ export function resumenDeTickets(lista, usuarioId) {
     return {
         ticketsReportados: propios.length,
         ticketsAbiertos: propios.filter(estaEnCurso).length,
-        encuestaPendiente: propios.filter((t) => t.encuestaPendiente).length,
+        encuestaPendiente: propios.filter(esperaEncuesta).length,
     }
 }
 
@@ -133,9 +133,14 @@ export function resumenDeCola(lista) {
     }
 }
 
+// Un ticket cerrado espera la encuesta del usuario hasta 7 días después del cierre (HU-6).
+export function esperaEncuesta(ticket) {
+    return Boolean(ticket.encuestaPendiente) && ticket.cerradoEn !== null && new Date() <= sumarDias(ticket.cerradoEn, PLAZO_REAPERTURA_DIAS)
+}
+
 // Último ticket cerrado que todavía espera la encuesta, con su fecha límite (7 días tras el cierre).
 export function encuestaPendiente(lista, usuarioId) {
-    const ticket = ticketsDeUsuario(lista, usuarioId).find((t) => t.encuestaPendiente)
+    const ticket = ticketsDeUsuario(lista, usuarioId).find(esperaEncuesta)
     if (!ticket) return null
     return { codigo: ticket.codigo, cerradoEn: ticket.cerradoEn, limite: sumarDias(ticket.cerradoEn, PLAZO_REAPERTURA_DIAS) }
 }
@@ -221,6 +226,11 @@ export function agregarComentario(codigo, usuario, texto) {
             { id: codigo + '-b' + t.bitacora.length, autor: nombreCompleto(usuario), rol: usuario.rol, texto: texto.trim(), tipo: 'publico', fecha: ahora },
         ],
     }))
+}
+
+// La encuesta ya se respondió: el ticket deja de estar pendiente (lo llama el servicio de encuestas).
+export function marcarEncuestaRespondida(codigo) {
+    return modificar(codigo, (t) => ({ ...t, encuestaPendiente: false }))
 }
 
 export function cancelarTicket(codigo, usuario) {
