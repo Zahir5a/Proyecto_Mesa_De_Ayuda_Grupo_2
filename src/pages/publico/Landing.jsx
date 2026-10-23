@@ -2,7 +2,9 @@ import { Link } from 'react-router-dom'
 import { CONTACTO, PRIORIDADES } from '../../data/contenidoPublico'
 import './publico.css'
 
-const TIEMPOS = PRIORIDADES.map((p) => p.nombre.toLowerCase() + ' ' + p.horas + ' h').join(' · ')
+const TIEMPOS = PRIORIDADES
+    .map((p, i) => (i === 0 ? p.nombre : p.nombre.toLowerCase()) + ' ' + p.horas + ' h')
+    .join(' · ')
 
 const TARJETAS = [
     {

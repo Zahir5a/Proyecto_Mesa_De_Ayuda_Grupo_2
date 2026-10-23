@@ -17,7 +17,10 @@ function LayoutPublico() {
     return (
         <div className='publico'>
             <header className='cabecera'>
-                <Link className='cabecera__marca' to='/'>Mesa de Ayuda</Link>
+                <Link className='cabecera__marca' to='/'>
+                    <span className='marca__logo' aria-hidden='true' />
+                    <span>Mesa de Ayuda <span className='marca__sub'>· Campus Ulima</span></span>
+                </Link>
                 <nav className='cabecera__nav' aria-label='Principal'>
                     <NavLink to='/' end>Inicio</NavLink>
                     <NavLink to='/como-reportar'>Cómo reportar</NavLink>
@@ -28,19 +31,18 @@ function LayoutPublico() {
                     {usuario ? (
                         <>
                             <Link to={rutaInicio(usuario.rol)} className='boton boton--primario boton--chico'>Ir a mi panel</Link>
-                            <span>Hola, {usuario.nombres.split(' ')[0]}</span>
                             <button className='boton boton--chico' onClick={salir}>Cerrar sesión</button>
                         </>
                     ) : (
                         <>
-                            <Link to="/login" className='boton boton--chico'>Iniciar sesión</Link>
-                            <Link to="/registro" className='boton boton--primario boton--chico'>Registrarme</Link>
+                            <Link to='/login' className='boton boton--chico'>Iniciar sesión</Link>
+                            <Link to='/registro' className='boton boton--primario boton--chico'>Registrarme</Link>
                         </>
                     )}
                 </div>
             </header>
             <main className='contenido'>
-                <Outlet/>
+                <Outlet />
             </main>
             <FooterPublico />
         </div>

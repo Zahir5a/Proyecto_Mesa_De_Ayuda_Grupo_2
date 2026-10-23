@@ -2,7 +2,7 @@ import { Link, NavLink, Outlet } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 import { useToast } from '../../hooks/useToast'
 import { ETIQUETA_ROL, MENU_POR_ROL, rutaInicio } from '../../data/navegacion'
-import './layout.css'
+import './app.css'
 
 function LayoutApp() {
     const { usuario, cerrarSesion } = useAuth()

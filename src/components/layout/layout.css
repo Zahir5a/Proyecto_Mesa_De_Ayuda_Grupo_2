@@ -1,79 +1,82 @@
-.cabecera {
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    padding: 0 24px;
-    min-height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-}
-
-.cabecera a:not(.boton) {
-    color: var(--primary);
-    text-decoration: none;
-}
-
-.cabecera .cabecera__marca {
-    font-weight: 600;
-    color: var(--text);
-}
-
-.cabecera__nav {
-    display: flex;
-    flex: 1;
-    gap: 24px;
-    margin-left: 24px;
-    font-size: 14px;
-}
-
-.cabecera__nav a {
-    padding: 4px 0;
-    border-bottom: 2px solid transparent;
-}
-
-.cabecera__nav a.active {
-    border-bottom-color: var(--primary);
-    font-weight: 500;
-}
-
-.cabecera__acciones {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.contenido {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 32px 24px;
-}
-
-/* ---- Marco público: cabecera arriba, contenido al centro y pie siempre abajo ---- */
+/* ---- Marco público: cabecera de 72 px, contenido y pie ---- */
 .publico {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-.publico .contenido {
+.cabecera {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    height: 72px;
+    padding: 0 56px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.cabecera .cabecera__marca {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text);
+    font-size: 18px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.cabecera__marca:hover {
+    text-decoration: none;
+}
+
+.marca__logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    background: var(--primary);
+}
+
+.marca__sub {
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.cabecera__nav {
+    display: flex;
+    gap: 28px;
+    font-size: 15px;
+}
+
+.cabecera__nav a {
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+    color: var(--text);
+}
+
+.cabecera__nav a:hover {
+    text-decoration: none;
+    border-bottom-color: var(--border);
+}
+
+.cabecera__acciones {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+}
+
+.contenido {
     flex: 1;
-    box-sizing: border-box;
-    width: 100%;
+    padding: 40px 56px;
 }
 
-.boton--chico {
-    min-height: 32px;
-    padding: 0 12px;
-    font-size: 13px;
-}
-
+/* ---- Pie público ---- */
 .pie {
-    padding: 32px 24px 16px;
+    padding: 52px 56px 32px;
     background: var(--primary-dark);
     color: #dbe5ee;
-    font-size: 13px;
-    line-height: 18px;
+    font-size: 14px;
+    line-height: 20px;
 }
 
 .pie a {
@@ -82,17 +85,18 @@
 
 .pie strong {
     color: #fff;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .pie p {
-    margin: 4px 0 0;
+    margin: 6px 0 0;
 }
 
 .pie h2 {
-    margin: 0 0 8px;
+    margin: 0 0 10px;
     color: #9fb3c6;
     font-size: 12px;
+    line-height: 16px;
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -100,7 +104,7 @@
 
 .pie ul {
     display: grid;
-    gap: 4px;
+    gap: 6px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -108,146 +112,38 @@
 
 .pie__rejilla {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 32px;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: 420px 220px minmax(0, 1fr);
+    gap: 0;
+}
+
+.pie__rejilla > div:first-child {
+    max-width: 330px;
 }
 
 .pie__copia {
-    max-width: 1200px;
-    margin: 24px auto 0;
+    margin-top: 28px;
     color: #9fb3c6;
+    font-size: 12px;
     text-align: right;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .cabecera {
         flex-wrap: wrap;
-        padding: 8px 16px;
+        height: auto;
+        gap: 8px 24px;
+        padding: 12px 24px;
     }
 
     .cabecera__nav {
         order: 3;
         flex-basis: 100%;
         flex-wrap: wrap;
-        gap: 8px 16px;
-        margin: 0;
+        gap: 8px 20px;
     }
 
-    .pie__rejilla {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .pie__copia {
-        text-align: left;
-    }
-}
-
-.app {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.app__cabecera {
-    height: 60px;
-    padding: 0 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--primary);
-    color: #fff;
-}
-
-.app__marca {
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.app__usuario {
-    display: grid;
-    text-align: right;
-    font-size: 13px;
-    line-height: 18px;
-}
-
-.app__usuario span {
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    opacity: 0.8;
-}
-
-.app__cuerpo {
-    flex: 1;
-    display: flex;
-}
-
-.app__lateral {
-    width: 236px;
-    padding: 16px 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background: var(--surface);
-    border-right: 1px solid var(--border);
-}
-
-.app__lateral nav,
-.app__lateral-pie {
-    display: grid;
-    gap: 2px;
-}
-
-.app__lateral a,
-.app__lateral-pie button {
-    display: block;
-    padding: 8px 12px;
-    border: 0;
-    border-left: 3px solid transparent;
-    border-radius: 4px;
-    background: none;
-    color: var(--text);
-    font: inherit;
-    font-size: 14px;
-    text-align: left;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.app__lateral a:hover,
-.app__lateral-pie button:hover {
-    background: var(--bg);
-}
-
-.app__lateral a.active {
-    background: var(--primary-soft);
-    border-left-color: var(--primary);
-    color: var(--primary);
-    font-weight: 500;
-}
-
-.app__lateral-pie {
-    padding-top: 8px;
-    border-top: 1px solid var(--border);
-}
-
-.app__contenido {
-    flex: 1;
-    min-width: 0;
-    padding: 24px;
-}
-
-@media (max-width: 800px) {
-    .app__cuerpo {
-        flex-direction: column;
-    }
-
-    .app__lateral {
-        width: auto;
-        border-right: 0;
-        border-bottom: 1px solid var(--border);
-    }
+    .contenido { padding: 24px 16px; }
+    .pie { padding: 32px 24px 20px; }
+    .pie__rejilla { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .pie__copia { text-align: left; }
 }

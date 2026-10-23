@@ -1,28 +1,36 @@
+/* ---- Landing ---- */
 .hero {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 32px;
+    grid-template-columns: minmax(0, 1fr) 520px;
+    gap: 48px;
     margin-bottom: 16px;
-    padding: 32px;
+    padding: 40px 48px;
 }
 
 .hero__texto {
     display: grid;
-    gap: 16px;
+    gap: 18px;
     align-content: center;
 }
 
 .hero__titulo {
-    margin: 0;
-    max-width: 520px;
-    font-size: 32px;
-    line-height: 40px;
+    max-width: 640px;
+    font-size: 44px;
+    line-height: 52px;
+    font-weight: 600;
+}
+
+.hero__texto .texto-aux {
+    max-width: 620px;
+    font-size: 15px;
+    line-height: 24px;
 }
 
 .etiqueta-acento {
     margin: 0;
     color: var(--accent);
     font-size: 12px;
+    line-height: 16px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
@@ -30,13 +38,13 @@
 .hero__imagen {
     display: grid;
     place-items: center;
-    min-height: 220px;
+    min-height: 300px;
     padding: 16px;
     border: 1px solid var(--border);
     border-radius: 4px;
     background: repeating-linear-gradient(135deg, var(--bg) 0 12px, var(--primary-soft) 12px 24px);
     color: var(--text-muted);
-    font-family: ui-monospace, Consolas, monospace;
+    font-family: var(--font-mono);
     font-size: 13px;
     text-align: center;
 }
@@ -49,15 +57,20 @@
 
 .info-tarjeta {
     display: grid;
-    gap: 4px;
+    gap: 6px;
     align-content: start;
-    padding: 16px;
+    padding: 20px;
     border-top: 2px solid var(--primary);
 }
 
 .info-tarjeta h2 {
-    margin: 0;
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.info-tarjeta .texto-aux {
+    font-size: 15px;
+    line-height: 22px;
 }
 
 .info-tarjeta--destacada {
@@ -82,7 +95,7 @@
 
 .pasos-reporte li {
     position: relative;
-    padding: 16px 16px 16px 56px;
+    padding: 16px 16px 16px 60px;
     counter-increment: paso;
 }
 
@@ -102,8 +115,8 @@
 }
 
 .pasos-reporte h2 {
-    margin: 0;
     font-size: 16px;
+    line-height: 24px;
 }
 
 .seccion-publica {
@@ -111,11 +124,6 @@
     gap: 12px;
     margin-top: 40px;
     scroll-margin-top: 16px;
-}
-
-.seccion-publica h2 {
-    margin: 0;
-    font-size: 20px;
 }
 
 .faq {
@@ -131,44 +139,15 @@
     margin: 8px 0 0;
 }
 
-.tabla-contenedor {
-    overflow-x: auto;
-}
-
-.tabla {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.tabla th,
-.tabla td {
-    height: 44px;
-    padding: 0 16px;
-    border-bottom: 1px solid var(--border);
-    text-align: left;
-}
-
-.tabla th {
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-}
-
-.tabla tr:last-child td {
-    border-bottom: 0;
-}
-
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
     .hero {
         grid-template-columns: minmax(0, 1fr);
-        padding: 20px;
+        padding: 24px;
     }
 
     .hero__titulo {
-        font-size: 26px;
-        line-height: 32px;
+        font-size: 30px;
+        line-height: 38px;
     }
 
     .info-tarjetas {
