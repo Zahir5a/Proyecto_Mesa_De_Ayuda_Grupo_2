@@ -43,10 +43,15 @@ export function useFormulario(inicial, validar) {
         return Object.keys(errores).length
     }
 
+    // Cambia un valor desde el código (por ejemplo, los botones de especialidad).
+    function establecer(nombre, valor) {
+        setValores({ ...valores, [nombre]: valor })
+    }
+
     function reiniciar() {
         setValores(inicial)
         setTocados({})
     }
 
-    return { valores, errores, campo, casilla, cambiar, validarTodo, reiniciar }
+    return { valores, errores, campo, casilla, cambiar, establecer, validarTodo, reiniciar }
 }

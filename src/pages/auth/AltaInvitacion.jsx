@@ -10,6 +10,7 @@ import { validarConfirmacion, validarPassword, validarTelefono } from '../../uti
 import { formatearFecha } from '../../utils/formato'
 import Campo from '../../components/ui/Campo'
 import ConfirmDialog from '../../components/ui/ConfirmDialog'
+import './auth.css'
 
 const MENSAJES_ESTADO = {
     vencida: 'Esta invitación venció. Pide al área de Infraestructura que te envíe una nueva.',
@@ -19,12 +20,14 @@ const MENSAJES_ESTADO = {
 
 function InvitacionNoDisponible({ mensaje }) {
     return (
-        <div className="tarjeta tarjeta--formulario">
-            <h1>Invitación no disponible</h1>
-            <p className="texto-aux">{mensaje}</p>
-            <div className="formulario__acciones">
-                <Link to="/login" className="boton boton--primario">Iniciar sesión</Link>
-                <Link to="/" className="boton">Ir al inicio</Link>
+        <div className="auth auth--simple">
+            <div className="tarjeta tarjeta--formulario auth__tarjeta auth__tarjeta--recuperar">
+                <h1>Invitación no disponible</h1>
+                <p className="texto-aux">{mensaje}</p>
+                <div className="formulario__acciones">
+                    <Link to="/login" className="boton boton--primario">Iniciar sesión</Link>
+                    <Link to="/" className="boton">Ir al inicio</Link>
+                </div>
             </div>
         </div>
     )
@@ -96,7 +99,8 @@ function FormularioInvitacion({ invitacion, token }) {
     }
 
     return (
-        <div className="tarjeta tarjeta--formulario tarjeta--ancha">
+        <div className="auth auth--simple">
+        <div className="tarjeta tarjeta--formulario auth__tarjeta auth__tarjeta--invitacion">
             <span className="insignia">Invitación válida hasta el {formatearFecha(invitacion.venceEl + 'T12:00:00')}</span>
             <h1>Activa tu cuenta de {ETIQUETA_ROL[invitacion.rol].toLowerCase()}</h1>
             <p className="texto-aux">
@@ -139,7 +143,7 @@ function FormularioInvitacion({ invitacion, token }) {
 
                 <div className="formulario__ancho formulario__acciones">
                     <button type="submit" className="boton boton--primario">Activar mi cuenta</button>
-                    <button type="button" className="boton" onClick={() => setConfirmandoRechazo(true)}>
+                    <button type="button" className="boton boton--terciario" onClick={() => setConfirmandoRechazo(true)}>
                         Rechazar invitación
                     </button>
                 </div>
@@ -155,6 +159,7 @@ function FormularioInvitacion({ invitacion, token }) {
             >
                 <p>La invitación quedará anulada y tendrás que pedir una nueva al área de Infraestructura.</p>
             </ConfirmDialog>
+        </div>
         </div>
     )
 }
