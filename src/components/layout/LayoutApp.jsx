@@ -1,12 +1,19 @@
 import { Link, NavLink, Outlet } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
+import { useToast } from '../../hooks/useToast'
 import { ETIQUETA_ROL, MENU_POR_ROL, rutaInicio } from '../../data/navegacion'
 import './layout.css'
 
 function LayoutApp() {
     const { usuario, cerrarSesion } = useAuth()
+    const { info } = useToast()
     const menu = MENU_POR_ROL[usuario.rol]
     const inicio = rutaInicio(usuario.rol)
+
+    function salir() {
+        cerrarSesion()
+        info('Cerraste sesión.')
+    }
 
     return (
         <div className="app">
@@ -29,7 +36,7 @@ function LayoutApp() {
                     </nav>
                     <div className="app__lateral-pie">
                         <NavLink to="/cuenta">Mi cuenta</NavLink>
-                        <button onClick={cerrarSesion}>Cerrar sesión</button>
+                        <button onClick={salir}>Cerrar sesión</button>
                     </div>
                 </aside>
 

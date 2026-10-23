@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 import { useFormulario } from '../../hooks/useFormulario'
+import { useToast } from '../../hooks/useToast'
 import { rutaInicio } from '../../data/navegacion'
 import { UNIDADES, VINCULOS } from '../../data/catalogos'
 import { correoDisponible } from '../../services/usuariosService'
@@ -53,6 +54,7 @@ function validar(v) {
 
 function Registro() {
     const { registrar } = useAuth()
+    const { exito } = useToast()
     const form = useFormulario(INICIAL, validar)
     const [mensaje, setMensaje] = useState('')
     const navigate = useNavigate()
@@ -74,6 +76,7 @@ function Registro() {
         })
 
         if (resultado.ok) {
+            exito('Cuenta creada. Te damos la bienvenida, ' + resultado.usuario.nombres.split(' ')[0] + '.')
             navigate(rutaInicio(resultado.usuario.rol))
         } else {
             setMensaje('No se pudo crear la cuenta. Prueba con otro correo.')

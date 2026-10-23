@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useAuth } from '../../hooks/useAuth'
 import { useFormulario } from '../../hooks/useFormulario'
+import { useToast } from '../../hooks/useToast'
 import { validarConfirmacion, validarPassword } from '../../utils/validaciones'
 import Campo from '../../components/ui/Campo'
 
@@ -22,20 +23,19 @@ function validar(v) {
 
 function CambiarPassword() {
     const { cambiarPassword } = useAuth()
+    const { exito } = useToast()
     const form = useFormulario(INICIAL, validar)
-    const [mensaje, setMensaje] = useState('')
     const [errorActual, setErrorActual] = useState('')
 
     function enviar(e) {
         e.preventDefault()
-        setMensaje('')
         setErrorActual('')
         if (form.validarTodo() > 0) return
 
         const resultado = cambiarPassword(form.valores.actual, form.valores.nueva)
 
         if (resultado.ok) {
-            setMensaje('Actualizaste tu contraseña.')
+            exito('Actualizaste tu contraseña.')
             form.reiniciar()
         } else {
             setErrorActual('La contraseña actual no es correcta.')
@@ -47,7 +47,6 @@ function CambiarPassword() {
     return (
         <div className="tarjeta tarjeta--ancha">
             <h2>Cambiar contraseña</h2>
-            {mensaje && <p className="alerta-exito">{mensaje}</p>}
             <form className="formulario formulario__rejilla formulario__rejilla--tres" onSubmit={enviar} noValidate>
                 <Campo etiqueta="Actual" tipo="password" {...actual} error={actual.error || errorActual || undefined} />
                 <Campo etiqueta="Nueva" tipo="password"

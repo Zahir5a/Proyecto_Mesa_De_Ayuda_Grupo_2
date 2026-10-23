@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 import { useFormulario } from '../../hooks/useFormulario'
+import { useToast } from '../../hooks/useToast'
 import { rutaInicio } from '../../data/navegacion'
 import { REGEX_CORREO } from '../../utils/validaciones'
 import Campo from '../../components/ui/Campo'
@@ -16,6 +17,7 @@ function validar(v) {
 
 function Login() {
     const { iniciarSesion } = useAuth()
+    const { exito } = useToast()
     const form = useFormulario({ correo: '', password: '' }, validar)
     const [mensaje, setMensaje] = useState('')
     const navigate = useNavigate()
@@ -28,6 +30,7 @@ function Login() {
         const resultado = iniciarSesion(form.valores.correo, form.valores.password)
 
         if (resultado.ok) {
+            exito('Hola, ' + resultado.usuario.nombres.split(' ')[0] + '. Iniciaste sesión correctamente.')
             navigate(rutaInicio(resultado.usuario.rol))
         } else if (resultado.motivo === 'cuenta_inactiva') {
             setMensaje('Tu cuenta no está activa. Escribe a soporte.')
@@ -51,4 +54,3 @@ function Login() {
 }
 
 export default Login
-

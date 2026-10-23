@@ -1,6 +1,6 @@
-import { useState } from 'react'
 import { useAuth } from '../../hooks/useAuth'
 import { useFormulario } from '../../hooks/useFormulario'
+import { useToast } from '../../hooks/useToast'
 import { UNIDADES } from '../../data/catalogos'
 import { validarTelefono } from '../../utils/validaciones'
 import Campo from '../../components/ui/Campo'
@@ -18,6 +18,7 @@ function validar(v) {
 
 function MiCuenta() {
     const { usuario, actualizarPerfil } = useAuth()
+    const { exito } = useToast()
     const form = useFormulario(
         {
             nombres: usuario.nombres,
@@ -27,11 +28,9 @@ function MiCuenta() {
         },
         validar
     )
-    const [mensaje, setMensaje] = useState('')
 
     function guardar(e) {
         e.preventDefault()
-        setMensaje('')
         if (form.validarTodo() > 0) return
 
         const v = form.valores
@@ -41,7 +40,7 @@ function MiCuenta() {
             telefono: v.telefono,
             unidad: v.unidad,
         })
-        setMensaje('Guardamos los cambios de tu cuenta.')
+        exito('Guardamos los cambios de tu cuenta.')
     }
 
     return (
@@ -51,7 +50,6 @@ function MiCuenta() {
 
             <div className="tarjeta tarjeta--ancha">
                 <h2>Datos personales</h2>
-                {mensaje && <p className="alerta-exito">{mensaje}</p>}
                 <form className="formulario formulario__rejilla" onSubmit={guardar} noValidate>
                     <Campo etiqueta="Nombres" {...form.campo('nombres')} />
                     <Campo etiqueta="Apellidos" {...form.campo('apellidos')} />
