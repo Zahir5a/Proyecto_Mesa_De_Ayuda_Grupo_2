@@ -10,6 +10,7 @@ import LayoutApp from './components/layout/LayoutApp';
 import NoEncontrado from './pages/errores/NoEncontrado';
 import InicioRol from './pages/rol/InicioRol';
 import PaginaPendiente from './pages/rol/PaginaPendiente';
+import Categorias from './pages/supervisor/Categorias';
 import MiCuenta from'./pages/cuenta/MiCuenta';
 import RutaProtegida from './components/layout/RutaProtegida';
 import RutaSoloVisitante from './components/layout/RutaSoloVisitante';
@@ -43,6 +44,7 @@ function App() {
           </Route>
           <Route element={<RequiereRol roles={['supervisor']} />}>
             <Route path="/supervisor" element={<InicioRol />}/>
+            <Route path="/supervisor/categorias" element={<Categorias />}/>
             <Route path="/supervisor/*" element={<PaginaPendiente />}/>
           </Route>
         </Route>
