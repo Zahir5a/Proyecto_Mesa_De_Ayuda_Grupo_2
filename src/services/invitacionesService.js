@@ -3,7 +3,8 @@ import { guardar, leer } from './almacen'
 import { guardarSesion } from './authService'
 import { correoDisponible, crearUsuario } from './usuariosService'
 
-// Invitaciones para técnicos y supervisores: las emite el supervisor (HU-7); aquí solo se consumen.
+// Invitaciones para técnicos y supervisores: las emite el supervisor (por ejemplo desde
+// "Técnicos por categoría", HU-2) y se consumen al activar la cuenta.
 
 function cargar() {
     const guardadas = leer('invitaciones', null)
@@ -57,4 +58,31 @@ export function aceptarInvitacion(token, { telefono, password, especialidades })
 
 export function rechazarInvitacion(token) {
     marcar(token, 'rechazada')
+}
+
+const DIAS_VIGENCIA = 7
+
+// Crea una invitación de técnico. El correo no se envía de verdad: el supervisor copia el enlace.
+export function crearInvitacion({ nombres, apellidos, correo, invitadoPor }) {
+    if (!correoDisponible(correo)) return { ok: false, motivo: 'correo_en_uso' }
+    if (cargar().some((i) => i.correo === correo.trim().toLowerCase() && i.estado === 'pendiente')) {
+        return { ok: false, motivo: 'ya_invitado' }
+    }
+
+    const vence = new Date()
+    vence.setDate(vence.getDate() + DIAS_VIGENCIA)
+
+    const invitacion = {
+        token: 'inv-' + Date.now().toString(36),
+        nombres: nombres.trim(),
+        apellidos: apellidos.trim(),
+        correo: correo.trim().toLowerCase(),
+        telefono: '',
+        rol: 'tecnico',
+        invitadoPor,
+        venceEl: vence.toISOString().slice(0, 10),
+        estado: 'pendiente',
+    }
+    guardar('invitaciones', [...cargar(), invitacion])
+    return { ok: true, invitacion }
 }
