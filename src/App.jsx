@@ -14,6 +14,9 @@ import NuevoTicket from './pages/usuario/NuevoTicket';
 import TicketRegistrado from './pages/usuario/TicketRegistrado';
 import MisTickets from './pages/usuario/MisTickets';
 import DetalleTicket from './pages/usuario/DetalleTicket';
+import DetalleAtencion from './pages/tecnico/DetalleAtencion';
+import HistorialTicket from './pages/tecnico/HistorialTicket';
+import HistorialTecnico from './pages/tecnico/HistorialTecnico';
 import ColaAtencion from './pages/supervisor/ColaAtencion';
 import BandejasTecnicos from './pages/supervisor/BandejasTecnicos';
 import BandejaTecnico from './pages/tecnico/BandejaTecnico';
@@ -56,12 +59,17 @@ function App() {
             <Route path="/tecnico" element={<BandejaTecnico key="todos" />}/>
             <Route path="/tecnico/en-atencion" element={<BandejaTecnico key="en_atencion" estadoInicial="en_atencion" />}/>
             <Route path="/tecnico/en-espera" element={<BandejaTecnico key="en_espera" estadoInicial="en_espera" />}/>
+            <Route path="/tecnico/historial" element={<HistorialTecnico />}/>
+            <Route path="/tecnico/tickets/:codigo" element={<DetalleAtencion />}/>
+            <Route path="/tecnico/tickets/:codigo/historial" element={<HistorialTicket />}/>
             <Route path="/tecnico/resueltos" element={<BandejaTecnico key="resuelto" estadoInicial="resuelto" />}/>
             <Route path="/tecnico/*" element={<PaginaPendiente />}/>
           </Route>
           <Route element={<RequiereRol roles={['supervisor']} />}>
             <Route path="/supervisor" element={<InicioRol />}/>
             <Route path="/supervisor/cola" element={<ColaAtencion />}/>
+            <Route path="/supervisor/cola/:codigo" element={<DetalleAtencion />}/>
+            <Route path="/supervisor/cola/:codigo/historial" element={<HistorialTicket />}/>
             <Route path="/supervisor/bandejas" element={<BandejasTecnicos />}/>
             <Route path="/supervisor/categorias" element={<Categorias />}/>
             <Route path="/supervisor/categorias/nueva" element={<CategoriaFormulario />}/>

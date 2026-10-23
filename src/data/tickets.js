@@ -14,6 +14,16 @@ export const ESTADOS = [
 // "En curso" = todavía requiere atención.
 export const ESTADOS_EN_CURSO = ['abierto', 'en_atencion', 'en_espera', 'reabierto']
 
+// Transiciones válidas de la atención (HU-5). Cerrar un ticket tiene su propia pantalla.
+export const TRANSICIONES = {
+    abierto: ['en_atencion'],
+    reabierto: ['en_atencion'],
+    en_atencion: ['en_espera', 'resuelto'],
+    en_espera: ['en_atencion'],
+    resuelto: [],
+}
+
+export const MAX_TEXTO = 1200
 export const MAX_DESCRIPCION = 600
 export const MAX_EVIDENCIA_MB = 5
 export const PLAZO_REAPERTURA_DIAS = 7

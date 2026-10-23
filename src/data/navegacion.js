@@ -30,7 +30,7 @@ export const MENU_POR_ROL = {
             { ruta: '/tecnico/en-atencion', etiqueta: 'En atención', contador: 'enAtencion', permiso: 'los tickets en atención', lista: true },
             { ruta: '/tecnico/en-espera', etiqueta: 'En espera', contador: 'enEspera', permiso: 'los tickets en espera', lista: true },
             { ruta: '/tecnico/resueltos', etiqueta: 'Resueltos hoy', contador: 'resueltosHoy', permiso: 'los tickets resueltos', lista: true },
-            { ruta: '/tecnico/historial', etiqueta: 'Historial', permiso: 'el historial de cambios' },
+            { ruta: '/tecnico/historial', etiqueta: 'Historial', permiso: 'el historial de cambios', lista: true },
             { ruta: '/cuenta', etiqueta: 'Mi cuenta', permiso: 'tu cuenta' },
         ],
     },
