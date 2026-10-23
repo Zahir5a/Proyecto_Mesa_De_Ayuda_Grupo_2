@@ -6,7 +6,7 @@ function RequiereRol({ roles }) {
     const { usuario } = useAuth()
 
     if (!roles.includes(usuario.rol)) {
-        return <AccesoDenegado />
+        return <AccesoDenegado rolesPermitidos={roles} />
     }
 
     return <Outlet />

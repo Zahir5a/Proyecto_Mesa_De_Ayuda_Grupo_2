@@ -377,6 +377,33 @@ body {
     cursor: default;
 }
 
+.insignia--gris {
+    border-color: var(--border);
+    color: var(--text-muted);
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+.rejilla-accesos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.acceso {
+    display: grid;
+    gap: 8px;
+    justify-items: start;
+    padding: 16px;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.acceso:hover {
+    border-color: var(--primary);
+}
+
 .especialidades {
     display: grid;
     gap: 8px;
