@@ -1,0 +1,109 @@
+/* Matriz de técnicos por categoría */
+.tabla-desplazable {
+  overflow-x: auto;
+}
+
+.tabla-matriz {
+  min-width: 1000px;
+}
+
+.tabla-matriz .nombre-tecnico {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tabla-matriz th.matriz__categoria {
+  text-align: center;
+}
+
+.matriz__inactiva {
+  display: block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.tabla-matriz td.matriz__celda {
+  padding: 0;
+  text-align: center;
+  border-left: 1px solid var(--border);
+}
+
+.tabla-matriz td.matriz__celda--marcada {
+  background-color: var(--primary-soft);
+}
+
+.matriz__boton {
+  width: 100%;
+  min-height: 44px;
+  border: 0;
+  background: none;
+  color: var(--primary);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.matriz__boton:hover {
+  background-color: rgba(31, 78, 121, 0.08);
+}
+
+.matriz__boton:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+}
+
+.matriz__notas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.matriz__aviso,
+.matriz__nota {
+  padding: 12px 16px;
+  font-size: 13px;
+  border-radius: 4px;
+}
+
+.matriz__aviso {
+  background-color: var(--primary-soft);
+  border-left: 3px solid var(--primary);
+  color: var(--primary);
+}
+
+.matriz__nota {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.aviso-cambios {
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: var(--warning);
+  font-weight: 600;
+}
+
+/* Modal de invitación */
+.modal__ancho {
+  grid-column: 1 / -1;
+}
+
+.modal__texto {
+  margin-bottom: 12px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.modal__acciones--separadas {
+  margin-top: 20px;
+}
+
+@media (max-width: 800px) {
+  .matriz__notas {
+    grid-template-columns: 1fr;
+  }
+}

@@ -69,6 +69,11 @@ export function buscarCategoria(id) {
     return null
 }
 
+export function nombreDeCategoria(categorias, id) {
+    const categoria = categorias.find((c) => c.id === id)
+    return categoria ? categoria.nombre : id
+}
+
 export function contarCategorias(categorias = cargar().categorias) {
     return {
         categorias: categorias.length,
