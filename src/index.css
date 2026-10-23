@@ -64,3 +64,62 @@ body {
 .campo__mensaje--error {
     color: var(--danger);
 }
+
+.tarjeta {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 24px;
+}
+
+.tarjeta--formulario {
+    max-width: 440px;
+    margin: 32px auto;
+    display: grid;
+    gap: 12px;
+}
+
+.tarjeta h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.texto-aux {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.formulario {
+    display: grid;
+    gap: 16px;
+}
+
+.alerta-error {
+    margin: 0;
+    padding: 12px 16px;
+    border: 1px solid var(--danger);
+    border-radius: 4px;
+    background: #fbeae9;
+    color: var(--danger);
+    font-size: 14px;
+}
+
+.boton {
+    min-height: 40px;
+    padding: 0 16px;
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.boton--primario {
+    background: var(--primary);
+    color: #fff;
+}
+
+.boton--primario:hover {
+    background: var(--primary-dark);
+}
