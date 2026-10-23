@@ -234,6 +234,17 @@ hr {
   font: inherit;
 }
 
+select.campo__control {
+  padding-right: 36px;
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--text-muted) 50%),
+    linear-gradient(135deg, var(--text-muted) 50%, transparent 50%);
+  background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50%;
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+}
+
 .campo__control:focus-visible {
   outline: 2px solid var(--info);
   outline-offset: 0;

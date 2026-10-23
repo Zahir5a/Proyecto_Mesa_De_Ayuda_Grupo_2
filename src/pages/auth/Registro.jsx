@@ -13,6 +13,7 @@ import {
     validarTelefono,
 } from '../../utils/validaciones'
 import Campo, { CampoCasilla } from '../../components/ui/Campo'
+import './auth.css'
 
 const INICIAL = {
     nombres: '',
@@ -83,37 +84,55 @@ function Registro() {
         }
     }
 
+    const correoValido = form.valores.correo !== '' && form.errores.correo === undefined
+
     return (
-        <div className="tarjeta tarjeta--formulario tarjeta--ancha">
-            <h1>Crear mi cuenta</h1>
-            <p className="texto-aux">Solo para miembros de la comunidad con correo institucional.</p>
-            {mensaje && <p className="alerta-error">{mensaje}</p>}
+        <div className="auth auth--registro">
+            <section className="tarjeta tarjeta--formulario auth__tarjeta">
+                <h1>Crear mi cuenta</h1>
+                <p className="texto-aux">Solo para miembros de la comunidad con correo institucional.</p>
+                {mensaje && <p className="alerta-error">{mensaje}</p>}
 
-            <form className="formulario formulario__rejilla" onSubmit={enviar} noValidate>
-                <Campo etiqueta="Nombres" {...form.campo('nombres')} />
-                <Campo etiqueta="Apellidos" {...form.campo('apellidos')} />
-                <Campo etiqueta="Correo institucional" tipo="email" {...form.campo('correo')} />
-                <Campo etiqueta="Teléfono" tipo="tel" placeholder="987 654 321"
-                    ayuda="Para coordinar el acceso al ambiente." {...form.campo('telefono')} />
-                <Campo etiqueta="Contraseña" tipo="password"
-                    ayuda="Mínimo 8 caracteres, con una mayúscula y un número." {...form.campo('password')} />
-                <Campo etiqueta="Confirmar contraseña" tipo="password" {...form.campo('confirmar')} />
-                <Campo etiqueta="Unidad o carrera" tipo="select" placeholder="Selecciona…"
-                    opciones={UNIDADES} {...form.campo('unidad')} />
-                <Campo etiqueta="Vínculo con la universidad" tipo="select" placeholder="Selecciona…"
-                    opciones={VINCULOS} {...form.campo('vinculo')} />
+                <form className="formulario formulario__rejilla" onSubmit={enviar} noValidate>
+                    <Campo etiqueta="Nombres" autoComplete="given-name" {...form.campo('nombres')} />
+                    <Campo etiqueta="Apellidos" autoComplete="family-name" {...form.campo('apellidos')} />
+                    <Campo etiqueta="Correo institucional" tipo="email" autoComplete="email" {...form.campo('correo')}
+                        exito={correoValido ? 'Correo válido y disponible.' : undefined} />
+                    <Campo etiqueta="Teléfono" tipo="tel" autoComplete="tel-national" placeholder="987 654 321"
+                        ayuda="Para coordinar el acceso al ambiente." {...form.campo('telefono')} />
+                    <Campo etiqueta="Contraseña" tipo="password" autoComplete="new-password"
+                        ayuda="Mínimo 8 caracteres, con una mayúscula y un número." {...form.campo('password')} />
+                    <Campo etiqueta="Confirmar contraseña" tipo="password" autoComplete="new-password"
+                        {...form.campo('confirmar')} />
+                    <Campo etiqueta="Unidad o carrera" tipo="select" placeholder="Selecciona…"
+                        opciones={UNIDADES} {...form.campo('unidad')} />
+                    <Campo etiqueta="Vínculo con la universidad" tipo="select" placeholder="Selecciona…"
+                        opciones={VINCULOS} {...form.campo('vinculo')} />
 
-                <div className="formulario__ancho">
-                    <CampoCasilla {...form.casilla('terminos')}>
-                        Acepto los términos del servicio y la política de privacidad.
-                    </CampoCasilla>
-                </div>
+                    <div className="formulario__ancho">
+                        <CampoCasilla {...form.casilla('terminos')}>
+                            Acepto los términos del servicio y la política de privacidad.
+                        </CampoCasilla>
+                    </div>
 
-                <div className="formulario__ancho formulario__acciones">
-                    <button type="submit" className="boton boton--primario">Crear cuenta</button>
-                    <Link to="/" className="boton">Cancelar</Link>
-                </div>
-            </form>
+                    <div className="formulario__ancho formulario__acciones">
+                        <button type="submit" className="boton boton--primario">Crear cuenta</button>
+                        <Link to="/" className="boton">Cancelar</Link>
+                    </div>
+                </form>
+            </section>
+
+            <aside className="tarjeta auth__lateral auth__lateral--tarjeta">
+                <h2>Antes de registrarte</h2>
+                <p className="texto-aux">
+                    Si eres técnico o supervisor no uses este formulario: el área de Infraestructura te envía una
+                    invitación con tus datos precargados.
+                </p>
+                <hr />
+                <p className="texto-aux">
+                    Tu cuenta queda activa al instante; el correo de bienvenida llega en pocos minutos.
+                </p>
+            </aside>
         </div>
     )
 }
