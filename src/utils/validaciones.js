@@ -32,3 +32,9 @@ export function validarConfirmacion(password, confirmacion) {
     if (password !== confirmacion) return 'Las contraseñas no coinciden.'
     return ''
 }
+
+export function soloErrores(errores) {
+    return Object.fromEntries(
+        Object.entries(errores).filter(([, mensaje]) => mensaje)
+    )
+}
