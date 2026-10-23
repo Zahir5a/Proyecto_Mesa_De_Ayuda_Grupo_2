@@ -24,6 +24,16 @@ export function useFormulario(inicial, validar) {
         }
     }
 
+    function casilla(nombre) {
+        return {
+            name: nombre,
+            checked: valores[nombre],
+            onChange: cambiar,
+            onBlur: tocar,
+            error: tocados[nombre] ? errores[nombre] : undefined,
+        }
+    }
+
     function validarTodo() {
         const todos = {}
         for (const nombre in valores) {
@@ -33,5 +43,5 @@ export function useFormulario(inicial, validar) {
         return Object.keys(errores).length
     }
 
-    return { valores, errores, campo, cambiar, validarTodo }
+    return { valores, errores, campo, casilla, cambiar, validarTodo }
 }

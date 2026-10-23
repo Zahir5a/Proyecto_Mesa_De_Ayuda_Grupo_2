@@ -123,3 +123,14 @@ body {
 .boton--primario:hover {
     background: var(--primary-dark);
 }
+
+.casilla {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.casilla input {
+    margin-top: 3px;
+}

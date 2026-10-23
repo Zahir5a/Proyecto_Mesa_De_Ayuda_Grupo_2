@@ -27,4 +27,17 @@ function Campo({ etiqueta, error, ayuda, tipo = 'text', opciones = [], placehold
     )
 }
 
+export function CampoCasilla({ children, error, ...resto }) {
+    const id = useId()
+    return (
+        <div className={error ? 'campo campo--error' : 'campo'}>
+            <label htmlFor={id} className="casilla">
+                <input id={id} type="checkbox" aria-invalid={error ? 'true' : undefined} {...resto} />
+                <span>{children}</span>
+            </label>
+            {error && <p className="campo__mensaje campo__mensaje--error">{error}</p>}
+        </div>
+    )
+}
+
 export default Campo
