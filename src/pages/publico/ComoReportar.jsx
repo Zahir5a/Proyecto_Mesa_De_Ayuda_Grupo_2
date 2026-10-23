@@ -1,11 +1,13 @@
 import { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { CATEGORIAS } from '../../data/catalogos'
+import { useCatalogo } from '../../hooks/useCatalogo'
 import { CONTACTO, PASOS_REPORTE, PREGUNTAS_FRECUENTES, PRIORIDADES } from '../../data/contenidoPublico'
 import './publico.css'
 
 function ComoReportar() {
     const { hash } = useLocation()
+    // Solo las categorías activas admiten tickets nuevos (HU-2)
+    const categorias = useCatalogo().categorias.filter((c) => c.estado === 'activa')
 
     // Los enlaces de la cabecera y del pie apuntan a secciones (#categorias, #tiempos, #preguntas).
     useEffect(() => {
@@ -38,7 +40,7 @@ function ComoReportar() {
             <section id="categorias" className="seccion-publica">
                 <h2>Categorías de servicio</h2>
                 <ul className="lista-chips">
-                    {CATEGORIAS.map((c) => (
+                    {categorias.map((c) => (
                         <li key={c.id} className="chip chip--estatico">{c.nombre}</li>
                     ))}
                 </ul>
