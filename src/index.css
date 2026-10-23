@@ -106,12 +106,17 @@ body {
 }
 
 .boton {
+    display: inline-flex;
+    align-items: center;
     min-height: 40px;
     padding: 0 16px;
     border: 1px solid var(--primary);
     border-radius: 4px;
+    background: var(--surface);
+    color: var(--primary);
     font: inherit;
     font-weight: 500;
+    text-decoration: none;
     cursor: pointer;
 }
 
@@ -133,4 +138,29 @@ body {
 
 .casilla input {
     margin-top: 3px;
+}
+
+.tarjeta--ancha {
+    max-width: 760px;
+}
+
+.formulario__rejilla {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 24px;
+    align-items: start;
+}
+
+.formulario__ancho {
+    grid-column: 1 / -1;
+}
+
+.formulario__acciones {
+    display: flex;
+    gap: 12px;
+}
+
+@media (max-width: 720px) {
+    .formulario__rejilla {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }

@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import Landing from './pages/publico/Landing';
 import Login from './pages/auth/Login';
+import Registro from './pages/auth/Registro';
 import LayoutPublico from './components/layout/LayoutPublico';
 import NoEncontrado from './pages/errores/NoEncontrado';
 import InicioRol from './pages/rol/InicioRol';
@@ -13,6 +14,7 @@ function App() {
       <Route element={<LayoutPublico />}>
         <Route path="/" element={<Landing />}/>
         <Route path="/login" element={<Login />}/>
+        <Route path="/registro" element={<Registro />}/>
 
         <Route element={<RutaProtegida />}>
           <Route element={<RequiereRol roles={['usuario']} />}>
