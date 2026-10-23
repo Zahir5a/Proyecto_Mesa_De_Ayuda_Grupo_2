@@ -3,8 +3,10 @@ import ModalAmbiente from '../../components/ambientes/ModalAmbiente'
 import ConfirmDialog from '../../components/ui/ConfirmDialog'
 import Paginacion from '../../components/ui/Paginacion'
 import { useCatalogo } from '../../hooks/useCatalogo'
+import { useTickets } from '../../hooks/useTickets'
 import { useToast } from '../../hooks/useToast'
 import { crearAmbiente, editarAmbiente, eliminarAmbiente } from '../../services/catalogoService'
+import { ambientesConAbiertos } from '../../utils/conteos'
 import '../../components/categorias/TablaCategoria.css'
 import './catalogo.css'
 import './ambientes.css'
@@ -16,7 +18,8 @@ function unicos(lista) {
 }
 
 function Ambientes() {
-    const { ambientes } = useCatalogo()
+    // Los tickets abiertos por ambiente salen de los tickets reales
+    const ambientes = ambientesConAbiertos(useCatalogo().ambientes, useTickets())
     const { exito } = useToast()
 
     const [busqueda, setBusqueda] = useState('')
@@ -64,7 +67,7 @@ function Ambientes() {
     }
 
     function eliminar() {
-        eliminarAmbiente(porEliminar.codigo)
+        eliminarAmbiente(porEliminar.codigo, porEliminar.ticketsAbiertos)
         exito(`Ambiente ${porEliminar.codigo} eliminado.`)
         setPorEliminar(null)
     }

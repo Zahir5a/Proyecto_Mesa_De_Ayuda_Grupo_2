@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import ModalInvitarTecnico from '../../components/tecnicos/ModalInvitarTecnico'
 import { useCatalogo } from '../../hooks/useCatalogo'
+import { useTickets } from '../../hooks/useTickets'
 import { useToast } from '../../hooks/useToast'
 import { guardarMatriz, listarTecnicos, nombreDeCategoria } from '../../services/catalogoService'
+import { cargaDe } from '../../services/ticketsService'
+import { categoriasConAbiertos } from '../../utils/conteos'
 import './catalogo.css'
 import './tecnicos.css'
 
@@ -26,8 +29,9 @@ function buscarAdvertencia(categorias, tecnicos) {
 }
 
 function TecnicosCategoria() {
-    const { categorias } = useCatalogo()
     const { exito } = useToast()
+    const tickets = useTickets()
+    const categorias = categoriasConAbiertos(useCatalogo().categorias, tickets)
     const [tecnicos, setTecnicos] = useState(listarTecnicos)
     const [guardados, setGuardados] = useState(() => JSON.stringify(listarTecnicos()))
     const [invitando, setInvitando] = useState(false)
@@ -104,7 +108,7 @@ function TecnicosCategoria() {
                                             : '—'}
                                     </td>
                                     <td>
-                                        <strong>{t.carga}</strong> <span className="celda-suave">tickets</span>
+                                        <strong>{cargaDe(tickets, t.id).total}</strong> <span className="celda-suave">tickets</span>
                                     </td>
                                     {categorias.map((c) => {
                                         const marcada = t.categorias.includes(c.id)

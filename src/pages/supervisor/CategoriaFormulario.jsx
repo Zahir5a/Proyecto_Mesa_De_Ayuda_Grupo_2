@@ -1,6 +1,7 @@
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import FormularioCategoria from '../../components/categorias/FormularioCategoria'
 import { useCatalogo } from '../../hooks/useCatalogo'
+import { useTickets } from '../../hooks/useTickets'
 import { useToast } from '../../hooks/useToast'
 import {
     buscarCategoria,
@@ -8,6 +9,7 @@ import {
     editarCategoria,
     eliminarCategoria,
 } from '../../services/catalogoService'
+import { estaEnCurso } from '../../services/ticketsService'
 import './catalogo.css'
 
 // Alta (/supervisor/categorias/nueva) y edición (/supervisor/categorias/:id) de una categoría o subcategoría.
@@ -15,10 +17,13 @@ function CategoriaFormulario() {
     const { id } = useParams()
     const navigate = useNavigate()
     const { categorias } = useCatalogo()
+    const tickets = useTickets()
     const { exito, error } = useToast()
     const volver = () => navigate('/supervisor/categorias')
 
     const encontrada = id ? buscarCategoria(id) : null
+    // Tickets en curso de esta categoría o subcategoría (los reales, no el número guardado)
+    const abiertos = tickets.filter((t) => estaEnCurso(t) && (t.categoriaId === id || t.subcategoriaId === id)).length
     if (id && encontrada === null) {
         return <Navigate to="/supervisor/categorias" replace />
     }
@@ -34,7 +39,7 @@ function CategoriaFormulario() {
     }
 
     function eliminar() {
-        const resultado = eliminarCategoria(id)
+        const resultado = eliminarCategoria(id, abiertos)
         if (resultado.ok) {
             exito(`“${encontrada.categoria.nombre}” se eliminó del catálogo.`)
         } else {
@@ -58,7 +63,7 @@ function CategoriaFormulario() {
             <FormularioCategoria
                 key={id ?? 'nueva'}
                 inicial={inicial}
-                ticketsAbiertos={encontrada ? encontrada.categoria.ticketsAbiertos : 0}
+                ticketsAbiertos={abiertos}
                 categoriasPadre={categorias}
                 onCancelar={volver}
                 onGuardar={guardar}
