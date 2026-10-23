@@ -1,0 +1,53 @@
+{
+  "categorias": [
+    {
+      "id": 1,
+      "nombre": "Audiovisuales",
+      "prioridad": "Alta",
+      "tiempoEsperado": 4,
+      "ticketsAbiertos": 9,
+      "estado": "activa",
+      "subcategorias": [
+        { "id": 101, "nombre": "Proyector no enciende", "prioridad": "Critica", "tiempoEsperado": 2, "ticketsAbiertos": 3, "estado": "activa" },
+        { "id": 102, "nombre": "Imagen distorsionada", "prioridad": "Media", "tiempoEsperado": 8, "ticketsAbiertos": 2, "estado": "activa" },
+        { "id": 103, "nombre": "Audio sin señal", "prioridad": "Media", "tiempoEsperado": 8, "ticketsAbiertos": 1, "estado": "activa" },
+        { "id": 104, "nombre": "Ecran atascado", "prioridad": "Baja", "tiempoEsperado": 24, "ticketsAbiertos": 3, "estado": "activa" }
+      ]
+    },
+    {
+      "id": 2,
+      "nombre": "Climatización",
+      "prioridad": "Alta",
+      "tiempoEsperado": 8,
+      "ticketsAbiertos": 5,
+      "estado": "activa",
+      "subcategorias": [
+        { "id": 201, "nombre": "Aire sin frío", "prioridad": "Alta", "tiempoEsperado": 8, "ticketsAbiertos": 3, "estado": "activa" },
+        { "id": 202, "nombre": "Fuga de condensado", "prioridad": "Alta", "tiempoEsperado": 8, "ticketsAbiertos": 2, "estado": "activa" }
+      ]
+    },
+    {
+      "id": 3,
+      "nombre": "Redes y conectividad",
+      "prioridad": "Critica",
+      "tiempoEsperado": 2,
+      "ticketsAbiertos": 6,
+      "estado": "activa",
+      "subcategorias": [
+        { "id": 301, "nombre": "Punto de red caído", "prioridad": "Critica", "tiempoEsperado": 2, "ticketsAbiertos": 4, "estado": "activa" },
+        { "id": 302, "nombre": "Señal intermitente", "prioridad": "Media", "tiempoEsperado": 12, "ticketsAbiertos": 2, "estado": "activa" }
+      ]
+    },
+    {
+      "id": 4,
+      "nombre": "Mobiliario",
+      "prioridad": "Baja",
+      "tiempoEsperado": 48,
+      "ticketsAbiertos": 2,
+      "estado": "activa",
+      "subcategorias": [
+        { "id": 401, "nombre": "Silla rota", "prioridad": "Baja", "tiempoEsperado": 48, "ticketsAbiertos": 2, "estado": "activa" }
+      ]
+    }
+  ]
+}
