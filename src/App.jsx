@@ -6,6 +6,7 @@ import LayoutPublico from './components/layout/LayoutPublico';
 import LayoutApp from './components/layout/LayoutApp';
 import NoEncontrado from './pages/errores/NoEncontrado';
 import InicioRol from './pages/rol/InicioRol';
+import MiCuenta from './pages/cuenta/MiCuenta';
 import RutaProtegida from './components/layout/RutaProtegida';
 import RequiereRol from './components/layout/RequiereRol';
 
@@ -21,6 +22,7 @@ function App() {
 
       <Route element={<RutaProtegida />}>
         <Route element={<LayoutApp />}>
+          <Route path="/cuenta" element={<MiCuenta />}/>
           <Route element={<RequiereRol roles={['usuario']} />}>
             <Route path="/usuario" element={<InicioRol />}/>
           </Route>

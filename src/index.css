@@ -164,3 +164,18 @@ body {
         grid-template-columns: minmax(0, 1fr);
     }
 }
+
+.alerta-exito {
+    margin: 0;
+    padding: 12px 16px;
+    border: 1px solid var(--success);
+    border-radius: 4px;
+    background: #e8f3ec;
+    color: var(--success);
+    font-size: 14px;
+}
+
+.tarjeta h2 {
+    margin: 0 0 12px;
+    font-size: 18px;
+}
