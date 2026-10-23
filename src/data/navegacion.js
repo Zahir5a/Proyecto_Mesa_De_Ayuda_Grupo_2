@@ -38,15 +38,15 @@ export const MENU_POR_ROL = {
         titulo: 'Supervisión',
         insignia: { etiqueta: 'Cola sin asignar', clave: 'colaSinAsignar' },
         items: [
-            { ruta: '/supervisor', etiqueta: 'Tablero', permiso: 'el tablero de métricas' },
+            { ruta: '/supervisor', etiqueta: 'Tablero', permiso: 'el tablero de métricas', lista: true },
             { ruta: '/supervisor/cola', etiqueta: 'Cola de atención', contador: 'cola', permiso: 'la cola de atención', lista: true },
             { ruta: '/supervisor/bandejas', etiqueta: 'Bandejas de técnicos', contador: 'bandejas', permiso: 'las bandejas de técnicos', lista: true },
             { ruta: '/supervisor/categorias', etiqueta: 'Categorías', contador: 'categorias', permiso: 'el catálogo de categorías', lista: true },
             { ruta: '/supervisor/ambientes', etiqueta: 'Sedes y ambientes', contador: 'ambientes', permiso: 'las sedes y ambientes', lista: true },
             { ruta: '/supervisor/tecnicos-categoria', etiqueta: 'Técnicos por categoría', permiso: 'los técnicos por categoría', lista: true },
             { ruta: '/supervisor/satisfaccion', etiqueta: 'Satisfacción', permiso: 'la satisfacción por técnico', lista: true },
-            { ruta: '/supervisor/carga', etiqueta: 'Carga por técnico', permiso: 'la carga por técnico' },
-            { ruta: '/supervisor/usuarios', etiqueta: 'Usuarios', contador: 'usuarios', permiso: 'la gestión de usuarios' },
+            { ruta: '/supervisor/carga', etiqueta: 'Carga por técnico', permiso: 'la carga por técnico', lista: true },
+            { ruta: '/supervisor/usuarios', etiqueta: 'Usuarios', contador: 'usuarios', permiso: 'la gestión de usuarios', lista: true },
         ],
     },
 }
