@@ -37,3 +37,22 @@ export function crearUsuario(datos) {
     guardar('usuarios', [...usuarios, nuevo])
     return nuevo
 }
+
+export function actualizarUsuario(id, cambios) {
+    const usuarios = cargar()
+    let actualizado = null
+
+    const nuevaLista = usuarios.map((u) => {
+        if (u.id !== id) return u
+        actualizado = { ...u, ...cambios }
+        return actualizado
+    })
+
+    guardar('usuarios', nuevaLista)
+    return actualizado
+}
+
+export function verificarPassword(id, password) {
+    const usuario = buscarPorId(id)
+    return usuario !== null && usuario.password === password
+}

@@ -43,3 +43,11 @@ export function registrarUsuario(datos) {
     guardarSesion(usuario.id)
     return { ok: true, usuario }
 }
+
+export function cambiarPassword(idUsuario, actual, nueva) {
+    if (!verificarPassword(idUsuario, actual)) {
+        return { ok: false, motivo: 'password_actual' }
+    }
+    actualizarUsuario(idUsuario, { password: nueva })
+    return { ok: true }
+}
