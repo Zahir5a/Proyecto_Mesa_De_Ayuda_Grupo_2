@@ -1,27 +1,39 @@
 import { useState } from 'react'
-import './NuevaSubcategoria.css'
+import { Link } from 'react-router-dom'
+import ConfirmDialog from '../ui/ConfirmDialog'
+import { PRIORIDADES } from '../../data/contenidoPublico'
+import './FormularioCategoria.css'
 
-function NuevaSubcategoria({ onCancelar, onGuardar }) {
-  const [form, setForm] = useState({
-    nombre: '',
-    categoriaPadre: '',
-    prioridad: 'Critica',
-    tiempoEsperado: 0,
-    descripcion: '',
-    activa: true,
-  })
+const VACIO = {
+  nombre: '',
+  padreId: '',
+  prioridad: 'critica',
+  tiempoEsperado: 0,
+  descripcion: '',
+  activa: true,
+}
 
+// Formulario para crear o editar una categoría o subcategoría.
+// - inicial: los datos a editar (si no viene, es un alta)
+// - categoriasPadre: categorías de primer nivel para el selector
+// - onGuardar(datos): guarda y devuelve el resultado del servicio
+function FormularioCategoria({
+  inicial = null,
+  ticketsAbiertos = 0,
+  categoriasPadre,
+  onCancelar,
+  onGuardar,
+  onEliminar,
+}) {
+  const editando = inicial !== null
+  const [form, setForm] = useState(inicial ?? VACIO)
   const [errores, setErrores] = useState({})
   const [mostrarErrorGeneral, setMostrarErrorGeneral] = useState(false)
+  const [confirmarEliminar, setConfirmarEliminar] = useState(false)
 
-  const categoriasPadre = [
-    { id: 1, nombre: 'Audiovisuales' },
-    { id: 2, nombre: 'Climatización' },
-    { id: 3, nombre: 'Redes y conectividad' },
-    { id: 4, nombre: 'Mobiliario' },
-  ]
-
-  const prioridades = ['Critica', 'Alta', 'Media', 'Baja']
+  const titulo = form.padreId
+    ? editando ? 'Editar subcategoría' : 'Nueva subcategoría'
+    : editando ? 'Editar categoría' : 'Nueva categoría'
 
   const handleChange = (campo, valor) => {
     setForm({ ...form, [campo]: valor })
@@ -34,9 +46,12 @@ function NuevaSubcategoria({ onCancelar, onGuardar }) {
     const nuevosErrores = {}
     if (!form.nombre.trim()) {
       nuevosErrores.nombre = 'El nombre es obligatorio.'
+    } else if (form.nombre.trim().length > 60) {
+      nuevosErrores.nombre = 'Usa 60 caracteres como máximo.'
     }
-    if (Number(form.tiempoEsperado) <= 0) {
-      nuevosErrores.tiempoEsperado = 'Debe ser un número mayor que cero.'
+    const tiempo = Number(form.tiempoEsperado)
+    if (!Number.isInteger(tiempo) || tiempo <= 0) {
+      nuevosErrores.tiempoEsperado = 'Debe ser un número entero mayor que cero.'
     }
     return nuevosErrores
   }
@@ -48,23 +63,30 @@ function NuevaSubcategoria({ onCancelar, onGuardar }) {
       setMostrarErrorGeneral(true)
       return
     }
-    if (onGuardar) onGuardar(form)
+
+    const resultado = onGuardar(form)
+    if (resultado && !resultado.ok && resultado.motivo === 'nombre_repetido') {
+      setErrores({ nombre: 'Ya existe una categoría con ese nombre en este nivel.' })
+      setMostrarErrorGeneral(true)
+    }
   }
+
+  const cantidadErrores = Object.values(errores).filter(Boolean).length
 
   return (
     <div className="categoria-form-page">
       {/* Breadcrumb */}
       <div className="breadcrumb">
-        <span className="breadcrumb-link">Categorías</span>
+        <Link to="/supervisor/categorias" className="breadcrumb-link">Categorías</Link>
         <span className="breadcrumb-sep">·</span>
-        <span className="breadcrumb-current">Nueva subcategoría</span>
+        <span className="breadcrumb-current">{titulo}</span>
       </div>
 
-      <h1 className="form-title">Nueva subcategoría</h1>
+      <h1 className="form-title">{titulo}</h1>
 
-      {mostrarErrorGeneral && (
-        <div className="alerta-error">
-          No se pudo guardar: revisa los {Object.keys(errores).length} campos marcados.
+      {mostrarErrorGeneral && cantidadErrores > 0 && (
+        <div className="form-alerta" role="alert">
+          No se pudo guardar: revisa {cantidadErrores === 1 ? 'el campo marcado' : `los ${cantidadErrores} campos marcados`}.
         </div>
       )}
 
@@ -88,35 +110,41 @@ function NuevaSubcategoria({ onCancelar, onGuardar }) {
 
             {/* CATEGORÍA PADRE */}
             <div className="form-group">
-              <label className="form-label" htmlFor="categoriaPadre">CATEGORÍA PADRE</label>
+              <label className="form-label" htmlFor="padreId">CATEGORÍA PADRE</label>
               <select
-                id="categoriaPadre"
+                id="padreId"
                 className="form-select"
-                value={form.categoriaPadre}
-                onChange={(e) => handleChange('categoriaPadre', e.target.value)}
+                value={form.padreId}
+                disabled={editando}
+                onChange={(e) => handleChange('padreId', e.target.value)}
               >
-                <option value="">Audiovisuales</option>
+                <option value="">Sin categoría padre</option>
                 {categoriasPadre.map((cat) => (
-                  <option key={cat.id} value={cat.nombre}>{cat.nombre}</option>
+                  <option key={cat.id} value={cat.id}>{cat.nombre}</option>
                 ))}
               </select>
-              <span className="form-hint">Déjalo vacío para crear una categoría de primer nivel.</span>
+              <span className="form-hint">
+                {editando
+                  ? 'No se puede cambiar de nivel una categoría ya creada.'
+                  : 'Déjalo vacío para crear una categoría de primer nivel.'}
+              </span>
             </div>
 
             {/* PRIORIDAD POR DEFECTO */}
             <div className="form-group">
               <label className="form-label">PRIORIDAD POR DEFECTO</label>
               <div className="prioridad-grupo">
-                {prioridades.map((p) => (
+                {PRIORIDADES.map((p) => (
                   <button
-                    key={p}
+                    key={p.id}
                     type="button"
-                    className={`prioridad-btn prioridad-${p.toLowerCase()} ${
-                      form.prioridad === p ? 'activo' : ''
+                    aria-pressed={form.prioridad === p.id}
+                    className={`prioridad-btn prioridad-${p.id} ${
+                      form.prioridad === p.id ? 'activo' : ''
                     }`}
-                    onClick={() => handleChange('prioridad', p)}
+                    onClick={() => handleChange('prioridad', p.id)}
                   >
-                    {p.charAt(0).toUpperCase() + p.slice(1)}
+                    {p.nombre}
                   </button>
                 ))}
               </div>
@@ -129,6 +157,7 @@ function NuevaSubcategoria({ onCancelar, onGuardar }) {
                 type="number"
                 id="tiempoEsperado"
                 className="form-input"
+                min="0"
                 value={form.tiempoEsperado}
                 onChange={(e) => handleChange('tiempoEsperado', e.target.value)}
               />
@@ -149,7 +178,7 @@ function NuevaSubcategoria({ onCancelar, onGuardar }) {
                 maxLength={240}
               />
               <span className="form-hint">
-                Se muestra al usuario al elegir la subcategoría. Máximo 240 caracteres.
+                Se muestra al usuario al elegir la subcategoría. Máximo 240 caracteres ({form.descripcion.length}/240).
               </span>
             </div>
 
@@ -174,7 +203,22 @@ function NuevaSubcategoria({ onCancelar, onGuardar }) {
             <button type="button" className="btn btn-secondary" onClick={onCancelar}>
               Cancelar
             </button>
+            {editando && (
+              <button
+                type="button"
+                className="btn btn-peligro"
+                disabled={ticketsAbiertos > 0}
+                onClick={() => setConfirmarEliminar(true)}
+              >
+                Eliminar
+              </button>
+            )}
           </div>
+          {editando && ticketsAbiertos > 0 && (
+            <p className="form-hint form-hint--aparte">
+              Tiene {ticketsAbiertos} tickets en curso: no se puede eliminar. Puedes desactivarla desde la lista.
+            </p>
+          )}
         </div>
 
         {/* Panel lateral informativo */}
@@ -187,13 +231,25 @@ function NuevaSubcategoria({ onCancelar, onGuardar }) {
             <div className="sidebar-divider"></div>
             <h4 className="sidebar-subtitle">REFERENCIA ACTUAL</h4>
             <p className="sidebar-ref">
-              Crítica 2 h · Alta 8 h · Media 24 h · Baja 72 h hábiles
+              {PRIORIDADES.map((p) => `${p.nombre} ${p.horas} h`).join(' · ')} hábiles
             </p>
           </div>
         </aside>
       </div>
+
+      <ConfirmDialog
+        abierto={confirmarEliminar}
+        titulo={`¿Eliminar “${inicial ? inicial.nombre : ''}”?`}
+        textoConfirmar="Eliminar"
+        destructivo
+        onConfirmar={onEliminar}
+        onCancelar={() => setConfirmarEliminar(false)}
+      >
+        Se borra del catálogo y no se puede deshacer.
+        {inicial && !inicial.padreId && ' También se borran sus subcategorías.'}
+      </ConfirmDialog>
     </div>
   )
 }
 
-export default NuevaSubcategoria
+export default FormularioCategoria

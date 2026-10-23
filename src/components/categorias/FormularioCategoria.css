@@ -39,7 +39,7 @@
   text-align: left;
 }
 
-.alerta-error {
+.form-alerta {
   background-color: #FEE2E2;
   color: #991B1B;
   border: 1px solid #FCA5A5;
@@ -300,4 +300,24 @@
   color: var(--text);
   margin: 0;
   text-align: left;
+}
+.btn-peligro {
+  margin-left: auto;
+  background-color: var(--surface);
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+.btn-peligro:hover:not(:disabled) {
+  background-color: var(--danger);
+  color: var(--surface);
+}
+
+.btn-peligro:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.form-hint--aparte {
+  margin-top: 12px;
 }
