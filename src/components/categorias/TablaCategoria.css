@@ -148,3 +148,8 @@
   color: var(--text-muted);
   border-color: var(--border);
 }
+
+/* En pantallas angostas la tabla se desplaza hacia los lados dentro de su caja */
+.tabla-container {
+  overflow-x: auto;
+}

@@ -223,3 +223,23 @@
   text-align: center !important;
   color: var(--text-muted);
 }
+
+/* ---- Pantallas angostas ---- */
+@media (max-width: 900px) {
+  .page-header,
+  .filtros-bar,
+  .filtros-izquierda,
+  .page-actions {
+    flex-wrap: wrap;
+  }
+
+  .filtro-buscador {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .filtros-bar .filtro-select {
+    width: auto;
+    min-width: 0;
+  }
+}
