@@ -1,0 +1,747 @@
+[
+  {
+    "codigo": "TCK-2026-00147",
+    "usuarioId": "u-001",
+    "asunto": "Proyector no enciende en aula A-201",
+    "descripcion": "El proyector enciende el foco pero la imagen no llega a la pantalla. Probé con dos laptops y el mismo cable HDMI de la mesa. Hay clase de 10:00 a 13:00.",
+    "categoriaId": "audiovisuales",
+    "subcategoriaId": "aud-proyector",
+    "ambiente": "A-201",
+    "prioridad": "critica",
+    "estado": "en_atencion",
+    "haceMin": 95,
+    "tecnico": "Julio Paredes Soto",
+    "evidencia": "",
+    "bitacora": [
+      {
+        "autor": "Camila Quispe Ramos",
+        "rol": "usuario",
+        "texto": "El proyector enciende el foco pero la imagen no llega. Ya probé con dos laptops distintas y el mismo cable.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Julio Paredes. Se atenderá antes del inicio de la clase de 10:00.",
+        "despuesMin": 8,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Julio Paredes Soto",
+        "rol": "tecnico",
+        "texto": "Subí al aula con un cable de reemplazo. La imagen vuelve con conexión directa; el problema está en el extensor del rack.",
+        "despuesMin": 53,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Julio Paredes Soto",
+        "rol": "tecnico",
+        "texto": "Nota interna: revisar el extensor HDMI del rack del piso 2 antes del mediodía.",
+        "despuesMin": 55,
+        "tipo": "interno"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Camila Quispe Ramos",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 8
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Julio Paredes Soto",
+        "despuesMin": 29
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00146",
+    "usuarioId": "u-001",
+    "asunto": "Punto de red caído en laboratorio",
+    "descripcion": "Los equipos de la fila 3 del laboratorio no obtienen conexión de red desde esta mañana.",
+    "categoriaId": "redes",
+    "subcategoriaId": "red-punto",
+    "ambiente": "H-210",
+    "prioridad": "critica",
+    "estado": "abierto",
+    "haceMin": 1500,
+    "tecnico": null,
+    "evidencia": "",
+    "bitacora": [
+      {
+        "autor": "Camila Quispe Ramos",
+        "rol": "usuario",
+        "texto": "Los equipos de la fila 3 del laboratorio no obtienen conexión de red desde esta mañana.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Camila Quispe Ramos",
+        "despuesMin": 0
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00145",
+    "usuarioId": "u-001",
+    "asunto": "Aire acondicionado sin frío",
+    "descripcion": "El aire del aula magna enciende pero el ambiente sigue caliente, incluso con la temperatura al mínimo.",
+    "categoriaId": "climatizacion",
+    "subcategoriaId": "cli-frio",
+    "ambiente": "E-304",
+    "prioridad": "alta",
+    "estado": "en_espera",
+    "haceMin": 3000,
+    "tecnico": "Sandra Nolasco Ríos",
+    "evidencia": "",
+    "bitacora": [
+      {
+        "autor": "Camila Quispe Ramos",
+        "rol": "usuario",
+        "texto": "El aire del aula magna enciende pero el ambiente sigue caliente, incluso con la temperatura al mínimo.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Sandra Nolasco.",
+        "despuesMin": 15,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Sandra Nolasco Ríos",
+        "rol": "tecnico",
+        "texto": "Revisé el equipo: falta un repuesto del compresor. Queda en espera hasta que llegue.",
+        "despuesMin": 240,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Camila Quispe Ramos",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 15
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Sandra Nolasco Ríos",
+        "despuesMin": 60
+      },
+      {
+        "tipo": "en_espera",
+        "autor": "Sandra Nolasco Ríos",
+        "despuesMin": 240
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00144",
+    "usuarioId": "u-001",
+    "asunto": "Tomacorriente sin energía",
+    "descripcion": "El tomacorriente de la pared norte no entrega corriente.",
+    "categoriaId": "electrico",
+    "subcategoriaId": "ele-tomacorriente",
+    "ambiente": "N-402",
+    "prioridad": "alta",
+    "estado": "cerrado",
+    "haceMin": 5000,
+    "tecnico": "Iván Zegarra Pinto",
+    "evidencia": "",
+    "solucion": "Cambié el tomacorriente y verifiqué el circuito.",
+    "cerradoHaceMin": 4200,
+    "bitacora": [
+      {
+        "autor": "Camila Quispe Ramos",
+        "rol": "usuario",
+        "texto": "El tomacorriente de la pared norte no entrega corriente.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Iván Zegarra Pinto.",
+        "despuesMin": 12,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Iván Zegarra Pinto",
+        "rol": "tecnico",
+        "texto": "Cambié el tomacorriente y verifiqué el circuito.",
+        "despuesMin": 770,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Camila Quispe Ramos",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 12
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Iván Zegarra Pinto",
+        "despuesMin": 35
+      },
+      {
+        "tipo": "resuelto",
+        "autor": "Iván Zegarra Pinto",
+        "despuesMin": 770
+      },
+      {
+        "tipo": "cerrado",
+        "autor": "Iván Zegarra Pinto",
+        "despuesMin": 800
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00143",
+    "usuarioId": "u-001",
+    "asunto": "Imagen distorsionada del proyector",
+    "descripcion": "La imagen se ve con franjas verdes en toda la pantalla.",
+    "categoriaId": "audiovisuales",
+    "subcategoriaId": "aud-imagen",
+    "ambiente": "Q-101",
+    "prioridad": "media",
+    "estado": "cerrado",
+    "haceMin": 7000,
+    "tecnico": "Julio Paredes Soto",
+    "evidencia": "",
+    "solucion": "Reemplacé el cable VGA dañado.",
+    "cerradoHaceMin": 6000,
+    "bitacora": [
+      {
+        "autor": "Camila Quispe Ramos",
+        "rol": "usuario",
+        "texto": "La imagen se ve con franjas verdes en toda la pantalla.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Julio Paredes Soto.",
+        "despuesMin": 12,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Julio Paredes Soto",
+        "rol": "tecnico",
+        "texto": "Reemplacé el cable VGA dañado.",
+        "despuesMin": 970,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Camila Quispe Ramos",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 12
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Julio Paredes Soto",
+        "despuesMin": 35
+      },
+      {
+        "tipo": "resuelto",
+        "autor": "Julio Paredes Soto",
+        "despuesMin": 970
+      },
+      {
+        "tipo": "cerrado",
+        "autor": "Julio Paredes Soto",
+        "despuesMin": 1000
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00142",
+    "usuarioId": "u-001",
+    "asunto": "Chapa de puerta trabada",
+    "descripcion": "La llave no gira en la chapa de la puerta del laboratorio.",
+    "categoriaId": "accesos",
+    "subcategoriaId": "acc-cerradura",
+    "ambiente": "H-105",
+    "prioridad": "alta",
+    "estado": "cerrado",
+    "haceMin": 9000,
+    "tecnico": "Iván Zegarra Pinto",
+    "evidencia": "",
+    "solucion": "Lubriqué y cambié el cilindro de la chapa.",
+    "cerradoHaceMin": 8000,
+    "bitacora": [
+      {
+        "autor": "Camila Quispe Ramos",
+        "rol": "usuario",
+        "texto": "La llave no gira en la chapa de la puerta del laboratorio.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Iván Zegarra Pinto.",
+        "despuesMin": 12,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Iván Zegarra Pinto",
+        "rol": "tecnico",
+        "texto": "Lubriqué y cambié el cilindro de la chapa.",
+        "despuesMin": 970,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Camila Quispe Ramos",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 12
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Iván Zegarra Pinto",
+        "despuesMin": 35
+      },
+      {
+        "tipo": "resuelto",
+        "autor": "Iván Zegarra Pinto",
+        "despuesMin": 970
+      },
+      {
+        "tipo": "cerrado",
+        "autor": "Iván Zegarra Pinto",
+        "despuesMin": 1000
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00141",
+    "usuarioId": "u-001",
+    "asunto": "Cinco sillas rotas en aula",
+    "descripcion": "Cinco sillas del fondo tienen las patas sueltas.",
+    "categoriaId": "mobiliario",
+    "subcategoriaId": "mob-silla",
+    "ambiente": "A-201",
+    "prioridad": "media",
+    "estado": "cerrado",
+    "haceMin": 12000,
+    "tecnico": "Marco Huamán Vela",
+    "evidencia": "",
+    "solucion": "Reparé tres sillas y reemplacé dos.",
+    "cerradoHaceMin": 10500,
+    "bitacora": [
+      {
+        "autor": "Camila Quispe Ramos",
+        "rol": "usuario",
+        "texto": "Cinco sillas del fondo tienen las patas sueltas.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Marco Huamán Vela.",
+        "despuesMin": 12,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Marco Huamán Vela",
+        "rol": "tecnico",
+        "texto": "Reparé tres sillas y reemplacé dos.",
+        "despuesMin": 1470,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Camila Quispe Ramos",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 12
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Marco Huamán Vela",
+        "despuesMin": 35
+      },
+      {
+        "tipo": "resuelto",
+        "autor": "Marco Huamán Vela",
+        "despuesMin": 1470
+      },
+      {
+        "tipo": "cerrado",
+        "autor": "Marco Huamán Vela",
+        "despuesMin": 1500
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00140",
+    "usuarioId": "u-001",
+    "asunto": "Fuga de agua en baño de damas",
+    "descripcion": "Hay agua en el piso junto a los lavatorios desde la tarde.",
+    "categoriaId": "limpieza",
+    "subcategoriaId": "lim-derrame",
+    "ambiente": "BIB-P2",
+    "prioridad": "critica",
+    "estado": "cerrado",
+    "haceMin": 15000,
+    "tecnico": "Rocío Espinoza Farfán",
+    "evidencia": "",
+    "solucion": "Sequé la zona y avisé a mantenimiento por la fuga.",
+    "cerradoHaceMin": 14500,
+    "bitacora": [
+      {
+        "autor": "Camila Quispe Ramos",
+        "rol": "usuario",
+        "texto": "Hay agua en el piso junto a los lavatorios desde la tarde.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Rocío Espinoza Farfán.",
+        "despuesMin": 12,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Rocío Espinoza Farfán",
+        "rol": "tecnico",
+        "texto": "Sequé la zona y avisé a mantenimiento por la fuga.",
+        "despuesMin": 470,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Camila Quispe Ramos",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 12
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Rocío Espinoza Farfán",
+        "despuesMin": 35
+      },
+      {
+        "tipo": "resuelto",
+        "autor": "Rocío Espinoza Farfán",
+        "despuesMin": 470
+      },
+      {
+        "tipo": "cerrado",
+        "autor": "Rocío Espinoza Farfán",
+        "despuesMin": 500
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00139",
+    "usuarioId": "u-001",
+    "asunto": "Wifi intermitente en biblioteca",
+    "descripcion": "La señal se corta cada pocos minutos en el piso 2.",
+    "categoriaId": "redes",
+    "subcategoriaId": "red-senal",
+    "ambiente": "BIB-P2",
+    "prioridad": "media",
+    "estado": "cerrado",
+    "haceMin": 18000,
+    "tecnico": "Sandra Nolasco Ríos",
+    "evidencia": "",
+    "solucion": "Reinicié el access point y actualicé su configuración.",
+    "cerradoHaceMin": 16500,
+    "bitacora": [
+      {
+        "autor": "Camila Quispe Ramos",
+        "rol": "usuario",
+        "texto": "La señal se corta cada pocos minutos en el piso 2.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Sandra Nolasco Ríos.",
+        "despuesMin": 12,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Sandra Nolasco Ríos",
+        "rol": "tecnico",
+        "texto": "Reinicié el access point y actualicé su configuración.",
+        "despuesMin": 1470,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Camila Quispe Ramos",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 12
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Sandra Nolasco Ríos",
+        "despuesMin": 35
+      },
+      {
+        "tipo": "resuelto",
+        "autor": "Sandra Nolasco Ríos",
+        "despuesMin": 1470
+      },
+      {
+        "tipo": "cerrado",
+        "autor": "Sandra Nolasco Ríos",
+        "despuesMin": 1500
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00138",
+    "usuarioId": "u-001",
+    "asunto": "Luminaria quemada en pasillo",
+    "descripcion": "Dos fluorescentes del pasillo no encienden.",
+    "categoriaId": "electrico",
+    "subcategoriaId": "ele-luminaria",
+    "ambiente": "E-304",
+    "prioridad": "baja",
+    "estado": "cerrado",
+    "haceMin": 21000,
+    "tecnico": "Iván Zegarra Pinto",
+    "evidencia": "",
+    "solucion": "Cambié los dos fluorescentes.",
+    "cerradoHaceMin": 19000,
+    "bitacora": [
+      {
+        "autor": "Camila Quispe Ramos",
+        "rol": "usuario",
+        "texto": "Dos fluorescentes del pasillo no encienden.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Iván Zegarra Pinto.",
+        "despuesMin": 12,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Iván Zegarra Pinto",
+        "rol": "tecnico",
+        "texto": "Cambié los dos fluorescentes.",
+        "despuesMin": 1970,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Camila Quispe Ramos",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 12
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Iván Zegarra Pinto",
+        "despuesMin": 35
+      },
+      {
+        "tipo": "resuelto",
+        "autor": "Iván Zegarra Pinto",
+        "despuesMin": 1970
+      },
+      {
+        "tipo": "cerrado",
+        "autor": "Iván Zegarra Pinto",
+        "despuesMin": 2000
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00137",
+    "usuarioId": "u-001",
+    "asunto": "Audio sin señal en el aula",
+    "descripcion": "Los parlantes no emiten sonido al conectar la laptop.",
+    "categoriaId": "audiovisuales",
+    "subcategoriaId": "aud-audio",
+    "ambiente": "A-305",
+    "prioridad": "media",
+    "estado": "cerrado",
+    "haceMin": 24000,
+    "tecnico": "Marco Huamán Vela",
+    "evidencia": "",
+    "solucion": "Reconecté el cable de audio al amplificador.",
+    "cerradoHaceMin": 22500,
+    "bitacora": [
+      {
+        "autor": "Camila Quispe Ramos",
+        "rol": "usuario",
+        "texto": "Los parlantes no emiten sonido al conectar la laptop.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Marco Huamán Vela.",
+        "despuesMin": 12,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Marco Huamán Vela",
+        "rol": "tecnico",
+        "texto": "Reconecté el cable de audio al amplificador.",
+        "despuesMin": 1470,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Camila Quispe Ramos",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 12
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Marco Huamán Vela",
+        "despuesMin": 35
+      },
+      {
+        "tipo": "resuelto",
+        "autor": "Marco Huamán Vela",
+        "despuesMin": 1470
+      },
+      {
+        "tipo": "cerrado",
+        "autor": "Marco Huamán Vela",
+        "despuesMin": 1500
+      }
+    ]
+  },
+  {
+    "codigo": "TCK-2026-00131",
+    "usuarioId": "u-001",
+    "asunto": "Limpieza del auditorio tras evento",
+    "descripcion": "Quedaron residuos y manchas en el piso del auditorio después del evento del viernes.",
+    "categoriaId": "limpieza",
+    "subcategoriaId": "lim-derrame",
+    "ambiente": "AUD-CEN",
+    "prioridad": "media",
+    "estado": "cerrado",
+    "haceMin": 30000,
+    "tecnico": "Rocío Espinoza Farfán",
+    "evidencia": "",
+    "solucion": "Limpieza profunda del ambiente y retiro de residuos del evento.",
+    "cerradoHaceMin": 2880,
+    "bitacora": [
+      {
+        "autor": "Camila Quispe Ramos",
+        "rol": "usuario",
+        "texto": "Quedaron residuos y manchas en el piso del auditorio después del evento del viernes.",
+        "despuesMin": 0,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Lucía Mendoza Ríos",
+        "rol": "supervisor",
+        "texto": "Asignamos tu ticket a Rocío Espinoza Farfán.",
+        "despuesMin": 12,
+        "tipo": "publico"
+      },
+      {
+        "autor": "Rocío Espinoza Farfán",
+        "rol": "tecnico",
+        "texto": "Limpieza profunda del ambiente y retiro de residuos del evento.",
+        "despuesMin": 27090,
+        "tipo": "publico"
+      }
+    ],
+    "historial": [
+      {
+        "tipo": "abierto",
+        "autor": "Camila Quispe Ramos",
+        "despuesMin": 0
+      },
+      {
+        "tipo": "asignado",
+        "autor": "Lucía Mendoza Ríos",
+        "despuesMin": 12
+      },
+      {
+        "tipo": "en_atencion",
+        "autor": "Rocío Espinoza Farfán",
+        "despuesMin": 35
+      },
+      {
+        "tipo": "resuelto",
+        "autor": "Rocío Espinoza Farfán",
+        "despuesMin": 27090
+      },
+      {
+        "tipo": "cerrado",
+        "autor": "Rocío Espinoza Farfán",
+        "despuesMin": 27120
+      }
+    ],
+    "encuestaPendiente": true
+  }
+]
