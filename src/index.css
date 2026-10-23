@@ -1,0 +1,23 @@
+:root {
+  --primary: #1f4e79;
+  --primary-dark: #163a5a;
+  --primary-soft: #e7eff6;
+  --accent: #d2601a;
+  --bg: #f4f6f8;
+  --surface: #ffffff;
+  --border: #d6dee5;
+  --text: #141c24;
+  --text-muted: #5f6c78;
+  --success: #1e7f4d;
+  --warning: #b7791f;
+  --danger: #b4322b;
+  --info: #3b6fa8;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+}
