@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Landing from './pages/publico/Landing';
 import Login from './pages/auth/Login';
 import Registro from './pages/auth/Registro';
@@ -23,10 +23,6 @@ import HistorialTecnico from './pages/tecnico/HistorialTecnico';
 import ColaAtencion from './pages/supervisor/ColaAtencion';
 import BandejasTecnicos from './pages/supervisor/BandejasTecnicos';
 import BandejaTecnico from './pages/tecnico/BandejaTecnico';
-import Tablero from './pages/supervisor/Tablero';
-import CargaTecnicos from './pages/supervisor/CargaTecnicos';
-import Usuarios from './pages/supervisor/Usuarios';
-import FichaUsuario from './pages/supervisor/FichaUsuario';
 import Categorias from './pages/supervisor/Categorias';
 import CategoriaFormulario from './pages/supervisor/CategoriaFormulario';
 import Ambientes from './pages/supervisor/Ambientes';
@@ -76,10 +72,7 @@ function App() {
             <Route path="/tecnico/*" element={<NoEncontrado />}/>
           </Route>
           <Route element={<RequiereRol roles={['supervisor']} />}>
-            <Route path="/supervisor" element={<Tablero />}/>
-            <Route path="/supervisor/carga" element={<CargaTecnicos />}/>
-            <Route path="/supervisor/usuarios" element={<Usuarios />}/>
-            <Route path="/supervisor/usuarios/:id" element={<FichaUsuario />}/>
+            <Route path="/supervisor" element={<Navigate to="/supervisor/cola" replace />}/>
             <Route path="/supervisor/cola" element={<ColaAtencion />}/>
             <Route path="/supervisor/cola/:codigo" element={<DetalleAtencion />}/>
             <Route path="/supervisor/cola/:codigo/historial" element={<HistorialTicket />}/>

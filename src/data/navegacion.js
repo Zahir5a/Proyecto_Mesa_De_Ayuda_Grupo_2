@@ -37,15 +37,12 @@ export const MENU_POR_ROL = {
         titulo: 'Supervisión',
         insignia: { etiqueta: 'Cola sin asignar', clave: 'colaSinAsignar' },
         items: [
-            { ruta: '/supervisor', etiqueta: 'Tablero', permiso: 'el tablero de métricas' },
             { ruta: '/supervisor/cola', etiqueta: 'Cola de atención', contador: 'cola', permiso: 'la cola de atención' },
             { ruta: '/supervisor/bandejas', etiqueta: 'Bandejas de técnicos', contador: 'bandejas', permiso: 'las bandejas de técnicos' },
             { ruta: '/supervisor/categorias', etiqueta: 'Categorías', contador: 'categorias', permiso: 'el catálogo de categorías' },
             { ruta: '/supervisor/ambientes', etiqueta: 'Sedes y ambientes', contador: 'ambientes', permiso: 'las sedes y ambientes' },
             { ruta: '/supervisor/tecnicos-categoria', etiqueta: 'Técnicos por categoría', permiso: 'los técnicos por categoría' },
             { ruta: '/supervisor/satisfaccion', etiqueta: 'Satisfacción', permiso: 'la satisfacción por técnico' },
-            { ruta: '/supervisor/carga', etiqueta: 'Carga por técnico', permiso: 'la carga por técnico' },
-            { ruta: '/supervisor/usuarios', etiqueta: 'Usuarios', contador: 'usuarios', permiso: 'la gestión de usuarios' },
         ],
     },
 }
@@ -61,13 +58,13 @@ export const EXCLUSIVO_DE = {
 export const ACCESO_PRINCIPAL = {
     usuario: { etiqueta: 'Ir a mis tickets', ruta: '/usuario/tickets' },
     tecnico: { etiqueta: 'Ir a mi bandeja', ruta: '/tecnico' },
-    supervisor: { etiqueta: 'Ir al tablero', ruta: '/supervisor' },
+    supervisor: { etiqueta: 'Ir a la cola de atención', ruta: '/supervisor/cola' },
 }
 
 export function rutaInicio(rol) {
     if (rol === 'usuario') return '/usuario'
     else if (rol === 'tecnico') return '/tecnico'
-    else if (rol === 'supervisor') return '/supervisor'
+    else if (rol === 'supervisor') return '/supervisor/cola'
     return '/'
 }
 

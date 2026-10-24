@@ -2,14 +2,14 @@
 
 Programación Web · Universidad de Lima · 2026-2 · Proyecto 1 (solo interfaz, datos simulados en el navegador).
 
-Aplicación en React (Vite) con las siete historias del enunciado: cuenta y acceso, catálogo de servicios, registro y
-seguimiento de tickets, cola y asignación, atención y cierre, encuesta de satisfacción y métricas con gestión de usuarios.
+Aplicación en React (Vite) con las historias del enunciado: cuenta y acceso, catálogo de servicios, registro y
+seguimiento de tickets, cola y asignación, atención y cierre, y encuesta de satisfacción.
 
 ## Integrantes
 
 | Integrante | Historia |
 | --- | --- |
-| Zahir Alessandro De la Cruz Perez | HU-1 Cuenta y acceso · HU-7 Métricas y usuarios |
+| Zahir Alessandro De la Cruz Perez | HU-1 Cuenta y acceso |
 | Alessandro Morales Moreno | HU-2 Catálogo de servicios |
 | Gustavo Montes | HU-3 Registro y seguimiento de tickets |
 | Vivian Paredes | HU-4 Cola de atención y asignación |
@@ -40,14 +40,12 @@ src/
     tickets/     ModalReabrir (HU-3)
     cola/        Filtros, tabla, barra de lote y ventanas de asignación y prioridad (HU-4)
     atencion/    Ventanas de cambio de estado y de cierre (HU-5)
-    metricas/    Gráficos y selector de periodo (HU-7)
-    usuarios/    ModalBloqueo y etiquetas de cuenta (HU-7)
   context/    AuthProvider (sesión) y ToastProvider (avisos)
   hooks/      useAuth, useToast, useFormulario, useCatalogo, useTickets, useEncuestas, useCola, useAhora
   services/   Capa de datos simulada sobre localStorage: almacen, usuarios, auth, invitaciones, catálogo, tickets, encuestas
   data/       Semillas JSON, catálogos, menú por rol y textos públicos
   pages/      auth/, publico/, cuenta/, errores/, rol/, usuario/, tecnico/, supervisor/
-  utils/      validaciones, formato, plazos, tiempos, etapas, conteos, métricas, periodos, cuentas y exportación a CSV
+  utils/      validaciones, formato, plazos, tiempos, etapas, conteos y exportación del catálogo
 ```
 
 Las pantallas no tocan `localStorage`: piden todo a `services/`. En la segunda entrega solo se reescriben los servicios.
@@ -111,15 +109,6 @@ Los datos que comparten varias historias (catálogo, tickets, encuestas) se leen
 | `/usuario/encuestas` | Mis encuestas |
 | `/supervisor/satisfaccion` | Promedios por técnico y categoría con filtro de periodo, y comentarios recibidos |
 
-### HU-7 · Métricas y usuarios (supervisor)
-
-| Ruta | Pantalla |
-| --- | --- |
-| `/supervisor` | Tablero de métricas: indicadores del periodo, tickets por estado, categoría y ambiente, y reporte en CSV |
-| `/supervisor/carga` | Carga por técnico |
-| `/supervisor/usuarios` | Usuarios con búsqueda, filtros y paginación |
-| `/supervisor/usuarios/:id` | Ficha con el historial de reportes; bloqueo y desbloqueo de la cuenta con motivo |
-
 ## Datos de prueba
 
 Todas las cuentas de `src/data/usuarios.json` usan la contraseña `Ulima2026`:
@@ -127,7 +116,6 @@ Todas las cuentas de `src/data/usuarios.json` usan la contraseña `Ulima2026`:
 - Usuario: `camila.quispe@aloe.ulima.edu.pe`
 - Técnico: `jparedes@ulima.edu.pe`
 - Supervisor: `lmendoza@ulima.edu.pe`
-- Cuenta bloqueada de ejemplo: `psalcedo@ulima.edu.pe`
 
 Invitaciones de prueba: `/invitacion/inv-hloayza-2026` (técnico), `/invitacion/inv-supervisor-2026` (supervisor) e
 `/invitacion/inv-vencida-2026` (vencida). El supervisor puede crear invitaciones nuevas desde "Técnicos por categoría".

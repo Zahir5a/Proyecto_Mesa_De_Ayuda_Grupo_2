@@ -226,7 +226,7 @@ function FormularioCategoria({
           <div className="sidebar-card">
             <h3 className="sidebar-title">Efecto del tiempo esperado</h3>
             <p className="sidebar-text">
-              El tiempo esperado define cuándo un ticket aparece como fuera de plazo en la cola y en el tablero. Cambiarlo no altera los tickets ya abiertos.
+              El tiempo esperado define cuándo un ticket aparece como fuera de plazo en la cola. Cambiarlo no altera los tickets ya abiertos.
             </p>
             <div className="sidebar-divider"></div>
             <h4 className="sidebar-subtitle">REFERENCIA ACTUAL</h4>

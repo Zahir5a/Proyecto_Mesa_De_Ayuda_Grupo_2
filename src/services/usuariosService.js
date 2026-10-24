@@ -60,29 +60,3 @@ export function verificarPassword(id, password) {
     const usuario = buscarPorId(id)
     return usuario !== null && usuario.password === password
 }
-
-// ---- Bloqueo de cuentas (HU-7) ----
-// Una cuenta bloqueada no puede iniciar sesión ni seguir con su sesión abierta; sus tickets se mantienen.
-
-export function bloquearUsuario(id, motivo, supervisor) {
-    const usuario = buscarPorId(id)
-    if (usuario === null) return { ok: false, motivo: 'no_existe' }
-    if (id === supervisor.id) return { ok: false, motivo: 'propia' }
-    if (!motivo.trim()) return { ok: false, motivo: 'sin_motivo' }
-
-    actualizarUsuario(id, {
-        estado: 'bloqueado',
-        motivoBloqueo: motivo.trim(),
-        bloqueadoEn: new Date().toISOString(),
-        bloqueadoPor: supervisor.nombres + ' ' + supervisor.apellidos,
-    })
-    return { ok: true }
-}
-
-export function desbloquearUsuario(id) {
-    const usuario = buscarPorId(id)
-    if (usuario === null) return { ok: false, motivo: 'no_existe' }
-
-    actualizarUsuario(id, { estado: 'activo', motivoBloqueo: null, bloqueadoEn: null, bloqueadoPor: null })
-    return { ok: true }
-}
