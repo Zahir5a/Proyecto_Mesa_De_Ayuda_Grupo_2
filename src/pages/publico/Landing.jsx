@@ -40,9 +40,7 @@ function Landing() {
                         <Link to="/como-reportar" className="boton">Ver cómo reportar</Link>
                     </div>
                 </div>
-                <div className="hero__imagen" role="img" aria-label="Espacio reservado para la foto de un técnico atendiendo un aula">
-                    [ foto: técnico atendiendo un aula ]
-                </div>
+                <img className="hero__imagen" src="/hero-soporte.png" alt="Persona de soporte atendiendo con auriculares frente a una computadora" />
             </section>
 
             <section className="info-tarjetas" aria-label="Información del servicio">
