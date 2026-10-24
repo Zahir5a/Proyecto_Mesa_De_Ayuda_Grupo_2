@@ -36,17 +36,14 @@
 }
 
 .hero__imagen {
-    display: grid;
-    place-items: center;
+    display: block;
+    width: 100%;
+    height: auto;
     min-height: 300px;
-    padding: 16px;
     border: 1px solid var(--border);
     border-radius: 4px;
-    background: repeating-linear-gradient(135deg, var(--bg) 0 12px, var(--primary-soft) 12px 24px);
-    color: var(--text-muted);
-    font-family: var(--font-mono);
-    font-size: 13px;
-    text-align: center;
+    background: var(--primary-soft);
+    object-fit: cover;
 }
 
 .info-tarjetas {
