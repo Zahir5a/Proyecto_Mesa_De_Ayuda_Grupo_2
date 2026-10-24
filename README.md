@@ -47,7 +47,7 @@ src/
   services/   Capa de datos simulada sobre localStorage: almacen, usuarios, auth, invitaciones, catálogo, tickets, encuestas
   data/       Semillas JSON, catálogos, menú por rol y textos públicos
   pages/      auth/, publico/, cuenta/, errores/, rol/, usuario/, tecnico/, supervisor/
-  utils/      validaciones, formato, plazos, etapas, métricas, periodos y exportación a CSV
+  utils/      validaciones, formato, plazos, tiempos, etapas, conteos, métricas, periodos, cuentas y exportación a CSV
 ```
 
 Las pantallas no tocan `localStorage`: piden todo a `services/`. En la segunda entrega solo se reescriben los servicios.
@@ -135,10 +135,27 @@ Invitaciones de prueba: `/invitacion/inv-hloayza-2026` (técnico), `/invitacion/
 Las fechas de los tickets de ejemplo se calculan respecto al día en que se abre el proyecto, para que los plazos de
 atención, reapertura y encuesta sigan vigentes.
 
+## Diseño
+
+Las pantallas siguen el PDF de mockups del enunciado. Medidas que se respetan:
+
+- Letra IBM Plex Sans: 15 px en el cuerpo, 14 px en datos secundarios, 13 px en etiquetas y 12 px en cabeceras de tabla. Títulos de 28 px.
+- Menú lateral de 260 px y contenido de hasta 1600 px; la cola y la bandeja usan todo el ancho.
+- Tablas con filas de 45 px y columnas con los anchos del mockup en pantallas anchas.
+- Etiquetas de 23 px de alto con los colores del mockup (prioridad, estado y cuenta).
+- Colores como variables en `src/index.css` (`--primary`, `--accent`, `--danger`, etc.), sin sombras salvo en las ventanas.
+
+En pantallas angostas (hasta 390 px) el menú pasa arriba y las tablas se desplazan hacia los lados.
+
 ## Persistencia
 
-Los datos viven en `localStorage` con prefijo `mda.` (usuarios, sesión, catálogo, tickets, encuestas e invitaciones).
-Para reiniciar los datos de prueba, borra el almacenamiento del sitio (F12 → Application → Local Storage → Clear).
+Todo vive en el navegador, en `localStorage` con prefijo `mda.` (usuarios, sesión, catálogo, tickets, encuestas e invitaciones).
+No hay servidor ni base de datos.
+
+- La primera vez que se abre el proyecto, las semillas de `src/data/*.json` se copian a `localStorage`.
+- Cada navegador y cada equipo tienen sus propios datos.
+- Las contraseñas se guardan sin cifrar porque es una simulación de la interfaz; en la segunda entrega las maneja el servidor.
+- Para reiniciar los datos de prueba, borra el almacenamiento del sitio (F12 → Application → Local Storage → Clear).
 
 ## Cómo sumar una historia
 
