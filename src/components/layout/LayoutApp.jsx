@@ -7,7 +7,6 @@ import { useTickets } from '../../hooks/useTickets'
 import { CONTACTO } from '../../data/contenidoPublico'
 import { ETIQUETA_ROL, MENU_POR_ROL, rutaInicio } from '../../data/navegacion'
 import { listarTecnicos } from '../../services/catalogoService'
-import { listarUsuarios } from '../../services/usuariosService'
 import { encuestasDeUsuario } from '../../services/encuestasService'
 import { resumenDeCola, resumenDeTecnico, resumenDeTickets, tecnicoDeUsuario } from '../../services/ticketsService'
 import Avatar from '../ui/Avatar'
@@ -30,7 +29,7 @@ function LayoutApp() {
             ? { ...resumenDeTickets(tickets, usuario.id), encuestasRespondidas: encuestasDeUsuario(encuestas, usuario.id).length }
             : {}),
         ...(usuario.rol === 'tecnico' ? resumenDeTecnico(tickets, (tecnicoDeUsuario(usuario) ?? { id: usuario.id }).id) : {}),
-        ...(usuario.rol === 'supervisor' ? { ...resumenDeCola(tickets), bandejas: listarTecnicos().length, usuarios: listarUsuarios().length } : {}),
+        ...(usuario.rol === 'supervisor' ? { ...resumenDeCola(tickets), bandejas: listarTecnicos().length } : {}),
         categorias: catalogo.categorias.length,
         ambientes: catalogo.ambientes.length,
     }
