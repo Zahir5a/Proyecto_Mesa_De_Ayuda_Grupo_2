@@ -40,7 +40,7 @@ function Landing() {
                         <Link to="/como-reportar" className="boton">Ver cómo reportar</Link>
                     </div>
                 </div>
-                <img className="hero__imagen" src="/hero-aula.svg" alt="Un técnico revisa el proyector de un aula" />
+                <img className="hero__imagen" src="/hero-soporte.png" alt="Persona de soporte atendiendo con auriculares frente a una computadora" />
             </section>
 
             <section className="info-tarjetas" aria-label="Información del servicio">
